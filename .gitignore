@@ -1,0 +1,9 @@
+# Ignore everything by default
+*
+
+# Allow explicit resources
+!.gitignore
+!README.md
+!LICENSE
+!agents/**
+
