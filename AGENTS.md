@@ -21,11 +21,9 @@ The agent system provides specialized AI personalities optimized for specific te
 |-------|---------|--------------|----------------|------------|
 | **architect** | System design & analysis | Sequential, Context7, Memory, Tree-Sitter | general-purpose | `/analyze`, `--agent-architect` |
 | **coder** | Implementation & coding | Write, Edit, Context7, Memory, Tree-Sitter | coder | `/implement`, `--agent-coder` |
-| **designer** | UI/UX & frontend | Puppeteer, Context7, Memory, Magic* | designer | `/design`, `--agent-designer` |
+| **designer** | UI/UX & frontend | Puppeteer, Context7, Memory | designer | `/design`, `--agent-designer` |
 | **security-analyst** | Security & compliance | Sequential, Grep, Memory | security-analyst | `/security`, `--agent-security` |
-| **test-engineer** | Testing & QA | Playwright, Sequential, Memory | test-engineer | `/test`, `--agent-test` |
-
-*Magic server integration pending availability
+| **test-engineer** | Testing & QA | Puppeteer, Sequential, Memory | test-engineer | `/test`, `--agent-test` |
 
 ## Agent Capabilities Matrix
 
@@ -45,10 +43,11 @@ The agent system provides specialized AI personalities optimized for specific te
 
 ### Designer Agent
 **Specialization**: UI/UX design, frontend development, accessibility
-- **Strengths**: Design systems, responsive design, performance optimization
+- **Strengths**: Design systems, responsive design, performance optimization, Context7 UI patterns
 - **Best For**: Component creation, UI implementation, visual validation
 - **Input**: Accepts architect constraints and requirements
 - **Output**: Design specifications for coder implementation
+- **MCP Integration**: Uses Context7 for UI component patterns and best practices
 
 ### Security-Analyst Agent
 **Specialization**: Security audits, vulnerability assessment, compliance
@@ -63,6 +62,7 @@ The agent system provides specialized AI personalities optimized for specific te
 - **Best For**: Test suite development, validation, performance testing
 - **Input**: Test requirements from coder and designer
 - **Output**: Test results, coverage reports, quality metrics
+- **MCP Integration**: Uses Puppeteer for browser automation and E2E testing
 
 ## Agent Selection Algorithm
 

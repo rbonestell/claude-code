@@ -23,27 +23,36 @@ Implement features, components, and code functionality with intelligent expert a
 - `--documentation` - Generate documentation alongside implementation
 
 ## Execution
-1. Analyze implementation requirements and detect technology context
-2. Auto-activate relevant personas (frontend, backend, security, etc.)
-3. Coordinate with MCP servers (Magic for UI, Context7 for patterns, Sequential for complex logic)
-4. Generate implementation code with best practices
-5. Apply security and quality validation
-6. Provide testing recommendations and next steps
+1. Use architect agent via Task tool to analyze requirements and create implementation plan
+2. Pass architect's findings to coder agent (for logic) and/or designer agent (for UI components)
+3. Auto-activate relevant personas (frontend, backend, security, etc.)
+4. Coordinate with MCP servers (Context7 for UI patterns and framework best practices, Sequential for complex logic)
+5. Generate implementation code following architect's specifications and best practices
+6. Optionally engage test-engineer agent for test coverage (when --with-tests flag is used)
+7. Apply security and quality validation
+8. Provide testing recommendations and next steps
 
 ## Claude Code Integration
-- Uses Write/Edit/MultiEdit for code generation and modification
+- Uses Task tool to orchestrate architect → coder/designer → test-engineer agent workflow
 - Leverages Read and Glob for codebase analysis and context understanding
+- Uses Write/Edit/MultiEdit for code generation and modification
 - Applies TodoWrite for implementation progress tracking
-- Integrates Task tool for complex multi-step implementations
 - Coordinates with MCP servers for specialized functionality
 - Auto-activates appropriate personas based on implementation type
+- Shares implementation plans between agents via MCP memory server
+
+## Agent Orchestration
+- **Architect Agent**: Analyzes requirements, creates implementation specifications
+- **Coder Agent**: Implements business logic, services, and backend functionality
+- **Designer Agent**: Implements UI components, frontend features, and UX elements
+- **Test-Engineer Agent**: Creates test coverage when --with-tests flag is used
 
 ## Auto-Activation Patterns
-- **Frontend**: UI components, React/Vue/Angular development
-- **Backend**: APIs, services, database integration
-- **Security**: Authentication, authorization, data protection
-- **Architecture**: System design, module structure
-- **Performance**: Optimization, scalability considerations
+- **Frontend**: UI components → designer agent with frontend persona
+- **Backend**: APIs, services → coder agent with backend persona
+- **Security**: Authentication → architect analysis → coder with security persona
+- **Full-Stack**: Combined architect → parallel coder + designer agents
+- **Performance**: Architect analysis → coder with performance persona
 
 ## Examples
 ```

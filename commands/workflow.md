@@ -5,7 +5,7 @@ wave-enabled: true
 complexity-threshold: 0.6
 performance-profile: complex
 personas: [architect, analyzer, frontend, backend, security, devops, project-manager]
-mcp-servers: [sequential, context7, magic]
+mcp-servers: [sequential, context7]
 ---
 
 # /workflow - Implementation Workflow Generator
@@ -32,7 +32,6 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 ## MCP Integration Flags
 - `--c7` / `--context7` - Enable Context7 for framework patterns and best practices
 - `--sequential` - Enable Sequential thinking for complex multi-step analysis
-- `--magic` - Enable Magic for UI component workflow planning
 - `--all-mcp` - Enable all MCP servers for comprehensive workflow generation
 
 ## Workflow Strategies
@@ -229,7 +228,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 
 ### Create Frontend-Focused Workflow
 ```
-/workflow "User dashboard with real-time analytics" --persona frontend --magic --output detailed
+/workflow "User dashboard with real-time analytics" --persona frontend --c7 --output detailed
 ```
 
 ### MVP Planning with Risk Assessment
@@ -298,6 +297,6 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 ## Claude Code Integration
 - **Multi-Tool Orchestration** - Coordinates Read, Write, Edit, Glob, Grep for comprehensive analysis
 - **Progressive Task Creation** - Uses TodoWrite for immediate next steps and Task for long-term planning
-- **MCP Server Coordination** - Intelligent routing to Context7, Sequential, and Magic based on workflow needs
+- **MCP Server Coordination** - Intelligent routing to Context7 and Sequential based on workflow needs
 - **Cross-Command Integration** - Seamless handoff to implement, analyze, design, and other SuperClaude commands
 - **Evidence-Based Planning** - Maintains audit trail of decisions and rationale throughout workflow generation 

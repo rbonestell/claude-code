@@ -51,7 +51,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Workflow Process**:
 1. Problem Decomposition: Break complex problems into analyzable components
-2. Server Coordination: Coordinate with Context7 for documentation, Magic for UI insights, Playwright for testing
+2. Server Coordination: Coordinate with Context7 for documentation and UI patterns, Puppeteer for testing
 3. Systematic Analysis: Apply structured thinking to each component
 4. Relationship Mapping: Identify dependencies, interactions, and feedback loops
 5. Hypothesis Generation: Create testable hypotheses for each component
@@ -74,56 +74,56 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Scribe Persona: Structured documentation workflows, multilingual content organization
 - Loop Command: Iterative improvement analysis, progressive refinement planning
 
-## Magic Integration (UI Components & Design)
+## Designer Agent UI/UX Integration (via Context7)
 
-**Purpose**: Modern UI component generation, design system integration, responsive design
+**Purpose**: UI component patterns, design system integration, responsive design using Context7
 
 **Activation Patterns**:
 - Automatic: UI component requests, design system queries
-- Manual: `--magic` flag
+- Manual: Designer agent activation with Context7
 - Smart: Frontend persona active, component-related queries
 
 **Workflow Process**:
-1. Requirement Parsing: Extract component specifications and design system requirements
-2. Pattern Search: Find similar components and design patterns from 21st.dev database
+1. Requirement Parsing: Designer agent extracts component specifications
+2. Pattern Search: Use Context7 to find UI patterns and best practices
 3. Framework Detection: Identify target framework (React, Vue, Angular) and version
-4. Server Coordination: Sync with Context7 for framework patterns, Sequential for complex logic
-5. Code Generation: Create component with modern best practices and framework conventions
-6. Design System Integration: Apply existing themes, styles, tokens, and design patterns
-7. Accessibility Compliance: Ensure WCAG compliance, semantic markup, and keyboard navigation
+4. Server Coordination: Context7 for framework patterns, Sequential for complex logic
+5. Design Specification: Designer agent creates component specifications
+6. Design System Integration: Apply existing themes, styles, tokens via Context7
+7. Accessibility Compliance: Ensure WCAG compliance, semantic markup
 8. Responsive Design: Implement mobile-first responsive patterns
-9. Optimization: Apply performance optimizations and code splitting
+9. Optimization: Apply performance optimizations
 10. Quality Assurance: Validate against design system and accessibility standards
 
-**Component Categories**:
-- Interactive: Buttons, forms, modals, dropdowns, navigation, search components
-- Layout: Grids, containers, cards, panels, sidebars, headers, footers
-- Display: Typography, images, icons, charts, tables, lists, media
-- Feedback: Alerts, notifications, progress indicators, tooltips, loading states
-- Input: Text fields, selectors, date pickers, file uploads, rich text editors
-- Navigation: Menus, breadcrumbs, pagination, tabs, steppers
-- Data: Tables, grids, lists, cards, infinite scroll, virtualization
+**Component Categories** (handled by designer agent with Context7 patterns):
+- Interactive: Buttons, forms, modals, dropdowns, navigation
+- Layout: Grids, containers, cards, panels, sidebars
+- Display: Typography, images, icons, charts, tables
+- Feedback: Alerts, notifications, progress indicators
+- Input: Text fields, selectors, date pickers
+- Navigation: Menus, breadcrumbs, pagination, tabs
+- Data: Tables, grids, lists, cards, virtualization
 
-**Framework Support**:
-- React: Hooks, TypeScript, modern patterns, Context API, state management
-- Vue: Composition API, TypeScript, reactive patterns, Pinia integration
-- Angular: Component architecture, TypeScript, reactive forms, services
+**Framework Support** (via Context7 documentation):
+- React: Hooks, TypeScript, modern patterns, Context API
+- Vue: Composition API, TypeScript, reactive patterns
+- Angular: Component architecture, TypeScript, reactive forms
 - Vanilla: Web Components, modern JavaScript, CSS custom properties
 
-## Playwright Integration (Browser Automation & Testing)
+## Puppeteer Integration (Browser Automation & Testing)
 
 **Purpose**: Cross-browser E2E testing, performance monitoring, automation, visual testing
 
 **Activation Patterns**:
 - Automatic: Testing workflows, performance monitoring requests, E2E test generation
-- Manual: `--play`, `--playwright` flags
+- Manual: `--puppeteer` flag
 - Smart: QA persona active, browser interaction needed
 
 **Workflow Process**:
 1. Browser Connection: Connect to Chrome, Firefox, Safari, or Edge instances
 2. Environment Setup: Configure viewport, user agent, network conditions, device emulation
 3. Navigation: Navigate to target URLs with proper waiting and error handling
-4. Server Coordination: Sync with Sequential for test planning, Magic for UI validation
+4. Server Coordination: Sync with Sequential for test planning, Context7 for UI validation
 5. Interaction: Perform user actions (clicks, form fills, navigation) across browsers
 6. Data Collection: Capture screenshots, videos, performance metrics, console logs
 7. Validation: Verify expected behaviors, visual states, and performance thresholds
@@ -150,14 +150,14 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 ## MCP Server Use Cases by Command Category
 
 **Development Commands**:
-- Context7: Framework patterns, library documentation
-- Magic: UI component generation
+- Context7: Framework patterns, library documentation, UI components
 - Sequential: Complex setup workflows
+- Designer Agent: UI/UX implementation with Context7
 
 **Analysis Commands**:
 - Context7: Best practices, patterns
 - Sequential: Deep analysis, systematic review
-- Playwright: Issue reproduction, visual testing
+- Puppeteer: Issue reproduction, visual testing
 
 **Quality Commands**:
 - Context7: Security patterns, improvement patterns
@@ -165,7 +165,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Testing Commands**:
 - Sequential: Test strategy development
-- Playwright: E2E test execution, visual regression
+- Puppeteer: E2E test execution, visual regression
 
 **Documentation Commands**:
 - Context7: Documentation patterns, style guides, localization standards
@@ -178,7 +178,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Deployment Commands**:
 - Sequential: Deployment planning
-- Playwright: Deployment validation
+- Puppeteer: Deployment validation
 
 **Meta Commands**:
 - Sequential: Search intelligence, task orchestration, iterative improvement analysis
@@ -197,16 +197,16 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 **Caching Strategies**:
 - Context7 Cache: Documentation lookups with version-aware caching
 - Sequential Cache: Analysis results with pattern matching
-- Magic Cache: Component patterns with design system versioning
-- Playwright Cache: Test results and screenshots with environment-specific caching
+- Context7 Cache: Component patterns with design system versioning
+- Puppeteer Cache: Test results and screenshots with environment-specific caching
 - Cross-Server Cache: Shared cache for multi-server operations
 - Loop Optimization: Cache iterative analysis results, reuse improvement patterns
 
 **Error Handling and Recovery**:
 - Context7 unavailable → WebSearch for documentation → Manual implementation
 - Sequential timeout → Use native Claude Code analysis → Note limitations
-- Magic failure → Generate basic component → Suggest manual enhancement
-- Playwright connection lost → Suggest manual testing → Provide test cases
+- Designer agent failure → Use Context7 patterns → Suggest manual enhancement
+- Puppeteer connection lost → Suggest manual testing → Provide test cases
 
 **Recovery Strategies**:
 - Exponential Backoff: Automatic retry with exponential backoff and jitter

@@ -117,12 +117,12 @@ analysis:
 creation:
   verbs: [create, build, implement, generate, design]
   outputs: [new files, features, components]
-  typical_tools: [Write, Magic, Context7]
+  typical_tools: [Write, Context7]
 
 implementation:
   verbs: [implement, develop, code, construct, realize]
   outputs: [working features, functional code, integrated components]
-  typical_tools: [Write, Edit, MultiEdit, Magic, Context7, Sequential]
+  typical_tools: [Write, Edit, MultiEdit, Context7, Sequential]
 
 modification:
   verbs: [update, refactor, improve, optimize, fix]
@@ -132,7 +132,7 @@ modification:
 debugging:
   verbs: [debug, fix, troubleshoot, resolve, investigate]
   outputs: [fixes, root causes, solutions]
-  typical_tools: [Grep, Sequential, Playwright]
+  typical_tools: [Grep, Sequential, Puppeteer]
 
 iterative:
   verbs: [improve, refine, enhance, correct, polish, fix, iterate, loop]
@@ -193,13 +193,13 @@ wave-strategies:
 | Pattern | Complexity | Domain | Auto-Activates | Agent | Confidence |
 |---------|------------|---------|----------------|-------|------------|
 | "analyze architecture" | complex | infrastructure | architect persona, --ultrathink, Sequential | architect | 95% |
-| "create component" | simple | frontend | frontend persona, Magic, --uc | designer | 90% |
+| "create component" | simple | frontend | frontend persona, Context7, --uc | designer | 90% |
 | "implement feature" | moderate | any | domain-specific persona, Context7, Sequential | coder | 88% |
 | "implement API" | moderate | backend | backend persona, --seq, Context7 | coder | 92% |
-| "implement UI component" | simple | frontend | frontend persona, Magic, --c7 | designer | 94% |
+| "implement UI component" | simple | frontend | frontend persona, --c7 | designer | 94% |
 | "implement authentication" | complex | security | security persona, backend persona, --validate | coder + security-analyst | 90% |
 | "fix bug" | moderate | any | analyzer persona, --think, Sequential | coder | 85% |
-| "optimize performance" | complex | backend | performance persona, --think-hard, Playwright | coder | 90% |
+| "optimize performance" | complex | backend | performance persona, --think-hard, Puppeteer | coder | 90% |
 | "security audit" | complex | security | security persona, --ultrathink, Sequential | security-analyst | 95% |
 | "write documentation" | moderate | documentation | scribe persona, --persona-scribe=en, Context7 | general-purpose | 95% |
 | "improve iteratively" | moderate | iterative | intelligent persona, --seq, loop creation | architect → coder | 90% |
@@ -209,8 +209,8 @@ wave-strategies:
 | "security audit enterprise" | complex | security | --wave-mode --wave-validation | security-analyst | 95% |
 | "modernize legacy system" | complex | legacy | --wave-mode --enterprise-waves --wave-checkpoint | architect → coder | 92% |
 | "comprehensive code review" | complex | quality | --wave-mode --wave-validation --systematic-waves | architect → test-engineer | 94% |
-| "design system creation" | complex | frontend | designer persona, Magic, Context7 | designer | 93% |
-| "test suite development" | moderate | testing | qa persona, Playwright, Sequential | test-engineer | 91% |
+| "design system creation" | complex | frontend | designer persona, Context7 | designer | 93% |
+| "test suite development" | moderate | testing | qa persona, Puppeteer, Sequential | test-engineer | 91% |
 
 ### Decision Trees
 
@@ -220,8 +220,8 @@ wave-strategies:
 - **Search**: Grep (specific patterns) or Agent (open-ended)
 - **Understanding**: Sequential (complexity >0.7) or Read (simple)  
 - **Documentation**: Context7
-- **UI**: Magic
-- **Testing**: Playwright
+- **UI**: Context7 (via designer agent)
+- **Testing**: Puppeteer
 
 **Delegation & Wave Evaluation**:
 - **Delegation Score >0.6**: Add Task tool, auto-enable delegation flags based on scope
@@ -342,7 +342,7 @@ token_optimization:
 **Sub-Agent Specialization Matrix**:
 - **Quality**: qa persona, complexity/maintainability focus, Read/Grep/Sequential tools
 - **Security**: security persona, vulnerabilities/compliance focus, Grep/Sequential/Context7 tools
-- **Performance**: performance persona, bottlenecks/optimization focus, Read/Sequential/Playwright tools
+- **Performance**: performance persona, bottlenecks/optimization focus, Read/Sequential/Puppeteer tools
 - **Architecture**: architect persona, patterns/structure focus, Read/Sequential/Context7 tools
 - **API**: backend persona, endpoints/contracts focus, Grep/Context7/Sequential tools
 
@@ -350,7 +350,7 @@ token_optimization:
 - **Review**: architect agent, current_state/quality_assessment focus, Read/Grep/Sequential tools
 - **Planning**: architect agent, strategy/design focus, Sequential/Context7/Write tools
 - **Implementation**: coder/designer agents, code_modification/feature_creation focus, Edit/MultiEdit/Task tools
-- **Validation**: test-engineer agent, testing/validation focus, Sequential/Playwright/Context7 tools
+- **Validation**: test-engineer agent, testing/validation focus, Sequential/Puppeteer/Context7 tools
 - **Optimization**: coder agent with performance persona, performance_tuning/resource_optimization focus, Read/Sequential/Grep tools
 - **Security**: security-analyst agent, vulnerability/compliance focus, Grep/Sequential/Memory tools
 
@@ -372,7 +372,7 @@ token_optimization:
 - **Trigger Conditions**: Vulnerability detection, auth failures, compliance gaps
 - **Confidence Threshold**: 90% for automatic activation
 
-**UI/UX Tasks** → `--persona-frontend` + `--magic`
+**UI/UX Tasks** → `--persona-frontend` + `--c7`
 - **Trigger Conditions**: Component creation, responsive design, accessibility
 - **Confidence Threshold**: 80% for automatic activation
 
@@ -389,10 +389,10 @@ token_optimization:
 **Context-Based Auto-Activation**:
 - Performance issues → --persona-performance + --focus performance + --think
 - Security concerns → --persona-security + --focus security + --validate
-- UI/UX tasks → --persona-frontend + --magic + --c7
+- UI/UX tasks → --persona-frontend + --c7
 - Complex debugging → --think + --seq + --persona-analyzer
 - Large codebase → --uc when context >75% + --delegate auto
-- Testing operations → --persona-qa + --play + --validate
+- Testing operations → --persona-qa + --puppeteer + --validate
 - DevOps operations → --persona-devops + --safe-mode + --validate
 - Refactoring → --persona-refactorer + --wave-strategy systematic + --validate
 - Iterative improvement → --loop for polish, refine, enhance keywords
@@ -440,10 +440,10 @@ quality_gates:
   step_2_type: "Sequential analysis, type compatibility, context-aware suggestions"
   step_3_lint: "Context7 rules, quality analysis, refactoring suggestions"
   step_4_security: "Sequential analysis, vulnerability assessment, OWASP compliance"
-  step_5_test: "Playwright E2E, coverage analysis (≥80% unit, ≥70% integration)"
+  step_5_test: "Puppeteer E2E, coverage analysis (≥80% unit, ≥70% integration)"
   step_6_performance: "Sequential analysis, benchmarking, optimization suggestions"
   step_7_documentation: "Context7 patterns, completeness validation, accuracy verification"
-  step_8_integration: "Playwright testing, deployment validation, compatibility verification"
+  step_8_integration: "Puppeteer testing, deployment validation, compatibility verification"
 
 validation_automation:
   continuous_integration: "CI/CD pipeline integration, progressive validation, early failure detection"
@@ -498,8 +498,8 @@ Smart MCP server selection and orchestration.
 **Quick Selection Guide**:
 - **Context7**: Library docs, framework patterns
 - **Sequential**: Complex analysis, multi-step reasoning
-- **Magic**: UI components, design systems
-- **Playwright**: E2E testing, performance metrics
+- **Context7**: UI components, design systems, framework patterns
+- **Puppeteer**: E2E testing, performance metrics
 
 ### Intelligent Server Coordination
 **Reference**: See MCP.md for complete server orchestration patterns and fallback strategies.

@@ -26,7 +26,7 @@ performance-profile: "optimization|standard|complex"
 - **Claude Code**: Native slash command compatibility
 - **Persona System**: Auto-activation based on command context
 - **Agent System**: Specialized agents for domain-specific execution
-- **MCP Servers**: Context7, Sequential, Magic, Playwright integration
+- **MCP Servers**: Context7, Sequential, Puppeteer integration
 - **Wave System**: Multi-stage orchestration for complex operations
 
 ## Wave System Integration
@@ -53,7 +53,7 @@ supporting-agents: ["designer", "architect"]
 ```
 - **Auto-Persona**: Frontend, Backend, Architect, Scribe
 - **Auto-Agent**: coder (primary), designer (UI components), architect (structure)
-- **MCP Integration**: Magic (UI builds), Context7 (patterns), Sequential (logic)
+- **MCP Integration**: Context7 (UI patterns and framework docs), Sequential (logic)
 - **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite, Edit, MultiEdit]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
@@ -71,7 +71,7 @@ supporting-agents: ["designer", "security-analyst"]
 ```
 - **Auto-Persona**: Frontend, Backend, Architect, Security (context-dependent)
 - **Auto-Agent**: coder (primary), designer (UI parts), security-analyst (auth features)
-- **MCP Integration**: Magic (UI components), Context7 (patterns), Sequential (complex logic)
+- **MCP Integration**: Context7 (UI patterns and framework docs), Sequential (complex logic)
 - **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
 - **Arguments**: `[feature-description]`, `--type component|api|service|feature`, `--framework <name>`, `--<flags>`
 
@@ -92,11 +92,11 @@ supporting-agents: ["security-analyst"]
 ```
 - **Auto-Persona**: Analyzer, Architect, Security
 - **Auto-Agent**: architect (primary), security-analyst (security aspects)
-- **MCP Integration**: Sequential (primary), Context7 (patterns), Magic (UI analysis)
+- **MCP Integration**: Sequential (primary), Context7 (patterns and UI analysis)
 - **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
-**`/troubleshoot [symptoms] [flags]`** - Problem investigation | Auto-Persona: Analyzer, QA | MCP: Sequential, Playwright
+**`/troubleshoot [symptoms] [flags]`** - Problem investigation | Auto-Persona: Analyzer, QA | MCP: Sequential, Puppeteer
 
 **`/explain [topic] [flags]`** - Educational explanations | Auto-Persona: Mentor, Scribe | MCP: Context7, Sequential
 
@@ -117,7 +117,7 @@ supporting-agents: ["coder", "designer"]
 ```
 - **Auto-Persona**: Refactorer, Performance, Architect, QA
 - **Auto-Agent**: architect (analysis), coder (implementation), designer (UI improvements)
-- **MCP Integration**: Sequential (logic), Context7 (patterns), Magic (UI improvements)
+- **MCP Integration**: Sequential (logic), Context7 (patterns and UI improvements)
 - **Tool Orchestration**: [Read, Grep, Glob, Edit, MultiEdit, Bash]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
@@ -132,11 +132,11 @@ supporting-agents: ["coder", "designer"]
 
 **`/task [operation] [flags]`** - Long-term project management | Auto-Persona: Architect, Analyzer | MCP: Sequential
 
-**`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | Auto-Agent: test-engineer | MCP: Playwright, Sequential
+**`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | Auto-Agent: test-engineer | MCP: Puppeteer, Sequential
 
 **`/git [operation] [flags]`** - Git workflow assistant | Auto-Persona: DevOps, Scribe, QA | MCP: Sequential
 
-**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | Auto-Agent: designer | MCP: Magic, Sequential, Context7
+**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | Auto-Agent: designer | MCP: Context7, Sequential
 
 **`/security [target] [flags]`** - Security audits | Auto-Persona: Security | Auto-Agent: security-analyst | MCP: Sequential, Context7
 

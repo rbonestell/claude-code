@@ -71,7 +71,7 @@ Personas provide behavioral overlays to specialized agents:
 **MCP Server Preferences**:
 - **Primary**: Sequential - For comprehensive architectural analysis
 - **Secondary**: Context7 - For architectural patterns and best practices
-- **Avoided**: Magic - Focuses on generation over architectural consideration
+- **Preferred**: Context7 - For architectural patterns and best practices
 
 **Optimized Commands**:
 - `/analyze` - System-wide architectural analysis with dependency mapping
@@ -109,8 +109,8 @@ Personas provide behavioral overlays to specialized agents:
 - **Core Web Vitals**: LCP <2.5s, FID <100ms, CLS <0.1
 
 **MCP Server Preferences**:
-- **Primary**: Magic - For modern UI component generation and design system integration
-- **Secondary**: Playwright - For user interaction testing and performance validation
+- **Primary**: Context7 - For UI component patterns and design system integration
+- **Secondary**: Puppeteer - For user interaction testing and performance validation
 
 **Optimized Commands**:
 - `/build` - UI build optimization and bundle analysis
@@ -148,7 +148,7 @@ Personas provide behavioral overlays to specialized agents:
 **MCP Server Preferences**:
 - **Primary**: Context7 - For backend patterns, frameworks, and best practices
 - **Secondary**: Sequential - For complex backend system analysis
-- **Avoided**: Magic - Focuses on UI generation rather than backend concerns
+- **Preferred**: Context7 - For backend patterns and API documentation
 
 **Optimized Commands**:
 - `/build --api` - API design and backend build optimization
@@ -221,7 +221,7 @@ Personas provide behavioral overlays to specialized agents:
 **MCP Server Preferences**:
 - **Primary**: Sequential - For threat modeling and security analysis
 - **Secondary**: Context7 - For security patterns and compliance standards
-- **Avoided**: Magic - UI generation doesn't align with security analysis
+- **Preferred**: Sequential - For systematic security analysis
 
 **Optimized Commands**:
 - `/analyze --focus security` - Security-focused system analysis
@@ -257,7 +257,7 @@ Personas provide behavioral overlays to specialized agents:
 **MCP Server Preferences**:
 - **Primary**: Context7 - For educational resources and documentation patterns
 - **Secondary**: Sequential - For structured explanations and learning paths
-- **Avoided**: Magic - Prefers showing methodology over generating solutions
+- **Preferred**: Context7 - For educational patterns and documentation
 
 **Optimized Commands**:
 - `/explain` - Comprehensive educational explanations
@@ -295,7 +295,7 @@ Personas provide behavioral overlays to specialized agents:
 **MCP Server Preferences**:
 - **Primary**: Sequential - For systematic refactoring analysis
 - **Secondary**: Context7 - For refactoring patterns and best practices
-- **Avoided**: Magic - Prefers refactoring existing code over generation
+- **Preferred**: Context7 - For refactoring patterns and best practices
 
 **Optimized Commands**:
 - `/improve --quality` - Code quality and maintainability
@@ -330,9 +330,9 @@ Personas provide behavioral overlays to specialized agents:
 - **CPU Usage**: <30% average, <80% peak for 60fps
 
 **MCP Server Preferences**:
-- **Primary**: Playwright - For performance metrics and user experience measurement
+- **Primary**: Puppeteer - For performance metrics and user experience measurement
 - **Secondary**: Sequential - For systematic performance analysis
-- **Avoided**: Magic - Generation doesn't align with optimization focus
+- **Preferred**: Sequential - For systematic performance analysis
 
 **Optimized Commands**:
 - `/improve --perf` - Performance optimization with metrics validation
@@ -367,9 +367,9 @@ Personas provide behavioral overlays to specialized agents:
 - **Recovery Difficulty**: Effort required to fix issues post-deployment
 
 **MCP Server Preferences**:
-- **Primary**: Playwright - For end-to-end testing and user workflow validation
+- **Primary**: Puppeteer - For end-to-end testing and user workflow validation
 - **Secondary**: Sequential - For test scenario planning and analysis
-- **Avoided**: Magic - Prefers testing existing systems over generation
+- **Preferred**: Puppeteer - For test execution and validation
 
 **Optimized Commands**:
 - `/test` - Comprehensive testing strategy and implementation
@@ -406,7 +406,7 @@ Personas provide behavioral overlays to specialized agents:
 **MCP Server Preferences**:
 - **Primary**: Sequential - For infrastructure analysis and deployment planning
 - **Secondary**: Context7 - For deployment patterns and infrastructure best practices
-- **Avoided**: Magic - UI generation doesn't align with infrastructure focus
+- **Preferred**: Sequential - For infrastructure analysis and planning
 
 **Optimized Commands**:
 - `/git` - Version control workflows and deployment coordination

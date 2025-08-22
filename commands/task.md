@@ -40,11 +40,11 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 ## Execution Modes
 
 ### Systematic Strategy
-1. **Discovery Phase**: Comprehensive project analysis and scope definition
-2. **Planning Phase**: Hierarchical task breakdown with dependency mapping
-3. **Execution Phase**: Sequential execution with validation gates
-4. **Validation Phase**: Evidence collection and quality assurance
-5. **Optimization Phase**: Performance analysis and improvement recommendations
+1. **Discovery Phase**: Use architect agent for comprehensive project analysis and scope definition
+2. **Planning Phase**: Architect creates hierarchical task breakdown with dependency mapping
+3. **Execution Phase**: Orchestrate coder/designer agents for implementation with validation gates
+4. **Validation Phase**: Test-engineer agent performs evidence collection and quality assurance
+5. **Optimization Phase**: Architect agent provides performance analysis and improvement recommendations
 
 ### Agile Strategy
 1. **Sprint Planning**: Priority-based task organization
@@ -69,10 +69,11 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - **Subtask Level**: Granular implementation steps (minutes to hours)
 
 ### Intelligent Task Orchestration
+- **Agent Coordination**: Architect analyzes → Coder/Designer implement → Test-Engineer validates
 - **Dependency Resolution**: Automatic dependency detection and sequencing
-- **Parallel Execution**: Independent task parallelization
+- **Parallel Execution**: Independent task parallelization with multiple agents
 - **Resource Optimization**: Intelligent resource allocation and scheduling
-- **Context Sharing**: Cross-task context and knowledge sharing
+- **Context Sharing**: Cross-task context via MCP memory server protocols
 
 ### Cross-Session Persistence
 - **Task State Management**: Persistent task states across sessions
@@ -95,16 +96,17 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - **Error Recovery**: Graceful error handling and recovery mechanisms
 
 ### MCP Server Coordination
-- **Context7**: Framework patterns and library documentation
+- **Context7**: Framework patterns, library documentation, and UI component patterns
 - **Sequential**: Complex analysis and multi-step reasoning
-- **Magic**: UI component generation and design systems
-- **Playwright**: End-to-end testing and performance validation
+- **Puppeteer**: End-to-end testing and performance validation
 
-### Persona Integration
-- **Architect**: System design and architectural decisions
-- **Analyzer**: Code analysis and quality assessment
-- **Project Manager**: Resource allocation and progress tracking
-- **Domain Experts**: Specialized expertise for specific task types
+### Agent & Persona Integration
+- **Architect Agent**: System design, architectural decisions, and task planning
+- **Coder Agent**: Implementation of business logic and backend features
+- **Designer Agent**: UI/UX implementation and frontend components
+- **Security-Analyst Agent**: Security assessment and vulnerability detection
+- **Test-Engineer Agent**: Validation, testing, and quality assurance
+- **Personas**: Overlay behavioral patterns on agents for domain expertise
 
 ## Performance Optimization
 
@@ -143,13 +145,17 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 ```
 
 ## Claude Code Integration
+
+- **Agent Orchestration**: Uses Task tool to coordinate specialized agents
 - **TodoWrite Integration**: Seamless session-level task coordination
 - **Wave System**: Advanced multi-stage execution orchestration
 - **Hook System**: Real-time task monitoring and optimization
 - **MCP Coordination**: Intelligent server routing and resource utilization
+- **Inter-Agent Protocol**: Follows AGENT_PROTOCOLS.md for data exchange
 - **Performance Monitoring**: Sub-100ms execution targets with comprehensive metrics
 
 ## Success Criteria
+
 - **Task Completion Rate**: >95% successful task completion
 - **Performance Targets**: <100ms hook execution, <5s task creation
 - **Quality Metrics**: >90% validation success rate
