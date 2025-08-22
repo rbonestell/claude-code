@@ -21,7 +21,7 @@ Execute comprehensive code analysis across quality, security, performance, and a
 
 ## Execution
 1. Discover and categorize files for analysis
-2. Apply appropriate analysis tools and techniques
+2. Apply appropriate analysis tools and techniques (use architect agent for system-wide analysis)
 3. Generate findings with severity ratings
 4. Create actionable recommendations with priorities
 5. Present comprehensive analysis report
@@ -30,4 +30,5 @@ Execute comprehensive code analysis across quality, security, performance, and a
 - Uses Glob for systematic file discovery
 - Leverages Grep for pattern-based analysis
 - Applies Read for deep code inspection
+- Utilizes architect agent via Task tool for comprehensive system analysis
 - Maintains structured analysis reporting
