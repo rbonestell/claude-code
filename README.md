@@ -11,6 +11,7 @@ A powerful collection of battle-tested Claude Code configurations, specialized a
 ## ✨ Overview
 
 This repository contains my comprehensive Claude Code setup featuring:
+
 - **5 Specialized Agents** for domain-specific expertise (architect, coder, designer, security-analyst, test-engineer)
 - **SuperClaude Framework** resources adapted and enhanced to utilize my custom agents
 - **Inter-agent Communication** protocols for seamless handoffs and collaboration
@@ -28,6 +29,7 @@ The SuperClaude Framework files in this repository have been modified from the o
 - **🚀 MCP Integration** - Memory sharing, documentation lookup, and visual validation
 
 **Note:**
+
 - The root `~/.claude.json` file contains MCP server configurations (see below)
 
 ## 🛠️ MCP Servers
@@ -65,7 +67,7 @@ I use the following _global_ MCP servers in my `~/.claude.json` configuration (d
       "command": "npx",
       "args": [
         "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
+        "@modelcontextprotocol/server-sequential-thinking@latest"
       ],
       "env": {}
     }
@@ -73,6 +75,7 @@ I use the following _global_ MCP servers in my `~/.claude.json` configuration (d
 ```
 
 These MCP servers enable:
+
 - **memory**: Inter-agent communication and persistent storage
 - **puppeteer**: Visual validation and browser automation (used by designer agent)
 - **context7**: Library documentation and best practices lookup
@@ -82,26 +85,31 @@ These MCP servers enable:
 ## 🤖 Specialized Agents
 
 ### Architect Agent
+
 **Purpose**: System design, code review, pattern analysis
 **Auto-activates**: `/analyze`, complex system analysis
 **Best for**: Architecture reviews, technical debt assessment, design patterns
 
 ### Coder Agent
+
 **Purpose**: Implementation, refactoring, bug fixes
 **Auto-activates**: `/implement`, `/build`, feature development
 **Best for**: Writing code, fixing bugs, implementing features
 
 ### Designer Agent
+
 **Purpose**: UI/UX design, frontend development, accessibility
 **Auto-activates**: `/design`, UI component creation
 **Best for**: Creating components, responsive design, visual validation
 
 ### Security-Analyst Agent
+
 **Purpose**: Security audits, vulnerability assessment, compliance
 **Auto-activates**: `/security`, security-focused analysis
 **Best for**: Finding vulnerabilities, OWASP compliance, threat modeling
 
 ### Test-Engineer Agent
+
 **Purpose**: Test creation, E2E testing, quality assurance
 **Auto-activates**: `/test`, validation tasks
 **Best for**: Writing tests, coverage analysis, regression testing
@@ -176,10 +184,14 @@ These MCP servers enable:
 
 ## 🛠️ Setup
 
-1. **Clone this repo to your Claude Code config directory:**
+1. **Clone/sync this repo to your Claude Code config directory:**
 
    ```bash
-   git clone https://github.com/rbonestell/claude-code.git ~/.claude
+   cd ~/.claude
+   git init
+   git remote add origin https://github.com/rbonestell/claude-code.git
+   git fetch origin
+   git pull origin main
    ```
 
 2. **Configure MCP servers in `~/.claude.json`:**
@@ -191,21 +203,27 @@ These MCP servers enable:
 ## 🎨 Key Concepts
 
 ### Agent Selection
+
 Agents are automatically selected based on:
+
 - **Command used** (`/analyze` → architect, `/implement` → coder)
 - **Keywords** in your request (UI → designer, security → security-analyst)
-- **File patterns** (*.test.js → test-engineer, *.css → designer)
+- **File patterns** (*.test.js → test-engineer,*.css → designer)
 - **Complexity** of the task (system-wide → architect)
 
 ### Wave Orchestration
+
 For complex tasks, waves coordinate multiple agents:
+
 1. **Analysis Wave**: Architect analyzes the system
 2. **Security Wave**: Security-analyst audits for vulnerabilities
 3. **Implementation Wave**: Coder and Designer work in parallel
 4. **Validation Wave**: Test-Engineer validates all changes
 
 ### Agent Communication
+
 Agents share data through structured protocols:
+
 - **Architect** → provides findings and patterns to Coder/Designer
 - **Designer** → provides UI specs to Coder
 - **Coder** → provides test requirements to Test-Engineer
@@ -213,7 +231,9 @@ Agents share data through structured protocols:
 - **Test-Engineer** → reports quality metrics to all agents
 
 ### Persona Enhancement
+
 Personas modify agent behavior:
+
 - **Agent**: Technical capability (what it can do)
 - **Persona**: Behavioral style (how it does it)
 - **Combination**: Enhanced specialization (architect + mentor = educational analysis)
@@ -221,6 +241,7 @@ Personas modify agent behavior:
 ## 🚀 Quick Start Guide
 
 ### For System Analysis
+
 ```bash
 /analyze @project/           # Architect analyzes entire project
 /analyze --focus security    # Security-focused analysis
@@ -228,6 +249,7 @@ Personas modify agent behavior:
 ```
 
 ### For Implementation
+
 ```bash
 /implement "feature description"     # Coder implements feature
 /implement --type component          # Designer creates UI component
@@ -235,6 +257,7 @@ Personas modify agent behavior:
 ```
 
 ### For Testing & Quality
+
 ```bash
 /test --comprehensive              # Test-Engineer creates full suite
 /improve --focus quality           # Multi-agent quality improvement
@@ -242,6 +265,7 @@ Personas modify agent behavior:
 ```
 
 ### For Complex Operations
+
 ```bash
 /improve @project/ --wave-mode    # Full multi-agent improvement
 /implement "big feature" --wave-mode --validate  # Validated implementation
