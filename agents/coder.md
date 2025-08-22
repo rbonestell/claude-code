@@ -3,7 +3,7 @@ name: coder
 description: Use this agent to write net-new code, refactor existing code, or address bugs/errors/issues, specifically when provided input from the architect agent
 tools: Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite, mcp__memory__store, mcp__memory__retrieve, mcp__memory__search, mcp__tree-sitter__parse, mcp__tree-sitter__query, mcp__tree-sitter__find_references, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__puppeteer__navigate, mcp__puppeteer__screenshot, mcp__puppeteer__click, mcp__puppeteer__fill
 model: inherit
-color: orange
+color: blue
 ---
 
 # Coder Agent Instructions
