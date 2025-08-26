@@ -40,11 +40,11 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 ## Execution Modes
 
 ### Systematic Strategy
-1. **Discovery Phase**: Use architect agent for comprehensive project analysis and scope definition
-2. **Planning Phase**: Architect creates hierarchical task breakdown with dependency mapping
-3. **Execution Phase**: Orchestrate coder/designer agents for implementation with validation gates
-4. **Validation Phase**: Test-engineer agent performs evidence collection and quality assurance
-5. **Optimization Phase**: Architect agent provides performance analysis and improvement recommendations
+1. **Discovery Phase**: Use @agent-architect for comprehensive project analysis and scope definition
+2. **Planning Phase**: @agent-architect creates hierarchical task breakdown with dependency mapping
+3. **Execution Phase**: Orchestrate @agent-coder/@agent-designer for implementation with validation gates
+4. **Validation Phase**: @agent-test-engineer performs evidence collection and quality assurance
+5. **Optimization Phase**: @agent-architect provides performance analysis and improvement recommendations
 
 ### Agile Strategy
 1. **Sprint Planning**: Priority-based task organization
@@ -69,7 +69,7 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - **Subtask Level**: Granular implementation steps (minutes to hours)
 
 ### Intelligent Task Orchestration
-- **Agent Coordination**: Architect analyzes → Coder/Designer implement → Test-Engineer validates
+- **Agent Coordination**: @agent-architect analyzes → @agent-coder/@agent-designer implement → @agent-test-engineer validates
 - **Dependency Resolution**: Automatic dependency detection and sequencing
 - **Parallel Execution**: Independent task parallelization with multiple agents
 - **Resource Optimization**: Intelligent resource allocation and scheduling
@@ -101,11 +101,11 @@ Execute complex tasks with intelligent workflow management, cross-session persis
 - **Puppeteer**: End-to-end testing and performance validation
 
 ### Agent & Persona Integration
-- **Architect Agent**: System design, architectural decisions, and task planning
-- **Coder Agent**: Implementation of business logic and backend features
-- **Designer Agent**: UI/UX implementation and frontend components
-- **Security-Analyst Agent**: Security assessment and vulnerability detection
-- **Test-Engineer Agent**: Validation, testing, and quality assurance
+- **@agent-architect**: System design, architectural decisions, and task planning
+- **@agent-coder**: Implementation of business logic and backend features
+- **@agent-designer**: UI/UX implementation and frontend components
+- **@agent-security-analyst**: Security assessment and vulnerability detection
+- **@agent-test-engineer**: Validation, testing, and quality assurance
 - **Personas**: Overlay behavioral patterns on agents for domain expertise
 
 ## Performance Optimization

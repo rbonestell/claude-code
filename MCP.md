@@ -95,7 +95,7 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 9. Optimization: Apply performance optimizations
 10. Quality Assurance: Validate against design system and accessibility standards
 
-**Component Categories** (handled by designer agent with Context7 patterns):
+**Component Categories** (handled by @agent-designer with Context7 patterns):
 - Interactive: Buttons, forms, modals, dropdowns, navigation
 - Layout: Grids, containers, cards, panels, sidebars
 - Display: Typography, images, icons, charts, tables

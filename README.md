@@ -77,10 +77,10 @@ I use the following _global_ MCP servers in my `~/.claude.json` configuration (d
 These MCP servers enable:
 
 - **memory**: Inter-agent communication and persistent storage
-- **puppeteer**: Visual validation and browser automation (used by designer agent)
+- **puppeteer**: Visual validation and browser automation (used by @agent-designer)
 - **context7**: Library documentation and best practices lookup
 - **tree-sitter**: Code structure analysis and pattern recognition
-- **sequential-thinking**: Complex multi-step problem solving and systematic analysis (used by architect and security-analyst agents)
+- **sequential-thinking**: Complex multi-step problem solving and systematic analysis (used by @agent-architect and @agent-security-analyst)
 
 ## 🤖 Specialized Agents
 

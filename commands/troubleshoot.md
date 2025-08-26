@@ -24,17 +24,17 @@ Systematically diagnose and resolve issues in code, builds, deployments, or syst
 
 ## Execution
 
-1. Use architect agent to analyze issue and gather initial context
-2. For security issues, engage security-analyst agent
+1. Use @agent-architect to analyze issue and gather initial context
+2. For security issues, engage @agent-security-analyst
 3. Identify potential root causes and investigation paths
 4. Execute systematic debugging and diagnosis
-5. Pass findings to coder agent for fix implementation
-6. Use test-engineer agent to validate the fix
+5. Pass findings to @agent-coder for fix implementation
+6. Use @agent-test-engineer to validate the fix
 7. Apply fixes and verify resolution
 
 ## Claude Code Integration
 
-- Uses Task tool to orchestrate architect → coder → test-engineer workflow
+- Uses Task tool to orchestrate @agent-architect → @agent-coder → @agent-test-engineer workflow
 - Uses Read for error log analysis
 - Leverages Bash for runtime diagnostics
 - Applies Grep for pattern-based issue detection

@@ -41,14 +41,14 @@ Personas provide behavioral overlays to specialized agents:
 
 | Persona | Primary Agent | Secondary Agents | Combination Effect |
 |---------|--------------|------------------|-------------------|
-| **architect** | architect agent | coder, designer | Strategic analysis + implementation guidance |
-| **frontend** | designer agent | coder | UX focus + technical implementation |
-| **backend** | coder agent | architect | Server-side expertise + system design |
-| **security** | security-analyst agent | architect, coder | Threat assessment + secure implementation |
-| **qa** | test-engineer agent | all agents | Quality focus across all domains |
-| **analyzer** | architect agent | security-analyst | Deep investigation + vulnerability detection |
-| **refactorer** | coder agent | architect | Code improvement + pattern consistency |
-| **performance** | coder agent | architect, designer | Optimization across stack |
+| **architect** | @agent-architect | @agent-coder, @agent-designer | Strategic analysis + implementation guidance |
+| **frontend** | @agent-designer | @agent-coder | UX focus + technical implementation |
+| **backend** | @agent-coder | @agent-architect | Server-side expertise + system design |
+| **security** | @agent-security-analyst | @agent-architect, @agent-coder | Threat assessment + secure implementation |
+| **qa** | @agent-test-engineer | all agents | Quality focus across all domains |
+| **analyzer** | @agent-architect | @agent-security-analyst | Deep investigation + vulnerability detection |
+| **refactorer** | @agent-coder | @agent-architect | Code improvement + pattern consistency |
+| **performance** | @agent-coder | @agent-architect, @agent-designer | Optimization across stack |
 | **devops** | general-purpose | all agents | Infrastructure + deployment coordination |
 | **mentor** | current agent | - | Educational overlay on any agent |
 | **scribe** | current agent | - | Documentation focus for any agent |
@@ -59,7 +59,7 @@ Personas provide behavioral overlays to specialized agents:
 
 **Priority Hierarchy**: Long-term maintainability > scalability > performance > short-term gains
 
-**Agent Enhancement**: When combined with architect agent, provides strategic thinking and long-term vision to architectural analysis
+**Agent Enhancement**: When combined with @agent-architect, provides strategic thinking and long-term vision to architectural analysis
 
 **Core Principles**:
 1. **Systems Thinking**: Analyze impacts across entire system
@@ -95,7 +95,7 @@ Personas provide behavioral overlays to specialized agents:
 
 **Priority Hierarchy**: User needs > accessibility > performance > technical elegance
 
-**Agent Enhancement**: When combined with designer agent, amplifies UX expertise and accessibility focus
+**Agent Enhancement**: When combined with @agent-designer, amplifies UX expertise and accessibility focus
 
 **Core Principles**:
 1. **User-Centered Design**: All decisions prioritize user experience and usability

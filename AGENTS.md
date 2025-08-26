@@ -19,57 +19,57 @@ The agent system provides specialized AI personalities optimized for specific te
 
 | Agent | Domain | Primary Tools | Task Tool Type | Activation |
 |-------|---------|--------------|----------------|------------|
-| **architect** | System design & analysis | Sequential, Context7, Memory, Tree-Sitter | general-purpose | `/analyze`, `--agent-architect` |
-| **coder** | Implementation & coding | Write, Edit, Context7, Memory, Tree-Sitter | coder | `/implement`, `--agent-coder` |
-| **designer** | UI/UX & frontend | Puppeteer, Context7, Memory | designer | `/design`, `--agent-designer` |
-| **security-analyst** | Security & compliance | Sequential, Grep, Memory | security-analyst | `/security`, `--agent-security` |
-| **test-engineer** | Testing & QA | Puppeteer, Sequential, Memory | test-engineer | `/test`, `--agent-test` |
-| **tech-writer** | Documentation & guides | Context7, Tree-Sitter, Memory, Puppeteer | tech-writer | `/document`, `--agent-tech-writer` |
+| **@agent-architect** | System design & analysis | Sequential, Context7, Memory, Tree-Sitter | general-purpose | `/analyze`, `--agent-architect` |
+| **@agent-coder** | Implementation & coding | Write, Edit, Context7, Memory, Tree-Sitter | coder | `/implement`, `--agent-coder` |
+| **@agent-designer** | UI/UX & frontend | Puppeteer, Context7, Memory | designer | `/design`, `--agent-designer` |
+| **@agent-security-analyst** | Security & compliance | Sequential, Grep, Memory | security-analyst | `/security`, `--agent-security` |
+| **@agent-test-engineer** | Testing & QA | Puppeteer, Sequential, Memory | test-engineer | `/test`, `--agent-test` |
+| **@agent-tech-writer** | Documentation & guides | Context7, Tree-Sitter, Memory, Puppeteer | tech-writer | `/document`, `--agent-tech-writer` |
 
 ## Agent Capabilities Matrix
 
-### Architect Agent
+### @agent-architect
 **Specialization**: System architecture, code review, pattern analysis
 - **Strengths**: Holistic system understanding, technical debt assessment, design patterns
 - **Best For**: System analysis, architecture review, improvement planning
 - **Output**: Structured findings, pattern documentation, execution plans
-- **Handoff**: Provides specifications to coder and designer agents
+- **Handoff**: Provides specifications to @agent-coder and @agent-designer
 
-### Coder Agent  
+### @agent-coder
 **Specialization**: Code implementation, refactoring, bug fixes
 - **Strengths**: Pattern-consistent implementation, framework expertise, testing
 - **Best For**: Feature development, bug fixes, refactoring, code remediation
-- **Input**: Accepts architect findings and designer specifications
+- **Input**: Accepts @agent-architect findings and @agent-designer specifications
 - **Output**: Production-ready code with tests
 
-### Designer Agent
+### @agent-designer
 **Specialization**: UI/UX design, frontend development, accessibility
 - **Strengths**: Design systems, responsive design, performance optimization, Context7 UI patterns
 - **Best For**: Component creation, UI implementation, visual validation
-- **Input**: Accepts architect constraints and requirements
-- **Output**: Design specifications for coder implementation
+- **Input**: Accepts @agent-architect constraints and requirements
+- **Output**: Design specifications for @agent-coder implementation
 - **MCP Integration**: Uses Context7 for UI component patterns and best practices
 
-### Security-Analyst Agent
+### @agent-security-analyst
 **Specialization**: Security audits, vulnerability assessment, compliance
 - **Strengths**: Threat modeling, OWASP compliance, security patterns
 - **Best For**: Security reviews, penetration testing, compliance audits
 - **Output**: Security findings, remediation recommendations
 - **Integration**: Feeds critical issues to all other agents
 
-### Test-Engineer Agent
+### @agent-test-engineer
 **Specialization**: Test creation, E2E testing, quality assurance
 - **Strengths**: Test strategy, coverage analysis, regression testing
 - **Best For**: Test suite development, validation, performance testing
-- **Input**: Test requirements from coder and designer
+- **Input**: Test requirements from @agent-coder and @agent-designer
 - **Output**: Test results, coverage reports, quality metrics
 - **MCP Integration**: Uses Puppeteer for browser automation and E2E testing
 
-### Tech-Writer Agent
+### @agent-tech-writer
 **Specialization**: Technical documentation, API references, user guides
 - **Strengths**: Clear writing, pattern recognition, documentation frameworks
 - **Best For**: README creation, API documentation, user guides, documentation sites
-- **Input**: Accepts patterns from architect, implementations from coder, UI specs from designer
+- **Input**: Accepts patterns from @agent-architect, implementations from @agent-coder, UI specs from @agent-designer
 - **Output**: Complete documentation, coverage metrics, documentation sites
 - **MCP Integration**: Uses Context7 for best practices, Tree-Sitter for code analysis
 
@@ -79,47 +79,47 @@ The agent system provides specialized AI personalities optimized for specific te
 Agents are automatically selected based on:
 
 1. **Command Mapping**:
-   - `/analyze` → architect
-   - `/implement` → coder
-   - `/design` → designer
-   - `/test` → test-engineer
-   - `/security` → security-analyst
-   - `/document` → tech-writer
+   - `/analyze` → @agent-architect
+   - `/implement` → @agent-coder
+   - `/design` → @agent-designer
+   - `/test` → @agent-test-engineer
+   - `/security` → @agent-security-analyst
+   - `/document` → @agent-tech-writer
 
 2. **Keyword Detection**:
    ```yaml
-   architect: [architecture, design, review, patterns, analysis]
-   coder: [implement, fix, refactor, develop, code]
-   designer: [UI, component, frontend, responsive, accessibility]
-   security: [vulnerability, security, audit, compliance, threat]
-   test: [test, QA, coverage, validation, E2E]
-   tech-writer: [document, documentation, README, API docs, guide, tutorial]
+   @agent-architect: [architecture, design, review, patterns, analysis]
+   @agent-coder: [implement, fix, refactor, develop, code]
+   @agent-designer: [UI, component, frontend, responsive, accessibility]
+   @agent-security-analyst: [vulnerability, security, audit, compliance, threat]
+   @agent-test-engineer: [test, QA, coverage, validation, E2E]
+   @agent-tech-writer: [document, documentation, README, API docs, guide, tutorial]
    ```
 
 3. **File Pattern Analysis**:
-   - `*.tsx`, `*.jsx`, `*.css` → designer
-   - `*.test.*`, `*.spec.*` → test-engineer
-   - `*auth*`, `*security*` → security-analyst
-   - Controllers, models, services → coder
-   - Config files, architecture docs → architect
-   - `*.md`, `README*`, `CHANGELOG*`, `docs/*` → tech-writer
+   - `*.tsx`, `*.jsx`, `*.css` → @agent-designer
+   - `*.test.*`, `*.spec.*` → @agent-test-engineer
+   - `*auth*`, `*security*` → @agent-security-analyst
+   - Controllers, models, services → @agent-coder
+   - Config files, architecture docs → @agent-architect
+   - `*.md`, `README*`, `CHANGELOG*`, `docs/*` → @agent-tech-writer
 
 4. **Complexity Scoring**:
-   - High complexity + system-wide → architect
-   - Implementation focus → coder
-   - Visual/UX focus → designer
-   - Quality focus → test-engineer
-   - Security focus → security-analyst
-   - Documentation needs → tech-writer
+   - High complexity + system-wide → @agent-architect
+   - Implementation focus → @agent-coder
+   - Visual/UX focus → @agent-designer
+   - Quality focus → @agent-test-engineer
+   - Security focus → @agent-security-analyst
+   - Documentation needs → @agent-tech-writer
 
 ### Manual Selection
 Use explicit flags to override automatic selection:
-- `--agent-architect` - Force architect agent
-- `--agent-coder` - Force coder agent
-- `--agent-designer` - Force designer agent
-- `--agent-security` - Force security-analyst agent
-- `--agent-test` - Force test-engineer agent
-- `--agent-tech-writer` - Force tech-writer agent
+- `--agent-architect` - Force @agent-architect
+- `--agent-coder` - Force @agent-coder
+- `--agent-designer` - Force @agent-designer
+- `--agent-security` - Force @agent-security-analyst
+- `--agent-test` - Force @agent-test-engineer
+- `--agent-tech-writer` - Force @agent-tech-writer
 
 ## Inter-Agent Communication Protocol
 
@@ -209,28 +209,28 @@ Waves can orchestrate multiple agents for comprehensive operations:
 ```yaml
 comprehensive_review:
   wave_1:
-    agent: architect
+    agent: @agent-architect
     task: "System analysis and pattern identification"
     output: "review:findings:*"
   
   wave_2:
-    agent: security-analyst
+    agent: @agent-security-analyst
     task: "Security audit of identified components"
     output: "security:vulnerabilities:*"
   
   wave_3:
-    agents: [coder, designer]
+    agents: [@agent-coder, @agent-designer]
     task: "Implement fixes and UI improvements"
     parallel: true
     input: ["review:findings:*", "security:vulnerabilities:*"]
   
   wave_4:
-    agent: test-engineer
+    agent: @agent-test-engineer
     task: "Validate all changes"
     input: ["test:requirements:*"]
   
   wave_5:
-    agent: tech-writer
+    agent: @agent-tech-writer
     task: "Create comprehensive documentation"
     input: ["review:findings:*", "implementation:status:*", "design:updates:*"]
     output: "docs:completed:*"
@@ -238,12 +238,12 @@ comprehensive_review:
 
 ### Agent-Specific Wave Strategies
 
-- **architect**: Systematic analysis waves
-- **coder**: Progressive implementation waves
-- **designer**: Iterative design refinement waves
-- **security-analyst**: Comprehensive audit waves
-- **test-engineer**: Validation and regression waves
-- **tech-writer**: Progressive documentation waves
+- **@agent-architect**: Systematic analysis waves
+- **@agent-coder**: Progressive implementation waves
+- **@agent-designer**: Iterative design refinement waves
+- **@agent-security-analyst**: Comprehensive audit waves
+- **@agent-test-engineer**: Validation and regression waves
+- **@agent-tech-writer**: Progressive documentation waves
 
 ## Performance Metrics
 
@@ -252,23 +252,23 @@ comprehensive_review:
 ```yaml
 metrics:
   success_rate:
-    architect: 95%  # Successful analyses
-    coder: 92%      # Clean implementations
-    designer: 94%   # Accessible designs
-    security: 97%   # Vulnerabilities found
-    test: 90%       # Test coverage achieved
+    @agent-architect: 95%  # Successful analyses
+    @agent-coder: 92%      # Clean implementations
+    @agent-designer: 94%   # Accessible designs
+    @agent-security-analyst: 97%   # Vulnerabilities found
+    @agent-test-engineer: 90%       # Test coverage achieved
   
   token_efficiency:
-    architect: 15K avg
-    coder: 10K avg
-    designer: 8K avg
-    security: 12K avg
-    test: 7K avg
+    @agent-architect: 15K avg
+    @agent-coder: 10K avg
+    @agent-designer: 8K avg
+    @agent-security-analyst: 12K avg
+    @agent-test-engineer: 7K avg
   
   handoff_quality:
-    architect_to_coder: 94%
-    designer_to_coder: 92%
-    coder_to_test: 96%
+    @agent-architect_to_@agent-coder: 94%
+    @agent-designer_to_@agent-coder: 92%
+    @agent-coder_to_@agent-test-engineer: 96%
 ```
 
 ## Agent Configuration
@@ -300,19 +300,19 @@ agent_config:
 
 ### Automatic Agent Selection
 ```bash
-# Architect agent auto-selected for analysis
+# @agent-architect auto-selected for analysis
 /analyze @src/ --comprehensive
 
-# Coder agent auto-selected for implementation
+# @agent-coder auto-selected for implementation
 /implement "Add user authentication"
 
-# Designer agent auto-selected for UI work
+# @agent-designer auto-selected for UI work
 /design "Create responsive dashboard"
 ```
 
 ### Manual Agent Selection
 ```bash
-# Force architect for detailed review
+# Force @agent-architect for detailed review
 /improve @src/ --agent-architect
 
 # Force security analyst for audit
@@ -338,7 +338,7 @@ agent_config:
 ### With Personas
 - Personas provide behavioral overlay to agents
 - Agent technical expertise + Persona style
-- Example: architect agent + mentor persona = educational analysis
+- Example: @agent-architect + mentor persona = educational analysis
 
 ### With MCP Servers
 - Agents leverage MCP servers for enhanced capabilities

@@ -25,18 +25,18 @@ Build, compile, and package projects with comprehensive error handling and optim
 
 ## Execution
 
-1. Use architect agent to analyze project structure and build configuration
-2. Pass analysis to coder agent for build script generation/modification
-3. For UI projects, engage designer agent for asset optimization
+1. Use @agent-architect to analyze project structure and build configuration
+2. Pass analysis to @agent-coder for build script generation/modification
+3. For UI projects, engage @agent-designer for asset optimization
 4. Validate dependencies and environment setup
 5. Execute build process with error monitoring
 6. Handle build errors and provide diagnostic information
-7. Optionally use test-engineer agent for build validation
+7. Optionally use @agent-test-engineer for build validation
 8. Optimize build output and report results
 
 ## Claude Code Integration
 
-- Uses Task tool to orchestrate architect → coder/designer agent workflow
+- Uses Task tool to orchestrate @agent-architect → @agent-coder/@agent-designer workflow
 - Uses Bash for build command execution
 - Leverages Read for build configuration analysis
 - Applies TodoWrite for build progress tracking

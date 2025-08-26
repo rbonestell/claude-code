@@ -95,32 +95,32 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 ## Agent Selection Flags
 
 **`--agent-architect`**
-- Force architect agent for system analysis and design
+- Force @agent-architect for system analysis and design
 - Best for: Architecture review, pattern analysis, technical debt assessment
 - Tools: Sequential, Context7, Memory, Tree-Sitter
 
 **`--agent-coder`**
-- Force coder agent for implementation tasks
+- Force @agent-coder for implementation tasks
 - Best for: Feature development, bug fixes, refactoring
 - Tools: Write, Edit, Context7, Memory
 
 **`--agent-designer`**
-- Force designer agent for UI/UX work
+- Force @agent-designer for UI/UX work
 - Best for: Component creation, responsive design, accessibility
 - Tools: Puppeteer, Context7, Memory
 
 **`--agent-security`**
-- Force security-analyst agent for security audits
+- Force @agent-security-analyst for security audits
 - Best for: Vulnerability assessment, compliance checks, threat modeling
 - Tools: Sequential, Grep, Memory
 
 **`--agent-test`**
-- Force test-engineer agent for testing tasks
+- Force @agent-test-engineer for testing tasks
 - Best for: Test creation, E2E testing, validation
 - Tools: Puppeteer, Sequential, Memory
 
 **`--agent-tech-writer`**
-- Force tech-writer agent for documentation tasks
+- Force @agent-tech-writer for documentation tasks
 - Best for: Technical documentation, API references, user guides, README files
 - Tools: Context7, Sequential, Memory, Tree-Sitter
 

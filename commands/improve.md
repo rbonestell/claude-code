@@ -24,17 +24,17 @@ Apply systematic improvements to code quality, performance, maintainability, and
 
 ## Execution
 
-1. Use architect agent to analyze code for improvement opportunities
-2. Architect creates improvement plan with risk assessment and patterns
-3. Pass findings to coder agent for code improvements
-4. For UI improvements, engage designer agent in parallel
+1. Use @agent-architect to analyze code for improvement opportunities
+2. @agent-architect creates improvement plan with risk assessment and patterns
+3. Pass findings to @agent-coder for code improvements
+4. For UI improvements, engage @agent-designer in parallel
 5. Apply improvements with appropriate validation
-6. Optionally use test-engineer agent to verify improvements
+6. Optionally use @agent-test-engineer to verify improvements
 7. Report changes and quality metrics
 
 ## Claude Code Integration
 
-- Uses Task tool to orchestrate architect → coder/designer agent workflow
+- Uses Task tool to orchestrate @agent-architect → @agent-coder/@agent-designer workflow
 - Uses Read for comprehensive code analysis
 - Leverages MultiEdit for batch improvements
 - Applies TodoWrite for improvement tracking

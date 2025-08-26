@@ -20,7 +20,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 
 ## Arguments
 - `prd-file|feature-description` - Path to PRD file or direct feature description
-- `--persona` - Force specific expert persona (architect, frontend, backend, security, devops, etc.)
+- `--persona` - Force specific expert persona (@agent-architect, frontend, backend, security, devops, etc.)
 - `--strategy` - Workflow strategy (systematic, agile, mvp)
 - `--output` - Output format (roadmap, tasks, detailed)
 - `--estimate` - Include time and complexity estimates

@@ -25,17 +25,17 @@ Execute tests, generate comprehensive test reports, and maintain test coverage s
 
 ## Execution
 
-1. Use test-engineer agent to analyze test requirements
-2. Test-engineer discovers and categorizes available tests
-3. If creating new tests, coder agent implements test code
+1. Use @agent-test-engineer to analyze test requirements
+2. @agent-test-engineer discovers and categorizes available tests
+3. If creating new tests, @agent-coder implements test code
 4. Execute tests with appropriate configuration
-5. Test-engineer monitors results and collects metrics
+5. @agent-test-engineer monitors results and collects metrics
 6. Generate comprehensive test reports with coverage analysis
 7. Provide recommendations for test improvements to all agents
 
 ## Claude Code Integration
 
-- Uses Task tool to orchestrate test-engineer agent (primary) with coder support
+- Uses Task tool to orchestrate @agent-test-engineer (primary) with @agent-coder support
 - Uses Bash for test execution and monitoring
 - Leverages Glob for test discovery
 - Applies TodoWrite for test result tracking

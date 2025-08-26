@@ -30,13 +30,13 @@ Create clear, accurate technical documentation that follows existing project pat
 ## Execution
 
 1. **Pattern Analysis Phase**
-   - Use tech-writer agent to analyze existing documentation patterns
+   - Use @agent-tech-writer to analyze existing documentation patterns
    - Identify project's documentation style and conventions
    - Understand the codebase structure and implementation
    - Determine target audience and their needs
 
 2. **Content Generation Phase**
-   - Tech-writer agent creates documentation following identified patterns
+   - @agent-tech-writer creates documentation following identified patterns
    - For API docs: Extract from actual implementation and annotations
    - For guides: Focus on real user tasks and common scenarios
    - For README: Follow project's existing structure or best practices
@@ -55,11 +55,11 @@ Create clear, accurate technical documentation that follows existing project pat
 
 ## Claude Code Integration
 
-- **Primary Agent**: tech-writer for all documentation tasks
+- **Primary Agent**: @agent-tech-writer for all documentation tasks
 - **Supporting Agents**:
-  - architect: When needing system design context
-  - coder: For extracting implementation details
-  - designer: For UI component documentation
+  - @agent-architect: When needing system design context
+  - @agent-coder: For extracting implementation details
+  - @agent-designer: For UI component documentation
 - **MCP Servers**:
   - Tree-Sitter: Analyze code structure and extract signatures
   - Context7: Research best practices when patterns unclear
