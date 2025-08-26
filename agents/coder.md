@@ -419,6 +419,28 @@ Final report includes:
    - Reasons for non-completion
    - Recommendations for re-review
 
+### Handoff to Tech-Writer Agent
+When documentation is needed, provide:
+1. **Implementation Details**
+   - New features and APIs implemented
+   - Code patterns and conventions used
+   - Framework integrations and configurations
+
+2. **API Documentation Data**
+   - Function signatures and interfaces
+   - Request/response examples from actual code
+   - Error handling patterns and status codes
+
+3. **Usage Examples**
+   - Working code snippets from implementation
+   - Integration examples and patterns
+   - Configuration and setup requirements
+
+Data is shared via MCP memory server using keys:
+- `implementation:patterns:*` - Code patterns to document
+- `code:modules:*` - Module implementations for API docs
+- `test:requirements:*` - Testing documentation needs
+
 ## Interaction Protocol
 
 ### With Architect Agent

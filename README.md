@@ -3,7 +3,7 @@
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Enhanced-blue)](https://docs.anthropic.com/en/docs/claude-code)
 [![SuperClaude](https://img.shields.io/badge/SuperClaude-Framework-purple)](https://github.com/SuperClaude-Org/SuperClaude_Framework)
-[![Agents](https://img.shields.io/badge/Agents-5%20Specialized-orange)](agents/)
+[![Agents](https://img.shields.io/badge/Agents-6%20Specialized-orange)](agents/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 A powerful collection of battle-tested Claude Code configurations, specialized agents, and the SuperClaude Framework that transforms AI-assisted development into a multi-agent orchestrated workflow.
@@ -12,7 +12,7 @@ A powerful collection of battle-tested Claude Code configurations, specialized a
 
 This repository contains my comprehensive Claude Code setup featuring:
 
-- **5 Specialized Agents** for domain-specific expertise (architect, coder, designer, security-analyst, test-engineer)
+- **6 Specialized Agents** for domain-specific expertise (architect, coder, designer, security-analyst, test-engineer, tech-writer)
 - **SuperClaude Framework** resources adapted and enhanced to utilize my custom agents
 - **Inter-agent Communication** protocols for seamless handoffs and collaboration
 - **Wave Orchestration** for complex multi-phase operations
@@ -114,6 +114,12 @@ These MCP servers enable:
 **Auto-activates**: `/test`, validation tasks
 **Best for**: Writing tests, coverage analysis, regression testing
 
+### Tech-Writer Agent
+
+**Purpose**: Technical documentation, README files, user guides, documentation sites
+**Auto-activates**: `/document`, documentation tasks
+**Best for**: Creating clear documentation, API references, tutorials, documentation websites with Nextra/Docusaurus/VitePress
+
 ## 📚 Usage Examples
 
 ### Basic Commands with Auto-Agent Routing
@@ -133,6 +139,9 @@ These MCP servers enable:
 
 # Test engineer creates test suite
 /test --e2e "User registration flow"
+
+# Tech writer creates documentation
+/document @src/ --type api --scope comprehensive
 ```
 
 ### Manual Agent Selection
@@ -180,6 +189,10 @@ These MCP servers enable:
 # Performance optimization across stack
 /improve @app/ --focus performance --wave-mode
 # Architect identifies bottlenecks → Coder optimizes backend → Designer optimizes frontend
+
+# Comprehensive documentation generation
+/document @project/ --type guide --scope comprehensive --framework nextra
+# Tech-Writer analyzes patterns → Creates user guides → Builds documentation site
 ```
 
 ## 🛠️ Setup
@@ -224,11 +237,12 @@ For complex tasks, waves coordinate multiple agents:
 
 Agents share data through structured protocols:
 
-- **Architect** → provides findings and patterns to Coder/Designer
-- **Designer** → provides UI specs to Coder
-- **Coder** → provides test requirements to Test-Engineer
+- **Architect** → provides findings and patterns to Coder/Designer/Tech-Writer
+- **Designer** → provides UI specs to Coder and documentation to Tech-Writer
+- **Coder** → provides implementation details to Test-Engineer and Tech-Writer
 - **Security-Analyst** → broadcasts vulnerabilities to all agents
 - **Test-Engineer** → reports quality metrics to all agents
+- **Tech-Writer** → creates documentation based on input from all agents
 
 ### Persona Enhancement
 
@@ -262,6 +276,15 @@ Personas modify agent behavior:
 /test --comprehensive              # Test-Engineer creates full suite
 /improve --focus quality           # Multi-agent quality improvement
 /security @api/                    # Security audit
+```
+
+### For Documentation
+
+```bash
+/document . --type readme          # Tech-Writer creates README
+/document @api/ --type api         # Generate API documentation
+/document --type guide --framework nextra  # Build documentation site
+/document src/auth --type inline   # Add inline code documentation
 ```
 
 ### For Complex Operations

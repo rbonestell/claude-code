@@ -24,6 +24,7 @@ The agent system provides specialized AI personalities optimized for specific te
 | **designer** | UI/UX & frontend | Puppeteer, Context7, Memory | designer | `/design`, `--agent-designer` |
 | **security-analyst** | Security & compliance | Sequential, Grep, Memory | security-analyst | `/security`, `--agent-security` |
 | **test-engineer** | Testing & QA | Puppeteer, Sequential, Memory | test-engineer | `/test`, `--agent-test` |
+| **tech-writer** | Documentation & guides | Context7, Tree-Sitter, Memory, Puppeteer | tech-writer | `/document`, `--agent-tech-writer` |
 
 ## Agent Capabilities Matrix
 
@@ -64,6 +65,14 @@ The agent system provides specialized AI personalities optimized for specific te
 - **Output**: Test results, coverage reports, quality metrics
 - **MCP Integration**: Uses Puppeteer for browser automation and E2E testing
 
+### Tech-Writer Agent
+**Specialization**: Technical documentation, API references, user guides
+- **Strengths**: Clear writing, pattern recognition, documentation frameworks
+- **Best For**: README creation, API documentation, user guides, documentation sites
+- **Input**: Accepts patterns from architect, implementations from coder, UI specs from designer
+- **Output**: Complete documentation, coverage metrics, documentation sites
+- **MCP Integration**: Uses Context7 for best practices, Tree-Sitter for code analysis
+
 ## Agent Selection Algorithm
 
 ### Automatic Selection
@@ -75,6 +84,7 @@ Agents are automatically selected based on:
    - `/design` → designer
    - `/test` → test-engineer
    - `/security` → security-analyst
+   - `/document` → tech-writer
 
 2. **Keyword Detection**:
    ```yaml
@@ -83,6 +93,7 @@ Agents are automatically selected based on:
    designer: [UI, component, frontend, responsive, accessibility]
    security: [vulnerability, security, audit, compliance, threat]
    test: [test, QA, coverage, validation, E2E]
+   tech-writer: [document, documentation, README, API docs, guide, tutorial]
    ```
 
 3. **File Pattern Analysis**:
@@ -91,6 +102,7 @@ Agents are automatically selected based on:
    - `*auth*`, `*security*` → security-analyst
    - Controllers, models, services → coder
    - Config files, architecture docs → architect
+   - `*.md`, `README*`, `CHANGELOG*`, `docs/*` → tech-writer
 
 4. **Complexity Scoring**:
    - High complexity + system-wide → architect
@@ -98,6 +110,7 @@ Agents are automatically selected based on:
    - Visual/UX focus → designer
    - Quality focus → test-engineer
    - Security focus → security-analyst
+   - Documentation needs → tech-writer
 
 ### Manual Selection
 Use explicit flags to override automatic selection:
@@ -106,6 +119,7 @@ Use explicit flags to override automatic selection:
 - `--agent-designer` - Force designer agent
 - `--agent-security` - Force security-analyst agent
 - `--agent-test` - Force test-engineer agent
+- `--agent-tech-writer` - Force tech-writer agent
 
 ## Inter-Agent Communication Protocol
 
@@ -214,6 +228,12 @@ comprehensive_review:
     agent: test-engineer
     task: "Validate all changes"
     input: ["test:requirements:*"]
+  
+  wave_5:
+    agent: tech-writer
+    task: "Create comprehensive documentation"
+    input: ["review:findings:*", "implementation:status:*", "design:updates:*"]
+    output: "docs:completed:*"
 ```
 
 ### Agent-Specific Wave Strategies
@@ -223,6 +243,7 @@ comprehensive_review:
 - **designer**: Iterative design refinement waves
 - **security-analyst**: Comprehensive audit waves
 - **test-engineer**: Validation and regression waves
+- **tech-writer**: Progressive documentation waves
 
 ## Performance Metrics
 

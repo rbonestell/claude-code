@@ -29,23 +29,26 @@ Implement features, components, and code functionality with intelligent expert a
 4. Coordinate with MCP servers (Context7 for UI patterns and framework best practices, Sequential for complex logic)
 5. Generate implementation code following architect's specifications and best practices
 6. Optionally engage test-engineer agent for test coverage (when --with-tests flag is used)
-7. Apply security and quality validation
-8. Provide testing recommendations and next steps
+7. Optionally engage tech-writer agent for documentation (when --documentation flag is used)
+8. Apply security and quality validation
+9. Provide testing recommendations and next steps
 
 ## Claude Code Integration
-- Uses Task tool to orchestrate architect → coder/designer → test-engineer agent workflow
+- Uses Task tool to orchestrate architect → coder/designer → test-engineer → tech-writer agent workflow
 - Leverages Read and Glob for codebase analysis and context understanding
 - Uses Write/Edit/MultiEdit for code generation and modification
 - Applies TodoWrite for implementation progress tracking
 - Coordinates with MCP servers for specialized functionality
 - Auto-activates appropriate personas based on implementation type
 - Shares implementation plans between agents via MCP memory server
+- Tech-writer agent receives implementation details from coder/designer for documentation creation
 
 ## Agent Orchestration
 - **Architect Agent**: Analyzes requirements, creates implementation specifications
 - **Coder Agent**: Implements business logic, services, and backend functionality
 - **Designer Agent**: Implements UI components, frontend features, and UX elements
 - **Test-Engineer Agent**: Creates test coverage when --with-tests flag is used
+- **Tech-Writer Agent**: Creates comprehensive documentation when --documentation flag is used
 
 ## Auto-Activation Patterns
 - **Frontend**: UI components → designer agent with frontend persona
@@ -56,8 +59,8 @@ Implement features, components, and code functionality with intelligent expert a
 
 ## Examples
 ```
-/implement user authentication system --type feature --with-tests
-/implement dashboard component --type component --framework react
-/implement REST API for user management --type api --safe
+/implement user authentication system --type feature --with-tests --documentation
+/implement dashboard component --type component --framework react --documentation
+/implement REST API for user management --type api --safe --documentation
 /implement payment processing service --type service --iterative
 ```

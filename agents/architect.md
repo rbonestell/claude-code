@@ -441,6 +441,19 @@ When analysis is complete, provide:
 4. **Prioritized execution timeline** with effort estimates
 5. **Pattern library** of existing implementations to use as templates
 
+### Handoff to Tech-Writer Agent
+When documentation is needed, provide:
+1. **Architectural patterns** identified during analysis
+2. **Design decisions** and rationale for documentation
+3. **System structure** overview for architectural documentation
+4. **Pattern definitions** and usage examples
+5. **Technical debt** and improvement recommendations for documentation
+
+Data is shared via MCP memory server using keys:
+- `project:patterns:*` - Design patterns to document
+- `architectural:decisions:*` - Design decisions for ADRs
+- `review:findings:*` - Code structure for documentation
+
 ### Query Response Protocol
 Be prepared to respond to Remediation Agent queries:
 

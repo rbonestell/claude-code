@@ -90,9 +90,10 @@ security:
   typical_operations: [scan, harden, audit, fix]
 
 documentation:
-  keywords: [document, README, wiki, guide, manual, instructions, commit, release, changelog]
-  file_patterns: ["*.md", "*.rst", "*.txt", "docs/*", "README*", "CHANGELOG*"]
-  typical_operations: [write, document, explain, translate, localize]
+  keywords: [document, README, wiki, guide, manual, instructions, commit, release, changelog, API docs, user guide, reference, specification]
+  file_patterns: ["*.md", "*.rst", "*.txt", "docs/*", "README*", "CHANGELOG*", "*.adoc", "openapi.yml", "swagger.yml"]
+  typical_operations: [write, document, explain, translate, localize, create, update]
+  auto_activates: tech-writer agent, scribe persona
 
 iterative:
   keywords: [improve, refine, enhance, correct, polish, fix, iterate, loop, repeatedly]
@@ -201,7 +202,7 @@ wave-strategies:
 | "fix bug" | moderate | any | analyzer persona, --think, Sequential | coder | 85% |
 | "optimize performance" | complex | backend | performance persona, --think-hard, Puppeteer | coder | 90% |
 | "security audit" | complex | security | security persona, --ultrathink, Sequential | security-analyst | 95% |
-| "write documentation" | moderate | documentation | scribe persona, --persona-scribe=en, Context7 | general-purpose | 95% |
+| "write documentation" | moderate | documentation | scribe persona, --persona-scribe=en, Context7 | tech-writer | 95% |
 | "improve iteratively" | moderate | iterative | intelligent persona, --seq, loop creation | architect → coder | 90% |
 | "analyze large codebase" | complex | any | --delegate --parallel-dirs, domain specialists | architect | 95% |
 | "comprehensive audit" | complex | multi | --multi-agent --parallel-focus, specialized agents | architect + security-analyst | 95% |
@@ -211,6 +212,10 @@ wave-strategies:
 | "comprehensive code review" | complex | quality | --wave-mode --wave-validation --systematic-waves | architect → test-engineer | 94% |
 | "design system creation" | complex | frontend | designer persona, Context7 | designer | 93% |
 | "test suite development" | moderate | testing | qa persona, Puppeteer, Sequential | test-engineer | 91% |
+| "create README" | simple | documentation | scribe persona, Context7 | tech-writer | 92% |
+| "update documentation" | simple | documentation | scribe persona, Context7 | tech-writer | 88% |
+| "API documentation" | moderate | documentation | scribe persona, Context7, Sequential | tech-writer | 90% |
+| "user guide" | moderate | documentation | scribe persona, mentor persona, Context7 | tech-writer | 87% |
 
 ### Decision Trees
 
@@ -353,6 +358,7 @@ token_optimization:
 - **Validation**: test-engineer agent, testing/validation focus, Sequential/Puppeteer/Context7 tools
 - **Optimization**: coder agent with performance persona, performance_tuning/resource_optimization focus, Read/Sequential/Grep tools
 - **Security**: security-analyst agent, vulnerability/compliance focus, Grep/Sequential/Memory tools
+- **Documentation**: tech-writer agent, technical_writing/api_documentation focus, Context7/Sequential/TreeSitter tools
 
 #### Persona Auto-Activation System
 

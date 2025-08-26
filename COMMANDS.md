@@ -126,7 +126,7 @@ supporting-agents: ["coder", "designer"]
 
 ### Additional Commands
 
-**`/document [target] [flags]`** - Documentation generation | Auto-Persona: Scribe, Mentor | MCP: Context7, Sequential
+**`/document [target] [flags]`** - Documentation generation | Auto-Persona: Scribe, Mentor | Auto-Agent: tech-writer | MCP: Context7, Sequential
 
 **`/estimate [target] [flags]`** - Evidence-based estimation | Auto-Persona: Analyzer, Architect | MCP: Sequential, Context7
 
@@ -177,6 +177,7 @@ Commands automatically route to specialized agents:
 - **designer**: `/design`, UI-focused `/build` and `/implement`
 - **security-analyst**: `/security`, security-focused `/analyze`
 - **test-engineer**: `/test`, validation phases of `/improve`
+- **tech-writer**: `/document`, documentation aspects of other commands
 
 ### Wave-Enabled Commands
 7 commands: `/analyze`, `/build`, `/design`, `/implement`, `/improve`, `/task`, `/workflow`

@@ -119,6 +119,11 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 - Best for: Test creation, E2E testing, validation
 - Tools: Puppeteer, Sequential, Memory
 
+**`--agent-tech-writer`**
+- Force tech-writer agent for documentation tasks
+- Best for: Technical documentation, API references, user guides, README files
+- Tools: Context7, Sequential, Memory, Tree-Sitter
+
 ## Sub-Agent Delegation Flags
 
 **`--delegate [files|folders|auto]`**
@@ -252,3 +257,4 @@ Flags can combine agents with personas for enhanced specialization:
 - `--agent-designer --persona-performance`: Optimized UI components
 - `--agent-security --persona-architect`: Strategic security design
 - `--agent-test --persona-qa`: Comprehensive quality validation
+- `--agent-tech-writer --persona-scribe`: Professional technical documentation
