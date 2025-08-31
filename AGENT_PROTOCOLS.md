@@ -14,6 +14,7 @@ Reference-based communication protocols enabling seamless collaboration with min
 4. **Async-Safe**: Protocols support both sync and async operations
 5. **Version Control**: Data structures include version for compatibility
 6. **Context Optimization**: 40-60% reduction via compression and caching
+7. **MANDATORY Todo Status**: All handoffs MUST include TodoWrite status and validation
 
 ## Shared Reference Library
 
@@ -28,11 +29,12 @@ Reference-based communication protocols enabling seamless collaboration with min
 | **security** | `sec:*`, `vuln:*`, `threat:*` | `s:*`, `v:*`, `th:*` | 2h | 75% |
 | **test** | `test:*`, `coverage:*`, `regression:*` | `t:*`, `cov:*`, `reg:*` | 30m | 55% |
 | **tech-writer** | `docs:*`, `templates:*`, `coverage:*` | `do:*`, `tmp:*`, `dcov:*` | 1h | 50% |
+| **ALL AGENTS** | `todo:*`, `todo-status:*`, `todo-validation:*` | `td:*`, `tds:*`, `tdv:*` | 15m | 60% |
 
 ### Key Compression Mapping (Stored in Memory)
 ```yaml
 domain_mappings:
-  "p": "project", "s": "security", "t": "test", "d": "docs"
+  "p": "project", "s": "security", "t": "test", "d": "docs", "td": "todo"
   "r": "review", "e": "execution", "a": "arch", "i": "impl", "c": "code"
   "u": "ui", "v": "vuln", "th": "threat", "cov": "coverage"
 
@@ -40,14 +42,16 @@ type_mappings:
   "pat": "patterns", "find": "findings", "plan": "plan"
   "vul": "vulnerabilities", "rec": "recommendations"
   "res": "results", "req": "requirements", "tmp": "templates"
+  "stat": "status", "val": "validation", "comp": "completion"
 ```
 
 ### Common Protocol Templates
-**T1**: `{ver, ts, from, to, ref_id}` - Basic handoff (80% cases)
-**T2**: `{ver, ts, from, to, data_ref, priority}` - Priority handoff
-**T3**: `{ver, ts, from, to, batch_refs[]}` - Batch operations
-**T4**: `{ver, ts, from, to, delta_ref}` - Change notifications
-**T5**: `{ver, ts, broadcast, severity, ref_ids[]}` - Multi-agent alerts
+**T1**: `{ver, ts, from, to, ref_id, todo_ref}` - Basic handoff with TodoWrite status (80% cases)
+**T2**: `{ver, ts, from, to, data_ref, priority, todo_ref}` - Priority handoff with TodoWrite
+**T3**: `{ver, ts, from, to, batch_refs[], todo_ref}` - Batch operations with TodoWrite
+**T4**: `{ver, ts, from, to, delta_ref, todo_ref}` - Change notifications with TodoWrite
+**T5**: `{ver, ts, broadcast, severity, ref_ids[], todo_ref}` - Multi-agent alerts with TodoWrite
+**T6**: `{ver, ts, from, to, todo_validation_ref}` - TodoWrite validation handoff (NEW)
 
 ## Optimized Agent Handoff Protocols
 
@@ -64,14 +68,15 @@ type_mappings:
 **Level 1** (Template T2 - Compressed):
 ```json
 {"v":"1.0","ts":"2024-01-15T10:00:00Z","f":"arch","t":"code",
- "dr":"r:find:arch-001","p":"H"}
+ "dr":"r:find:arch-001","p":"H","tdr":"td:stat:arch-001"}
 ```
 
 **Level 2** (Standard Compressed):
 ```json
 {"pat_ref":"p:pat:arch-001",
  "find_ref":"r:find:arch-001", 
- "plan_ref":"e:plan:arch-001","cons_ref":"a:cons:001"}
+ "plan_ref":"e:plan:arch-001","cons_ref":"a:cons:001",
+ "todo_ref":"td:stat:arch-001","todo_validation":"REQUIRED"}
 ```
 
 **Level 3**: Full JSON via memory reference (fetch on demand)
@@ -176,6 +181,52 @@ type_mappings:
 ```
 
 **60% reduction** via reference compression and abbreviated field names.
+
+## TodoWrite Validation Protocols (NEW)
+
+### Mandatory TodoWrite Integration
+
+**All agents MUST follow TodoWrite protocols:**
+
+1. **Initialization**: Call TodoWrite within first 3 operations for multi-step tasks
+2. **Status Updates**: Update todo status at each phase transition
+3. **Handoff Validation**: Include todo_ref in all agent handoffs
+4. **Completion**: Mark todos complete only after full validation
+
+### TodoWrite Memory Key Structure
+```yaml
+todo_keys:
+  "todo:init:agent-session-id": TodoWrite initialization status
+  "todo:status:agent-task-id": Current todo list state
+  "todo:validation:agent-task-id": Todo completion validation
+  "todo:handoff:from-to-id": Todo status during handoffs
+```
+
+### TodoWrite Handoff Protocol (Template T6)
+```json
+{
+  "ver": "1.0",
+  "ts": "2024-01-15T10:00:00Z", 
+  "from": "architect",
+  "to": "coder",
+  "todo_validation_ref": "td:val:arch-coder-001",
+  "required_todos": 5,
+  "completed_todos": 3,
+  "blocking_todos": ["critical-security-fix"],
+  "handoff_allowed": true
+}
+```
+
+### Validation Requirements
+- **Handoff Block**: Handoffs blocked if critical todos incomplete
+- **Status Verification**: Receiving agent must verify todo status
+- **Completion Gates**: Tasks cannot be marked complete without todo validation
+- **Audit Trail**: All todo state changes logged to memory
+
+### Error Codes (Extended)
+**E6**: TodoWrite not initialized → Block execution, require initialization
+**E7**: Todo validation failed → Reject handoff, request todo completion
+**E8**: Critical todos incomplete → Escalate to user, block progress
 
 ## Error Handling Protocols
 

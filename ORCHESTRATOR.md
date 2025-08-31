@@ -8,6 +8,12 @@ Analyzes requests to understand intent, complexity, and requirements.
 
 ### Pre-Operation Validation Checks
 
+**TodoWrite Validation** (MANDATORY):
+- Multi-step operation detection (3+ steps require TodoWrite)
+- TodoWrite initialization status verification
+- Agent handoff todo status validation
+- Todo completion gates before task closure
+
 **Resource Validation**:
 - Token usage prediction based on operation complexity and scope
 - Memory and processing requirements estimation
@@ -446,9 +452,10 @@ Based on pattern match strength (40%), historical success rate (30%), context co
 
 ## Quality Gates & Validation Framework
 
-### 8-Step Validation Cycle with AI Integration
+### 9-Step Validation Cycle with TodoWrite Integration
 ```yaml
 quality_gates:
+  step_0_todo: "MANDATORY TodoWrite initialization and status validation"
   step_1_syntax: "language parsers, Context7 validation, intelligent suggestions"
   step_2_type: "Sequential analysis, type compatibility, context-aware suggestions"
   step_3_lint: "Context7 rules, quality analysis, refactoring suggestions"
@@ -457,26 +464,31 @@ quality_gates:
   step_6_performance: "Sequential analysis, benchmarking, optimization suggestions"
   step_7_documentation: "Context7 patterns, completeness validation, accuracy verification"
   step_8_integration: "Puppeteer testing, deployment validation, compatibility verification"
+  step_9_todo_completion: "MANDATORY TodoWrite completion validation before task closure"
 
 validation_automation:
   continuous_integration: "CI/CD pipeline integration, progressive validation, early failure detection"
   intelligent_monitoring: "success rate monitoring, ML prediction, adaptive validation"
   evidence_generation: "comprehensive evidence, validation metrics, improvement recommendations"
+  todo_enforcement: "MANDATORY TodoWrite validation at steps 0 and 9, blocking execution on failure"
 
 wave_integration:
   validation_across_waves: "wave boundary gates, progressive validation, rollback capability"
   compound_validation: "AI orchestration, domain-specific patterns, intelligent aggregation"
+  todo_wave_tracking: "TodoWrite status maintained across wave boundaries with handoff validation"
 ```
 
 ### Task Completion Criteria
 ```yaml
 completion_requirements:
-  validation: "all 8 steps pass, evidence provided, metrics documented"
+  todo_validation: "MANDATORY TodoWrite completion before task closure, all todos marked complete"
+  validation: "all 9 steps pass (including TodoWrite steps 0 & 9), evidence provided, metrics documented"
   ai_integration: "MCP coordination, persona integration, tool orchestration, ≥90% context retention"
   performance: "response time targets, resource limits, success thresholds, token efficiency"
   quality: "code quality standards, security compliance, performance assessment, integration testing"
 
 evidence_requirements:
+  todo_evidence: "TodoWrite initialization timestamps, status updates, completion validation"
   quantitative: "performance/quality/security metrics, coverage percentages, response times"
   qualitative: "code quality improvements, security enhancements, UX improvements"
   documentation: "change rationale, test results, performance benchmarks, security scans"

@@ -4,8 +4,11 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 
 ## Core Operational Rules
 
-### Task Management Rules
-- TodoRead() → TodoWrite(3+ tasks) → Execute → Track progress
+### Task Management Rules (MANDATORY)
+- **MANDATORY**: TodoWrite(3+ tasks) → Execute → Track progress → Validate completion
+- **ENFORCEMENT**: Commands with 3+ steps MUST call TodoWrite or execution is blocked
+- **AGENTS**: All agents MUST initialize TodoWrite within first 3 operations
+- **VALIDATION**: Todo completion required before marking any task as done
 - Use batch tool calls when possible, sequential only when dependencies exist
 - Always validate before execution, verify after completion
 - Run lint/typecheck before marking tasks complete
@@ -37,6 +40,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ## Quick Reference
 
 ### Do
+✅ MANDATORY: Initialize TodoWrite for 3+ step operations
 ✅ Read before Write/Edit/Update
 ✅ Use absolute paths
 ✅ Batch tool calls
@@ -49,6 +53,8 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ✅ Verify completion with evidence
 
 ### Don't
+❌ Skip TodoWrite initialization for multi-step operations
+❌ Mark tasks complete without updating TodoWrite status
 ❌ Skip Read operations
 ❌ Use relative paths
 ❌ Auto-commit without permission
@@ -60,9 +66,10 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ❌ Mark complete without verification
 
 ### Auto-Triggers
+- **TodoWrite**: Auto-triggered for 3+ step operations, multi-file changes, complex workflows
 - Wave mode: complexity ≥0.7 + multiple domains
 - Personas: domain keywords + complexity assessment  
 - MCP servers: task type + performance requirements
-- Quality gates: all operations apply 8-step validation
+- Quality gates: all operations apply 8-step validation (now includes TodoWrite validation)
 - Compression: auto-enable --uc at 60% context usage
 - Shared patterns: reference @SHARED_PATTERNS.md for consistency

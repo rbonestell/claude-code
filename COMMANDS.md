@@ -17,17 +17,48 @@ performance-profile: "optimization|standard|complex"
 
 ### Command Processing Pipeline
 1. **Input Parsing**: `$ARGUMENTS` with `@<path>`, `!<command>`, `--<flags>`
-2. **Context Resolution**: Auto-persona activation and MCP server selection
-3. **Wave Eligibility**: Complexity assessment and wave mode determination
-4. **Execution Strategy**: Tool orchestration and resource allocation
-5. **Quality Gates**: Validation checkpoints and error handling
+2. **TodoWrite Validation**: MANDATORY check for multi-step operations (3+ steps)
+3. **Context Resolution**: Auto-persona activation and MCP server selection
+4. **Wave Eligibility**: Complexity assessment and wave mode determination
+5. **Execution Strategy**: Tool orchestration and resource allocation
+6. **Quality Gates**: Validation checkpoints and error handling
+
+### TodoWrite Enforcement System (MANDATORY)
+
+**Pre-Execution Validation**: ALL commands MUST validate TodoWrite initialization before execution:
+
+1. **Multi-Step Detection**: Commands with 3+ operations require TodoWrite
+2. **Initialization Check**: Verify TodoWrite called within first 3 operations
+3. **Execution Block**: Commands cannot proceed without proper TodoWrite setup
+4. **Override Flag**: `--skip-todo` allows explicit opt-out (with warning)
+
+**TodoWrite Required Commands**:
+- `/analyze` (system analysis has multiple phases)
+- `/implement` (planning → coding → testing)  
+- `/build` (analysis → compilation → validation)
+- `/improve` (analysis → enhancement → validation)
+- `/design` (planning → creation → validation)
+- `/troubleshoot` (investigation → diagnosis → resolution)
+- `/task` (planning → execution → completion)
+- `/workflow` (multi-stage orchestration)
+
+**TodoWrite Enforcement Logic**:
+```yaml
+if (estimated_steps >= 3 OR multi_file_operation OR agent_handoff):
+  if (!TodoWrite_initialized AND !--skip-todo):
+    block_execution()
+    display_message("MANDATORY: Call TodoWrite for multi-step operation")
+    suggest_todos(estimated_steps)
+  endif
+endif
+```
 
 ### Integration Layers
-- **Claude Code**: Native slash command compatibility
+- **Claude Code**: Native slash command compatibility with TodoWrite enforcement
 - **Persona System**: Auto-activation based on command context
-- **Agent System**: Specialized agents for domain-specific execution
+- **Agent System**: Specialized agents for domain-specific execution (ALL require TodoWrite)
 - **MCP Servers**: Context7, Sequential, Puppeteer integration
-- **Wave System**: Multi-stage orchestration for complex operations
+- **Wave System**: Multi-stage orchestration for complex operations (TodoWrite mandatory)
 
 ## Wave System Integration
 
