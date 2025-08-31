@@ -1,10 +1,8 @@
-
 # 🤖 My Claude Code Collection
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Enhanced-blue)](https://docs.anthropic.com/en/docs/claude-code)
 [![SuperClaude](https://img.shields.io/badge/SuperClaude-Framework-purple)](https://github.com/SuperClaude-Org/SuperClaude_Framework)
 [![Agents](https://img.shields.io/badge/Agents-6%20Specialized-orange)](agents/)
-[![TodoWrite](https://img.shields.io/badge/TodoWrite-Enforced-red)](commands/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
 A powerful collection of battle-tested Claude Code configurations, specialized agents, and the SuperClaude Framework that transforms AI-assisted development into a multi-agent orchestrated workflow with comprehensive task management enforcement.
@@ -25,7 +23,7 @@ The SuperClaude Framework files in this repository have been modified from the o
 ## 🎯 Features
 
 - **🤖 Specialized Agents** - Domain experts for architecture, coding, UI/UX, security, testing, and documentation
-- **📋 Mandatory TodoWrite** - Comprehensive task tracking enforced across all multi-step operations  
+- **📋 Mandatory TodoWrite** - Comprehensive task tracking enforced across all multi-step operations
 - **🌊 Wave Orchestration** - Multi-agent coordination for comprehensive tasks with TodoWrite integration
 - **⚡ Smart Commands** - Auto-routing to appropriate agents based on context
 - **🔄 Agent Handoffs** - Structured communication protocols with mandatory todo status validation
@@ -180,7 +178,7 @@ These MCP servers enable:
 # Comprehensive improvement using multiple agents
 /improve @project/ --wave-mode
 # Wave 1: Architect analyzes
-# Wave 2: Security audits  
+# Wave 2: Security audits
 # Wave 3: Coder + Designer implement
 # Wave 4: Test-Engineer validates
 
@@ -233,7 +231,7 @@ Agents are automatically selected based on:
 
 - **Command used** (`/analyze` → architect, `/implement` → coder)
 - **Keywords** in your request (UI → designer, security → security-analyst)
-- **File patterns** (*.test.js → test-engineer,*.css → designer)
+- **File patterns** (_.test.js → test-engineer,_.css → designer)
 - **Complexity** of the task (system-wide → architect)
 
 ### Wave Orchestration
@@ -273,14 +271,14 @@ Personas modify agent behavior:
 ```yaml
 # Commands that MUST use TodoWrite:
 mandatory_commands:
-  - /analyze      # Multi-phase system analysis
-  - /implement    # Planning → coding → testing
-  - /build        # Analysis → compilation → validation  
-  - /improve      # Analysis → enhancement → validation
-  - /design       # Planning → creation → validation
+  - /analyze # Multi-phase system analysis
+  - /implement # Planning → coding → testing
+  - /build # Analysis → compilation → validation
+  - /improve # Analysis → enhancement → validation
+  - /design # Planning → creation → validation
   - /troubleshoot # Investigation → diagnosis → resolution
-  - /task         # Planning → execution → completion
-  - /workflow     # Multi-stage orchestration
+  - /task # Planning → execution → completion
+  - /workflow # Multi-stage orchestration
 ```
 
 ### TodoWrite Enforcement
@@ -288,7 +286,7 @@ mandatory_commands:
 **Pre-execution validation blocks commands that don't properly initialize TodoWrite:**
 
 - **Multi-Step Detection**: Automatically detects operations requiring task tracking
-- **Initialization Check**: Verifies TodoWrite called within first 3 operations  
+- **Initialization Check**: Verifies TodoWrite called within first 3 operations
 - **Execution Block**: Commands cannot proceed without proper TodoWrite setup
 - **Override Option**: Use `--skip-todo` flag to explicitly opt-out (with warning)
 
@@ -296,9 +294,9 @@ mandatory_commands:
 
 **9-Step validation cycle with mandatory TodoWrite checkpoints:**
 
-1. **Step 0**: TodoWrite initialization validation *(MANDATORY)*
+1. **Step 0**: TodoWrite initialization validation _(MANDATORY)_
 2. **Step 1-8**: Standard quality gates (syntax, security, testing, etc.)
-3. **Step 9**: TodoWrite completion validation *(MANDATORY)*
+3. **Step 9**: TodoWrite completion validation _(MANDATORY)_
 
 **Agents cannot complete tasks until TodoWrite status is properly validated.**
 
@@ -307,7 +305,7 @@ mandatory_commands:
 Every specialized agent follows mandatory TodoWrite protocols:
 
 - **Initialization**: TodoWrite must be called within first 3 operations
-- **Status Updates**: Todo status updated at each phase transition  
+- **Status Updates**: Todo status updated at each phase transition
 - **Handoff Validation**: Todo status included in all inter-agent communication
 - **Completion Gates**: Tasks cannot be marked complete without proper validation
 
@@ -353,33 +351,12 @@ Every specialized agent follows mandatory TodoWrite protocols:
 /implement "big feature" --wave-mode --validate  # Validated implementation with TodoWrite
 ```
 
-### TodoWrite Integration Examples
-
-```bash
-# TodoWrite automatically enforced for multi-step operations
-/analyze @src/ --comprehensive
-# → System detects multi-step analysis
-# → Blocks until TodoWrite initialized
-# → Agent creates todos: "Analyze patterns", "Review security", "Generate report"
-
-# Override TodoWrite enforcement (not recommended)
-/implement "simple fix" --skip-todo
-# → Warning: Skipping task management for multi-step operation
-
-# Monitor TodoWrite status across agent handoffs
-/improve @project/ --wave-mode
-# → Wave 1: Architect initializes TodoWrite with analysis todos
-# → Wave 2: Security-analyst validates todos before proceeding  
-# → Wave 3: Coder/Designer inherit todo status for implementation
-# → Wave 4: Test-engineer validates completion before marking todos done
-```
-
 ## 🔧 Setup & Configuration
 
 ### Prerequisites
 
 1. **Claude Code** with MCP server support
-2. **Node.js** for MCP server installations  
+2. **Node.js** for MCP server installations
 3. **Git** for configuration management
 
 ### Installation Steps
@@ -407,11 +384,13 @@ Every specialized agent follows mandatory TodoWrite protocols:
 **Common Issues:**
 
 - **"MANDATORY: Call TodoWrite for multi-step operation"**
+
   - This is expected behavior for complex tasks
   - Initialize TodoWrite with appropriate todos for your operation
   - Use `--skip-todo` flag only if absolutely necessary
 
-- **Agent won't complete task**  
+- **Agent won't complete task**
+
   - Check if all todos are marked as completed
   - Ensure proper evidence/validation is provided
   - Review todo status with TodoRead before marking complete
