@@ -276,7 +276,8 @@ Meta-cognitive analysis mode that enables Claude Code to step outside normal ope
 ### Enhanced Techniques
 - **Persona-Aware Symbols**: Domain-specific symbol selection based on active persona
 - **Context-Sensitive Abbreviations**: Intelligent abbreviation based on user familiarity and technical domain
-- **Structural Optimization**: Advanced formatting for token efficiency
+- **Reference-Based Protocols**: Use T1-T5 templates and compressed memory keys from @SHARED_PATTERNS.md
+- **Progressive Disclosure**: Level 1 (10%) → Level 2 (40%) → Level 3 (100%) detail on demand
 - **Quality Validation**: Real-time compression effectiveness monitoring
 - **MCP Integration**: Coordinated caching and optimization across server calls
 

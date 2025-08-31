@@ -22,9 +22,18 @@ This document summarizes how each command integrates with specialized agents and
 
 | Command | Primary Agent | Supporting Agents | MCP Servers | Workflow |
 |---------|--------------|-------------------|-------------|----------|
-| `/document` | tech-writer | architect, designer | Context7, Sequential | Tech-writer creates docs → Architect provides patterns → Designer adds UI docs |
-| `/task` | architect | coder, designer, test-engineer | Sequential, Context7 | Architect plans → Agents execute → Test validates |
+| `/document` | tech-writer | architect, designer | Context7, Sequential, Memory (templates) | Tech-writer creates docs → Architect provides patterns → Designer adds UI docs |
+| `/task` | architect | coder, designer, test-engineer | Sequential, Memory (project state) | Architect plans → Agents execute → Test validates |
 | `/workflow` | architect | all agents | Sequential, Context7 | Comprehensive multi-agent orchestration |
+
+### Additional Enhanced Commands
+
+| Command | Primary Agent | Supporting Agents | MCP Servers | Workflow |
+|---------|--------------|-------------------|-------------|----------|
+| `/cleanup` | architect | coder | Tree-Sitter (dead code), Memory (patterns), Sequential | Technical debt reduction |
+| `/estimate` | architect | - | Memory (historical), Context7 (benchmarks), Sequential | Evidence-based estimation |
+| `/git` | general | - | Memory (commit patterns), Sequential, Tree-Sitter (changes) | Git workflow assistance |
+| `/security` | security-analyst | architect | Tree-Sitter (vulnerabilities), Sequential, Context7, Memory (security patterns) | Security audits |
 
 ## Agent Responsibilities
 

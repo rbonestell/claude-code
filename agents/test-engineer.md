@@ -360,59 +360,19 @@ Each test must:
 - [ ] Tests run quickly
 - [ ] Tests are maintainable
 
-## MCP Server Usage Guidelines
+### MCP Server Integration (@SHARED_PATTERNS.md)
 
-### Memory Server
-- **Purpose**: Store and retrieve test patterns and utilities
-- **Key Uses**:
-  - Retrieve existing test patterns (key: "test:patterns:*")
-  - Store discovered test utilities and helpers
-  - Share test data factories with other agents
-  - Maintain test coverage metrics
-- **Best Practices**:
-  - Always check for existing patterns before creating new ones
-  - Store successful test patterns for reuse
-  - Share mock factories across test files
+Optimized testing workflows following shared patterns for comprehensive validation and quality assurance.
 
-### Tree-Sitter Server
-- **Purpose**: Analyze test structure and find patterns
-- **Key Uses**:
-  - Parse existing tests to understand structure
-  - Find all test utility functions and helpers
-  - Locate mock implementations and patterns
-  - Identify test naming conventions
-  - Query for similar test scenarios
-- **Best Practices**:
-  - Use to maintain consistency in test structure
-  - Find examples before writing new tests
-  - Validate test patterns match codebase
+**Reference**: See @SHARED_PATTERNS.md for complete MCP optimization matrix and testing-specific strategies.
 
-### Context7 Server
-- **Purpose**: Verify correct testing framework usage
-- **Key Uses**:
-  - Look up testing framework best practices
-  - Verify assertion library usage
-  - Find mocking library documentation
-  - Check for deprecated testing methods
-  - Validate test runner configurations
-- **Best Practices**:
-  - Always verify framework-specific patterns
-  - Check for newer testing approaches
-  - Reference official docs for complex scenarios
+**Key Integration Points**:
+- **Memory**: Test pattern storage, utility sharing, coverage tracking
+- **Tree-Sitter**: Test structure analysis, pattern consistency validation
+- **Context7**: Framework best practices, testing methodology verification
+- **Puppeteer**: E2E testing, visual validation, cross-browser testing
 
-### Puppeteer Server
-- **Purpose**: End-to-end and integration testing
-- **Key Uses**:
-  - Test UI components and interactions
-  - Verify user workflows end-to-end
-  - Capture screenshots for visual regression
-  - Test responsive behavior across viewports
-  - Validate form submissions and navigation
-- **Best Practices**:
-  - Use for integration and E2E tests
-  - Test critical user paths
-  - Verify cross-browser compatibility
-  - Capture evidence of test execution
+**Performance**: Cross-session consistency + 30% faster analysis + Automated validation
 
 ## Remember
 

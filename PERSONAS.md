@@ -8,11 +8,12 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 
 **Core Features**:
 - **Auto-Activation**: Multi-factor scoring with context awareness
-- **Agent Integration**: Personas overlay behavioral patterns on specialized agents
+- **Agent Integration**: Personas overlay behavioral patterns on specialized agents  
 - **Decision Frameworks**: Context-sensitive with confidence scoring
 - **Cross-Persona Collaboration**: Dynamic integration and expertise sharing
 - **Manual Override**: Use `--persona-[name]` flags for explicit control
 - **Flag Integration**: Works with all thinking flags, MCP servers, and command categories
+- **Optimization**: Enhanced with shared patterns from @SHARED_PATTERNS.md for consistency
 
 ## Persona Categories
 

@@ -28,12 +28,12 @@ Analyzes requests to understand intent, complexity, and requirements.
 
 **Validation Logic**: Resource availability, flag compatibility, risk assessment, outcome prediction, and safety recommendations. Operations with risk scores >0.8 trigger safe mode suggestions.
 
-**Resource Management Thresholds**:
+**Resource Management Thresholds with Dynamic Compression**:
 - **Green Zone** (0-60%): Full operations, predictive monitoring active
-- **Yellow Zone** (60-75%): Resource optimization, caching, suggest --uc mode
-- **Orange Zone** (75-85%): Warning alerts, defer non-critical operations  
-- **Red Zone** (85-95%): Force efficiency modes, block resource-intensive operations
-- **Critical Zone** (95%+): Emergency protocols, essential operations only
+- **Yellow Zone** (60-75%): Auto-enable --uc + reference protocols, aggressive caching
+- **Orange Zone** (75-85%): Force progressive disclosure, max protocol level 2, batch operations
+- **Red Zone** (85-95%): Emergency compression, protocol level 1 only, batch all operations
+- **Critical Zone** (95%+): Ultra-compression mode, essential operations only, error codes only
 
 ### Pattern Recognition Rules
 
@@ -170,7 +170,7 @@ wave_operations:
 Dynamic decision trees that map detected patterns to optimal tool combinations, persona activation, and orchestration strategies.
 
 ### Wave Orchestration Engine
-Multi-stage command execution with compound intelligence. Automatic complexity assessment or explicit flag control.
+Multi-stage command execution with compound intelligence and compression optimization. Automatic complexity assessment or explicit flag control.
 
 **Wave Control Matrix**:
 ```yaml
@@ -183,6 +183,13 @@ wave-strategies:
   progressive: "Incremental enhancement"
   systematic: "Methodical analysis"
   adaptive: "Dynamic configuration"
+
+wave-optimization:
+  use_reference_protocol: true    # Use T1-T5 templates for handoffs
+  progressive_handoff: true       # Level 1 → 2 → 3 as needed
+  batch_memory_operations: true   # Batch memory reads/writes
+  cache_wave_results: true        # Cache intermediate results
+  compression_aware: true         # Auto-enable --uc based on context
 ```
 
 **Wave-Enabled Commands**:
@@ -475,23 +482,34 @@ evidence_requirements:
   documentation: "change rationale, test results, performance benchmarks, security scans"
 ```
 
-## ⚡ Performance Optimization
+## ⚡ Performance Optimization with Dynamic Protocol Selection
 
-Resource management, operation batching, and intelligent optimization for sub-100ms performance targets.
+Resource management, operation batching, and intelligent optimization for sub-100ms performance targets with context-aware compression.
 
-**Token Management**: Intelligent resource allocation based on unified Resource Management Thresholds (see Detection Engine section)
+**Dynamic Protocol Level Selection**:
+```python
+def select_protocol_level(context_usage, urgency, complexity):
+    if context_usage > 85 or urgency == "critical":
+        return 1  # Summary only (10% detail)
+    elif context_usage > 70 or complexity < 0.3:
+        return 2  # Standard compressed (40% detail)
+    else:
+        return 3  # Full detail when needed (100%)
+```
 
-**Operation Batching**:
-- **Tool Coordination**: Parallel operations when no dependencies
-- **Context Sharing**: Reuse analysis results across related routing decisions
-- **Cache Strategy**: Store successful routing patterns for session reuse
-- **Task Delegation**: Intelligent sub-agent spawning for parallel processing
-- **Resource Distribution**: Dynamic token allocation across sub-agents
+**Token Management**: Intelligent resource allocation with automatic compression based on unified Resource Management Thresholds
 
-**Resource Allocation**:
-- **Detection Engine**: 1-2K tokens for pattern analysis
-- **Decision Trees**: 500-1K tokens for routing logic
-- **MCP Coordination**: Variable based on servers activated
+**Operation Batching with Compression**:
+- **Tool Coordination**: Parallel operations with reference protocols
+- **Context Sharing**: Compressed analysis results across routing decisions  
+- **Cache Strategy**: Store successful patterns with compressed keys
+- **Task Delegation**: Intelligent sub-agent spawning with batch communication
+- **Resource Distribution**: Dynamic allocation with progressive disclosure
+
+**Resource Allocation (Optimized)**:
+- **Detection Engine**: 1-2K tokens (compressed patterns)
+- **Decision Trees**: 300-600 tokens (error codes, references)  
+- **MCP Coordination**: Variable with batch operations and caching
 
 
 ## 🔗 Integration Intelligence

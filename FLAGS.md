@@ -40,7 +40,8 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 
 **`--uc` / `--ultracompressed`**
 - 30-50% token reduction using symbols and structured output
-- Auto-activates: Context usage >75% or large-scale operations
+- Auto-activates: Context usage >60% (Yellow Zone), mandatory >75% (Orange Zone)
+- Enhanced with reference protocols and compressed memory keys
 - Auto-generated symbol legend, maintains technical accuracy
 
 **`--answer-only`**
@@ -243,10 +244,16 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 9. Loop mode: explicit --loop > auto-detection based on refinement keywords
 10. --uc auto-activation overrides verbose flags
 
-### Context-Based Auto-Activation
+### Context-Based Auto-Activation with Compression
+
+**Resource-Based Compression Auto-Activation**:
+- **60-75% (Yellow)**: Auto-enable `--uc`, reference protocols, aggressive caching
+- **75-85% (Orange)**: Force progressive disclosure, max protocol level 2, batch operations  
+- **85-95% (Red)**: Emergency compression, protocol level 1 only, error codes only
+- **95%+ (Critical)**: Ultra-compression mode, essential operations only
 
 **Agent Auto-Activation**: Domain keywords + file patterns + complexity scoring
-**Wave Auto-Activation**: complexity ≥0.7 AND files >20 AND operation_types >2
+**Wave Auto-Activation**: complexity ≥0.7 AND files >20 AND operation_types >2 + compression aware
 **Sub-Agent Auto-Activation**: >7 directories OR >50 files OR complexity >0.8
 **Loop Auto-Activation**: polish, refine, enhance, improve keywords detected
 

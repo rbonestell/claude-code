@@ -74,13 +74,13 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Scribe Persona: Structured documentation workflows, multilingual content organization
 - Loop Command: Iterative improvement analysis, progressive refinement planning
 
-## Designer Agent UI/UX Integration (via Context7)
+## Designer Agent Integration (UI/UX via Context7)
 
 **Purpose**: UI component patterns, design system integration, responsive design using Context7
 
 **Activation Patterns**:
-- Automatic: UI component requests, design system queries
-- Manual: Designer agent activation with Context7
+- Automatic: UI component requests, design system queries, @agent-designer activation
+- Manual: `--agent-designer` with Context7 auto-enabled
 - Smart: Frontend persona active, component-related queries
 
 **Workflow Process**:

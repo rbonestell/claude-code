@@ -1,5 +1,6 @@
 # SuperClaude Entry Point
 
+@SHARED_PATTERNS.md
 @COMMANDS.md
 @FLAGS.md
 @PRINCIPLES.md

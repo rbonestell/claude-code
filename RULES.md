@@ -64,3 +64,5 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 - Personas: domain keywords + complexity assessment  
 - MCP servers: task type + performance requirements
 - Quality gates: all operations apply 8-step validation
+- Compression: auto-enable --uc at 60% context usage
+- Shared patterns: reference @SHARED_PATTERNS.md for consistency

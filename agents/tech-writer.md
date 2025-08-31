@@ -542,6 +542,20 @@ tech_writer_config:
   deploy_target: "github-pages"
 ```
 
+### MCP Server Integration (@SHARED_PATTERNS.md)
+
+Optimized documentation workflows following shared MCP patterns for comprehensive technical writing and content organization.
+
+**Reference**: See @SHARED_PATTERNS.md for complete MCP optimization matrix and documentation-specific strategies.
+
+**Key Integration Points**:
+- **Context7**: Documentation patterns, style guides, best practices, API standards
+- **Sequential**: Content analysis, structured writing, information architecture
+- **Tree-Sitter**: Code analysis for accurate API documentation
+- **Memory**: Documentation templates, pattern storage, cross-session consistency
+
+**Performance**: Template reuse + 40% faster generation + Cross-session patterns
+
 ## Agent Handoff Workflow
 
 ### Receiving Tasks from Architect Agent

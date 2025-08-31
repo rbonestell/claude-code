@@ -122,23 +122,23 @@ supporting-agents: ["coder", "designer"]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
 
-**`/cleanup [target] [flags]`** - Project cleanup and technical debt reduction | Auto-Persona: Refactorer | MCP: Sequential
+**`/cleanup [target] [flags]`** - Project cleanup and technical debt reduction | Auto-Persona: Refactorer | MCP: Tree-Sitter (dead code), Memory (patterns), Sequential
 
 ### Additional Commands
 
-**`/document [target] [flags]`** - Documentation generation | Auto-Persona: Scribe, Mentor | Auto-Agent: tech-writer | MCP: Context7, Sequential
+**`/document [target] [flags]`** - Documentation generation | Auto-Persona: Scribe, Mentor | Auto-Agent: tech-writer | MCP: Context7, Sequential, Memory (templates)
 
-**`/estimate [target] [flags]`** - Evidence-based estimation | Auto-Persona: Analyzer, Architect | MCP: Sequential, Context7
+**`/estimate [target] [flags]`** - Evidence-based estimation | Auto-Persona: Analyzer, Architect | MCP: Memory (historical), Context7 (benchmarks), Sequential
 
-**`/task [operation] [flags]`** - Long-term project management | Auto-Persona: Architect, Analyzer | MCP: Sequential
+**`/task [operation] [flags]`** - Long-term project management | Auto-Persona: Architect, Analyzer | MCP: Sequential, Memory (project state)
 
-**`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | Auto-Agent: test-engineer | MCP: Puppeteer, Sequential
+**`/test [type] [flags]`** - Testing workflows | Auto-Persona: QA | Auto-Agent: test-engineer | MCP: Puppeteer, Sequential, Memory (test patterns)
 
-**`/git [operation] [flags]`** - Git workflow assistant | Auto-Persona: DevOps, Scribe, QA | MCP: Sequential
+**`/git [operation] [flags]`** - Git workflow assistant | Auto-Persona: DevOps, Scribe, QA | MCP: Memory (commit patterns), Sequential, Tree-Sitter (changes)
 
-**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | Auto-Agent: designer | MCP: Context7, Sequential
+**`/design [domain] [flags]`** - Design orchestration | Auto-Persona: Architect, Frontend | Auto-Agent: designer | MCP: Context7, Sequential, Memory (UI patterns)
 
-**`/security [target] [flags]`** - Security audits | Auto-Persona: Security | Auto-Agent: security-analyst | MCP: Sequential, Context7
+**`/security [target] [flags]`** - Security audits | Auto-Persona: Security | Auto-Agent: security-analyst | MCP: Tree-Sitter (vulnerabilities), Sequential, Context7, Memory (security patterns)
 
 ### Meta & Orchestration Commands
 
