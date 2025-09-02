@@ -114,6 +114,7 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 | **@agent-security-analyst** | Security & compliance    | Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Tree-Sitter        | Memory (vulnerabilities), Tree-Sitter (code analysis), Context7 (security docs), Puppeteer (frontend testing) | security-analyst | Streaming findings     |
 | **@agent-test-engineer**    | Testing & QA             | Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite, Puppeteer | Memory (test patterns), Tree-Sitter (test analysis), Context7 (frameworks), Puppeteer (E2E testing)           | test-engineer    | Incremental updates    |
 | **@agent-tech-writer**      | Documentation & guides   | Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite            | Context7 (docs standards), Memory (templates), Tree-Sitter (code extraction), Puppeteer (site validation)     | tech-writer      | Template caching       |
+| **@agent-cloud-engineer**  | Cloud & Infrastructure   | Bash, Read, Write, Edit, Glob, Grep, TodoWrite                         | Context7 (dynamic IaC docs), Memory (patterns), Sequential (analysis), Tree-Sitter (IaC parsing)              | cloud-engineer   | Discovery-first caching |
 
 ## Agent Capabilities Matrix
 
@@ -198,6 +199,20 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 - **Context Efficiency**: Progressive documentation building, cached templates and glossaries
 - **Framework Expertise**: Nextra, Docusaurus, VitePress with optimized build processes
 
+### @agent-cloud-engineer
+
+**Specialization**: Cloud-agnostic infrastructure, IaC polyglot, multi-cloud orchestration
+
+- **Strengths**: Dynamic IaC discovery, provider abstraction, cost optimization
+- **Best For**: Infrastructure provisioning, cloud migrations, disaster recovery, cost analysis
+- **Input**: Accepts requirements from @agent-architect, security policies from @agent-security-analyst
+- **Output**: Deployed infrastructure, IaC templates, cost reports, endpoint configurations
+- **MCP Integration**: Dynamic Context7 queries for discovered IaC language, Sequential for planning
+- **MCP Optimization**: Discovery-first caching, 4-hour IaC pattern retention
+- **Discovery Strategy**: Auto-detects IaC language (Terraform, Pulumi, CloudFormation, CDK, etc.)
+- **Context Efficiency**: Reference-based IaC storage, compressed deployment logs
+- **Provider Agnostic**: Equal support for AWS, Azure, GCP, and 20+ cloud providers
+
 ## Agent Selection Algorithm
 
 ### Automatic Selection
@@ -212,6 +227,9 @@ Agents are automatically selected based on:
    - `/test` → @agent-test-engineer
    - `/security` → @agent-security-analyst
    - `/document` → @agent-tech-writer
+   - `/provision` → @agent-cloud-engineer
+   - `/infrastructure` → @agent-cloud-engineer
+   - `/cloud-optimize` → @agent-cloud-engineer
 
 2. **Keyword Detection**:
 
@@ -222,6 +240,7 @@ Agents are automatically selected based on:
    @agent-security-analyst: [vulnerability, security, audit, compliance, threat]
    @agent-test-engineer: [test, QA, coverage, validation, E2E]
    @agent-tech-writer: [document, documentation, README, API docs, guide, tutorial]
+   @agent-cloud-engineer: [terraform, pulumi, cloudformation, infrastructure, provision, deploy, cloud, AWS, Azure, GCP, IaC, cost optimization]
    ```
 
 3. **File Pattern Analysis**:
@@ -232,6 +251,9 @@ Agents are automatically selected based on:
    - Controllers, models, services → @agent-coder
    - Config files, architecture docs → @agent-architect
    - `*.md`, `README*`, `CHANGELOG*`, `docs/*` → @agent-tech-writer
+   - `*.tf`, `*.tfvars`, `terraform/*` → @agent-cloud-engineer
+   - `*.yaml`, `*.yml` with CloudFormation/K8s → @agent-cloud-engineer
+   - `Pulumi.*`, `*.bicep`, `cdk.json` → @agent-cloud-engineer
 
 4. **Complexity Scoring**:
    - High complexity + system-wide → @agent-architect
@@ -251,6 +273,7 @@ Use explicit flags to override automatic selection:
 - `--agent-security` - Force @agent-security-analyst
 - `--agent-test` - Force @agent-test-engineer
 - `--agent-tech-writer` - Force @agent-tech-writer
+- `--agent-cloud` - Force @agent-cloud-engineer
 
 ## Inter-Agent Communication Protocol
 
@@ -284,6 +307,9 @@ memory_keys:
   "agent:security:vuln": Vulnerability database
   "agent:test:patterns": Test pattern library
   "agent:tech-writer:templates": Documentation templates
+  "agent:cloud:iac-patterns": IaC templates and modules
+  "agent:cloud:provider-configs": Provider configurations
+  "agent:cloud:cost-optimizations": Cost optimization patterns
 ```
 
 #### Compressed Data Structures
@@ -518,6 +544,7 @@ wave_mcp_coordination:
 - **@agent-security-analyst**: Streaming findings, incremental reporting
 - **@agent-test-engineer**: Incremental coverage updates, test pattern library
 - **@agent-tech-writer**: Template caching, progressive content building
+- **@agent-cloud-engineer**: Discovery-first caching, dynamic Context7 queries, IaC pattern reuse
 
 #### Wave Performance Metrics
 
@@ -819,6 +846,13 @@ degradation_levels:
 - Generate minimal documentation in emergency mode
 - Prioritize critical API documentation
 
+**@agent-cloud-engineer**:
+
+- Use cached IaC patterns when Context7 unavailable
+- Default to Terraform if IaC language detection fails
+- Fallback to generic provider patterns when specific provider unknown
+- Alert on incomplete discovery or missing credentials
+
 ### Automatic Recovery
 
 **Recovery Validation**:
@@ -998,6 +1032,7 @@ Designer | Batch validations | Design tokens | Context7→Memory→Puppeteer
 Security | Streaming findings | Vulnerabilities | Memory→Tree-Sitter→Context7
 Test | Incremental updates | Test patterns | Memory→Puppeteer→Context7
 Tech-Writer | Template caching | Doc templates | Context7→Memory→Tree-Sitter
+Cloud-Engineer | Discovery-first | IaC patterns | Context7→Memory→Sequential
 ```
 
 ### Cache Key Patterns
@@ -1015,6 +1050,7 @@ agent:designer:tokens     # Design system cache
 agent:security:vuln       # Vulnerability database
 agent:test:patterns       # Test pattern library
 agent:tech-writer:templates # Documentation templates
+agent:cloud-engineer:iac  # IaC patterns per language/provider
 
 # Compressed References
 ref:findings:critical     # Critical issues only
@@ -1053,3 +1089,16 @@ Validation errors | Skip non-critical | Circuit breaker
 - **Enhanced Circuit Breakers**: More granular failure detection and recovery
 - **Performance ML**: Continuous optimization through machine learning
 - **Multi-Project Pattern Sharing**: Global pattern library across projects
+
+### @agent-cloud-engineer
+
+**Specialization**: Cloud-agnostic infrastructure, IaC polyglot, multi-provider orchestration
+
+- **Strengths**: Provider discovery, IaC language detection, cost optimization, migration planning
+- **Best For**: Infrastructure provisioning, cloud migrations, cost analysis, multi-cloud setups
+- **Discovery-First**: Always discovers context before assuming provider or IaC language
+- **Universal Abstractions**: Provider-neutral models for compute, storage, networking
+- **MCP Optimization**: Dynamic Context7 queries based on discovered IaC/provider combination
+- **Pattern Library**: Stores discovered patterns per IaC language and provider
+- **Context Efficiency**: Discovery-first caching, batched IaC analysis
+- **Multi-Provider**: Seamless handling of AWS, Azure, GCP, DigitalOcean, and 20+ providers
