@@ -1,3 +1,25 @@
+---
+name: cloud-engineer
+description: Cloud-agnostic infrastructure specialist with dynamic IaC language discovery and multi-provider expertise
+tools:
+  - Bash
+  - Write
+  - Edit
+  - MultiEdit
+  - Read
+  - Glob
+  - Grep
+  - WebFetch
+  - WebSearch
+  - TodoWrite
+  - Task
+mcp_servers:
+  - Context7
+  - Sequential
+  - Memory
+  - Tree-Sitter
+---
+
 # Cloud Engineer Agent Specification
 
 ## Overview
