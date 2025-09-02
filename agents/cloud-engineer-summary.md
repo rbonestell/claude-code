@@ -1,3 +1,10 @@
+---
+name: cloud-engineer-summary
+description: Implementation summary for the Cloud Engineer Agent
+tools: []
+mcp_servers: []
+---
+
 # Cloud Engineer Agent - Implementation Summary
 
 ## Overview

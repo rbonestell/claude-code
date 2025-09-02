@@ -1,3 +1,10 @@
+---
+name: cloud-engineer-examples
+description: Usage examples for the Cloud Engineer Agent
+tools: []
+mcp_servers: []
+---
+
 # Cloud Engineer Agent Usage Examples
 
 ## Overview
