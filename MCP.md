@@ -147,12 +147,51 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Cross-Browser Testing: Validate functionality across all major browsers
 - User Experience Testing: Accessibility validation, usability testing, conversion optimization
 
+## Cloud Engineer Integration (Infrastructure via Context7 & Sequential)
+
+**Purpose**: IaC patterns, provider documentation, infrastructure best practices, cost optimization
+
+**Activation Patterns**:
+- Automatic: IaC file detection (*.tf, *.tfvars, Pulumi.*, *.bicep, cdk.json), cloud keywords
+- Manual: `--agent-cloud` flag
+- Smart: Infrastructure commands, deployment operations
+
+**Workflow Process**:
+1. IaC Discovery: Detect infrastructure language (Terraform, Pulumi, CloudFormation, CDK, Bicep)
+2. Provider Detection: Identify cloud providers (AWS, Azure, GCP, etc.)
+3. Pattern Search: Use Context7 for IaC patterns and provider documentation
+4. Cost Analysis: Sequential for complex cost optimization strategies
+5. Resource Planning: Create resource specifications using discovered patterns
+6. Security Integration: Apply cloud security best practices from Context7
+7. Deployment Planning: Sequential for multi-step deployment orchestration
+8. Validation: Verify infrastructure specifications against provider limits
+9. Documentation: Generate infrastructure documentation
+10. Cost Optimization: Apply cost-saving patterns and recommendations
+
+**IaC Support** (via Context7 documentation):
+- Terraform: Modules, providers, state management, HCL patterns
+- Pulumi: TypeScript/Python/Go SDKs, state management, component patterns
+- CloudFormation: YAML/JSON templates, stack patterns, drift detection
+- CDK: TypeScript/Python patterns, construct libraries, synthesis
+- Bicep: ARM template patterns, module composition, deployment scopes
+
+**Provider Support** (via Context7 documentation):
+- AWS: EC2, Lambda, S3, RDS, VPC, IAM, CloudFormation
+- Azure: VMs, Functions, Storage, SQL, VNet, RBAC, ARM
+- GCP: Compute, Cloud Functions, Storage, SQL, VPC, IAM
+- Multi-cloud: Provider-agnostic patterns, migration strategies
+
 ## MCP Server Use Cases by Command Category
 
 **Development Commands**:
 - Context7: Framework patterns, library documentation, UI components
 - Sequential: Complex setup workflows
 - Designer Agent: UI/UX implementation with Context7
+
+**Infrastructure Commands**:
+- Context7: IaC patterns, provider documentation, best practices
+- Sequential: Infrastructure analysis, cost optimization, migration planning
+- Cloud Engineer Agent: Infrastructure provisioning with Context7 & Sequential
 
 **Analysis Commands**:
 - Context7: Best practices, patterns
@@ -177,7 +216,8 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Sequential: Complex planning and estimation
 
 **Deployment Commands**:
-- Sequential: Deployment planning
+- Context7: IaC deployment patterns, provider-specific deployment strategies
+- Sequential: Deployment planning, rollback strategies
 - Puppeteer: Deployment validation
 
 **Meta Commands**:
@@ -201,12 +241,15 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 - Puppeteer Cache: Test results and screenshots with environment-specific caching
 - Cross-Server Cache: Shared cache for multi-server operations
 - Loop Optimization: Cache iterative analysis results, reuse improvement patterns
+- Cloud Engineer Cache: IaC patterns per language/provider (4-hour TTL), provider configurations
 
 **Error Handling and Recovery**:
 - Context7 unavailable → WebSearch for documentation → Manual implementation
 - Sequential timeout → Use native Claude Code analysis → Note limitations
 - Designer agent failure → Use Context7 patterns → Suggest manual enhancement
 - Puppeteer connection lost → Suggest manual testing → Provide test cases
+- Cloud Engineer IaC detection failure → Default to Terraform → Note assumptions
+- Provider documentation missing → Use generic patterns → Suggest verification
 
 **Recovery Strategies**:
 - Exponential Backoff: Automatic retry with exponential backoff and jitter
