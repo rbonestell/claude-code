@@ -298,6 +298,9 @@ Meta-cognitive analysis mode that enables Claude Code to step outside normal ope
 - **Evidence Tracking**: Compression effectiveness metrics and continuous improvement
 
 ### MCP Optimization & Caching
+
+**Note**: MCP servers are referenced here by shorthand names for readability. For actual tool invocation, use full function names with `mcp__` prefix (see FLAGS.md for details).
+
 - **Context7**: Cache documentation lookups (2-5K tokens/query saved)
 - **Sequential**: Reuse reasoning analysis results with compression awareness
 - **Context7**: Store UI component patterns with optimized delivery

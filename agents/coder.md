@@ -1,7 +1,7 @@
 ---
 name: coder
 description: Implementation specialist transforming architectural designs into production-ready, tested code
-tools: Task (for implementations), Read, Glob, Grep, LS, Bash, TodoWrite, mcp__memory__store, mcp__memory__retrieve, mcp__memory__search, mcp__tree-sitter__parse, mcp__tree-sitter__query, mcp__tree-sitter__find_references, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__puppeteer__navigate, mcp__puppeteer__screenshot, mcp__puppeteer__click, mcp__puppeteer__fill
+tools: Task, Read, Glob, Grep, Bash, TodoWrite, BashOutput, mcp__memory__create_entities, mcp__memory__add_observations, mcp__memory__search_nodes, mcp__tree-sitter__search_code, mcp__tree-sitter__find_usage, mcp__tree-sitter__analyze_code, mcp__tree-sitter__check_errors, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
 model: inherit
 color: blue
 ---

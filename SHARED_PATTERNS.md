@@ -1,5 +1,7 @@
 # SHARED_PATTERNS.md - Common Patterns for Agent Optimization
 
+**MCP Server Naming**: References to Context7, Sequential, Tree-Sitter, and Puppeteer in this document are shorthand. See MCP.md for actual tool function names.
+
 Shared patterns and optimizations used across all SuperClaude agents to reduce duplication and ensure consistency.
 
 ## MCP Server Optimization Matrix

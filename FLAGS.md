@@ -75,6 +75,12 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 - Auto-activates: Complex debugging, system design, --think flags
 - Detection: debug/trace/analyze keywords, nested conditionals, async chains
 
+**Note on MCP Server Tool Names**:
+When referencing MCP servers in documentation, we use shorthand names (Context7, Sequential, etc.) for readability. However, when calling these as actual tools in Claude Code, use the full MCP function names:
+- Context7 → `mcp__context7__resolve-library-id`, `mcp__context7__get-library-docs`
+- Sequential → `mcp__sequential-thinking__sequentialthinking`
+- Tree-Sitter → `mcp__tree-sitter__search_code`, `mcp__tree-sitter__find_usage`, etc.
+- Puppeteer → `mcp__puppeteer__navigate`, `mcp__puppeteer__screenshot`, etc.
 
 **`--puppeteer`**
 - Enable Puppeteer for browser automation and E2E testing

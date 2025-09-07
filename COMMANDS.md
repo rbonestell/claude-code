@@ -2,6 +2,8 @@
 
 Command execution framework for Claude Code SuperClaude integration.
 
+**Note on MCP Servers**: This document references MCP servers by shorthand names (Context7, Sequential, etc.) for readability. For actual tool invocation, use full function names with `mcp__` prefix as documented in MCP.md.
+
 ## Command System Architecture
 
 ### Core Command Structure

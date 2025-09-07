@@ -15,6 +15,8 @@ Persona system provides specialized AI behavior patterns optimized for specific 
 - **Flag Integration**: Works with all thinking flags, MCP servers, and command categories
 - **Optimization**: Enhanced with shared patterns from @SHARED_PATTERNS.md for consistency
 
+**Note on MCP Server References**: Throughout this document, MCP servers are referenced by their shorthand names (Context7, Sequential, Puppeteer, Tree-Sitter) for readability. When actually invoking these as tools, use the full MCP function names with the `mcp__` prefix as documented in FLAGS.md.
+
 ## Persona Categories
 
 ### Technical Specialists

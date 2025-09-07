@@ -2,6 +2,8 @@
 
 This document summarizes how each command integrates with specialized agents and MCP servers.
 
+**MCP Server References**: This document uses shorthand names for MCP servers. For actual tool calls, use the full `mcp__` prefixed function names as documented in MCP.md.
+
 ## Command-Agent Mapping
 
 ### Primary Development Commands

@@ -13,6 +13,124 @@ MCP (Model Context Protocol) server integration and orchestration system for Cla
 
 **Selection Process**: Task Analysis → Server Capability Match → Performance Check → Load Assessment → Final Selection
 
+### Important: MCP Server Naming Conventions
+
+**Documentation vs. Tool Invocation**:
+- **In Documentation**: We use shorthand names (Context7, Sequential, Puppeteer, Tree-Sitter) for readability
+- **In Tool Calls**: You MUST use full function names with `mcp__` prefix
+
+**Actual MCP Tool Functions Available in Claude Code**:
+```
+Context7 Functions:
+- mcp__context7__resolve-library-id
+- mcp__context7__get-library-docs
+
+Sequential Functions:
+- mcp__sequential-thinking__sequentialthinking
+
+Tree-Sitter Functions:
+- mcp__tree-sitter__search_code
+- mcp__tree-sitter__find_usage
+- mcp__tree-sitter__analyze_code
+- mcp__tree-sitter__check_errors
+
+Puppeteer Functions:
+- mcp__puppeteer__puppeteer_navigate
+- mcp__puppeteer__puppeteer_screenshot
+- mcp__puppeteer__puppeteer_click
+- mcp__puppeteer__puppeteer_fill
+- mcp__puppeteer__puppeteer_select
+- mcp__puppeteer__puppeteer_hover
+- mcp__puppeteer__puppeteer_evaluate
+
+Memory Functions:
+- mcp__memory__create_entities
+- mcp__memory__create_relations
+- mcp__memory__add_observations
+- mcp__memory__delete_entities
+- mcp__memory__delete_observations
+- mcp__memory__delete_relations
+- mcp__memory__read_graph
+- mcp__memory__search_nodes
+- mcp__memory__open_nodes
+
+IDE Functions:
+- mcp__ide__getDiagnostics
+- mcp__ide__executeCode
+
+AP Media Functions (News & Content):
+- mcp__ap-media__search_content
+- mcp__ap-media__get_content_item
+- mcp__ap-media__get_content_feed
+- (plus additional AP Media tools for accounts, feeds, monitors, etc.)
+```
+
+**Note**: Throughout this document, shorthand names are used for readability. Always use the full function names when actually invoking these tools.
+
+## Task Tool Documentation
+
+The Task tool is Claude Code's primary mechanism for complex file operations and multi-step implementations through sub-agents.
+
+### Core Capabilities
+
+**Primary Function**: Delegates complex operations to specialized sub-agents that can perform file creation, modification, analysis, and multi-step workflows.
+
+**Parameters**:
+- `subagent_type`: The type of specialized agent to use
+- `description`: A short (3-5 word) description of the task  
+- `prompt`: Detailed instructions for the sub-agent to perform
+
+### Available Sub-Agent Types
+
+1. **general-purpose**: General analysis, file operations, multi-step tasks
+2. **coder**: Implementation specialist for code generation and modification
+3. **designer**: UI/UX specialist for frontend components and interfaces
+4. **test-engineer**: Testing specialist for test creation and validation
+5. **tech-writer**: Documentation specialist for technical writing
+6. **security-analyst**: Security review and vulnerability assessment
+7. **architect**: System analysis and architectural design
+8. **cloud-engineer**: Infrastructure and IaC operations
+
+### Usage Patterns
+
+**File Creation/Modification**:
+```
+Task(subagent_type="coder", 
+     description="Implement auth system",
+     prompt="Create a JWT authentication system with login/logout endpoints...")
+```
+
+**Documentation Generation**:
+```
+Task(subagent_type="tech-writer",
+     description="Create API docs", 
+     prompt="Generate comprehensive API documentation for all endpoints...")
+```
+
+**Complex Analysis**:
+```
+Task(subagent_type="general-purpose",
+     description="Analyze codebase",
+     prompt="Perform comprehensive analysis of the project structure...")
+```
+
+### Key Differences from Direct File Tools
+
+Unlike the deprecated Write/Edit/MultiEdit tools, the Task tool:
+- Handles complex multi-step operations atomically
+- Provides intelligent context understanding
+- Can coordinate multiple file changes
+- Includes validation and error handling
+- Leverages specialized agent expertise
+
+### Best Practices
+
+1. **Choose the right sub-agent**: Match the sub-agent type to your task domain
+2. **Provide clear prompts**: Be specific about desired outcomes
+3. **Batch related operations**: Group related changes in a single Task call
+4. **Use for complex operations**: Simple reads should use Read tool directly
+5. **Leverage agent expertise**: Let specialized agents handle domain-specific tasks
+
 ## Context7 Integration (Documentation & Research)
 
 **Purpose**: Official library documentation, code examples, best practices, localization standards
