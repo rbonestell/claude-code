@@ -2,43 +2,78 @@
 
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-Enhanced-blue)](https://docs.anthropic.com/en/docs/claude-code)
 [![SuperClaude](https://img.shields.io/badge/SuperClaude-Framework-purple)](https://github.com/SuperClaude-Org/SuperClaude_Framework)
-[![Agents](https://img.shields.io/badge/Agents-6%20Specialized-orange)](agents/)
+[![Agents](https://img.shields.io/badge/Agents-7%20Specialized-orange)](agents/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-A powerful collection of battle-tested Claude Code configurations, specialized agents, and the SuperClaude Framework that transforms AI-assisted development into a multi-agent orchestrated workflow with comprehensive task management enforcement.
+A powerful collection of battle-tested Claude Code configurations, specialized AI agents, and an enhanced SuperClaude Framework that makes AI-assisted development smarter, faster, and more organized.
 
-## ✨ Overview
+## ✨ What Is This?
 
-This repository contains my comprehensive Claude Code setup featuring:
+Think of this as your AI development team in a box. Instead of one AI assistant trying to do everything, you get specialized experts that work together - like having a real development team at your fingertips.
 
-- **6 Specialized Agents** for domain-specific expertise (architect, coder, designer, security-analyst, test-engineer, tech-writer)
-- **SuperClaude Framework** resources adapted and enhanced to utilize my custom agents
-- **Mandatory TodoWrite Integration** ensuring all multi-step operations are properly tracked and managed
-- **Inter-agent Communication** protocols for seamless handoffs and collaboration
-- **Wave Orchestration** for complex multi-phase operations
-- **9-Step Quality Gates** with TodoWrite validation at initialization and completion
+### What Makes This Special
 
-The SuperClaude Framework files in this repository have been modified from the original to integrate with my custom agents, providing enhanced routing, specialized task execution, multi-agent coordination capabilities, and mandatory task management protocols.
+- **🤖 7 Specialized AI Agents** - Each agent is an expert in their domain:
+  - **Architect** - System design and code structure expert
+  - **Coder** - Implementation and bug-fixing specialist  
+  - **Designer** - UI/UX and frontend expert
+  - **Security Analyst** - Vulnerability and compliance specialist
+  - **Test Engineer** - Quality assurance and testing expert
+  - **Tech Writer** - Documentation and guide creator
+  - **Cloud Engineer** - Infrastructure and deployment specialist
 
-## 🎯 Features
+- **📋 Smart Task Management** - Automatically tracks what needs to be done, what's in progress, and what's complete (using TodoWrite)
 
-- **🤖 Specialized Agents** - Domain experts for architecture, coding, UI/UX, security, testing, and documentation
-- **📋 Mandatory TodoWrite** - Comprehensive task tracking enforced across all multi-step operations
-- **🌊 Wave Orchestration** - Multi-agent coordination for comprehensive tasks with TodoWrite integration
-- **⚡ Smart Commands** - Auto-routing to appropriate agents based on context
-- **🔄 Agent Handoffs** - Structured communication protocols with mandatory todo status validation
-- **🎭 Persona Overlays** - Behavioral modifiers that enhance agent capabilities
-- **🚀 MCP Integration** - Memory sharing, documentation lookup, and visual validation
-- **✅ 9-Step Quality Gates** - Enhanced validation cycle with TodoWrite enforcement at initialization and completion
+- **🌊 Team Coordination** - Agents work together in organized "waves" - like a real team passing work between departments
 
-**Note:**
+- **⚡ Intelligent Routing** - The system automatically knows which expert to use based on what you're asking
 
-- The root `~/.claude.json` file contains MCP server configurations (see below)
-- All agents require TodoWrite initialization for multi-step operations (3+ steps)
+- **✅ Quality Assurance** - Built-in 9-step validation ensures high-quality output every time
 
-## 🛠️ MCP Servers
+### In Simple Terms
 
-I use the following _global_ MCP servers in my `~/.claude.json` configuration (defined at the configuration root):
+When you ask for help with a project, the framework:
+1. Figures out what kind of help you need
+2. Assigns the right expert (or team of experts)
+3. Tracks the work through completion
+4. Ensures quality at every step
+5. Delivers professional-grade results
+
+It's like having a full development team that understands context, remembers previous decisions, and works together seamlessly.
+
+## 🎯 Key Features
+
+### Core Capabilities
+
+- **🤖 Specialized Agents** - 7 domain experts that excel in their specific areas
+- **📋 Smart Task Tracking** - Automatic task management for complex operations
+- **🌊 Team Coordination** - Multiple agents working together in organized phases
+- **⚡ Intelligent Commands** - System understands context and routes to the right expert
+- **🔄 Seamless Handoffs** - Agents share information and build on each other's work
+- **🎭 Behavioral Modifiers** - Adjust how agents approach problems (mentor mode, performance focus, etc.)
+- **🚀 External Integrations** - Connects to documentation, code analysis, and testing tools
+- **✅ Quality Validation** - 9-step quality checks ensure professional results
+
+### How It Works
+
+The framework uses **MCP (Model Context Protocol) servers** - think of these as specialized tools that give the AI agents superpowers:
+- Remember things between conversations
+- Look up documentation
+- Analyze code structure
+- Run browser tests
+- Share information between agents
+
+**Note:** Configuration happens in your `~/.claude.json` file (details below)
+
+## 🛠️ MCP Server Configuration
+
+### What Are MCP Servers?
+
+MCP servers are external tools that enhance Claude Code's capabilities. Think of them as specialized assistants that help with specific tasks. The framework documentation may use shorthand names (like "Sequential" or "mcp__tree-sitter"), but the actual tool names in Claude Code are shown below.
+
+### Required Configuration
+
+Add these to your `~/.claude.json` file (in the root of your home directory):
 
 ```json
   "mcpServers": {
@@ -78,334 +113,395 @@ I use the following _global_ MCP servers in my `~/.claude.json` configuration (d
   },
 ```
 
-These MCP servers enable:
+### What Each Server Does
 
-- **memory**: Inter-agent communication and persistent storage
-- **puppeteer**: Visual validation and browser automation (used by @agent-designer)
-- **context7**: Library documentation and best practices lookup
-- **tree-sitter**: Code structure analysis and pattern recognition
-- **sequential-thinking**: Complex multi-step problem solving and systematic analysis (used by @agent-architect and @agent-security-analyst)
+| Server Name | Documentation Shorthand | Purpose |
+|-------------|------------------------|---------|
+| **memory** | Memory, mcp__memory | Helps agents remember information and share data with each other |
+| **puppeteer** | Puppeteer, mcp__puppeteer | Tests websites and captures screenshots |
+| **context7** | Context7, mcp__context7 | Looks up documentation and best practices for libraries |
+| **tree-sitter** | Tree-Sitter, mcp__tree-sitter | Analyzes code structure and finds patterns |
+| **sequential-thinking** | Sequential, mcp__sequential | Solves complex problems step-by-step |
 
-## 🤖 Specialized Agents
+## 🤖 Meet Your AI Development Team
 
-### Architect Agent
+Each agent is a specialist, just like team members in a real development company:
 
-**Purpose**: System design, code review, pattern analysis
-**Auto-activates**: `/analyze`, complex system analysis
-**TodoWrite**: Required for multi-step analysis tasks (initialization within 3 operations)
-**Best for**: Architecture reviews, technical debt assessment, design patterns
+### 🏗️ Architect Agent
+**The System Designer**
+- **What they do**: Analyzes your codebase, identifies patterns, plans improvements
+- **When they help**: System analysis, code reviews, architecture decisions
+- **Auto-activates for**: `/analyze` command, complex system questions
+- **Real-world equivalent**: Senior architect who reviews code and plans system structure
 
-### Coder Agent
+### 💻 Coder Agent  
+**The Implementation Expert**
+- **What they do**: Writes code, fixes bugs, implements features
+- **When they help**: Building new features, fixing issues, refactoring code
+- **Auto-activates for**: `/implement`, `/build` commands
+- **Real-world equivalent**: Senior developer who writes clean, working code
+- **Special ability**: Uses the Task tool for safe, incremental code changes
 
-**Purpose**: Implementation, refactoring, bug fixes
-**Auto-activates**: `/implement`, `/build`, feature development
-**TodoWrite**: Required for implementation tasks (planning → coding → testing phases)
-**Best for**: Writing code, fixing bugs, implementing features
+### 🎨 Designer Agent
+**The UI/UX Specialist**
+- **What they do**: Creates user interfaces, ensures accessibility, optimizes frontend
+- **When they help**: Building components, responsive design, user experience
+- **Auto-activates for**: `/design` command, UI-related requests
+- **Real-world equivalent**: Frontend developer with strong design skills
 
-### Designer Agent
+### 🔒 Security-Analyst Agent
+**The Security Expert**
+- **What they do**: Finds vulnerabilities, ensures compliance, reviews security
+- **When they help**: Security audits, threat assessment, compliance checks
+- **Auto-activates for**: `/security` command, security concerns
+- **Real-world equivalent**: Security engineer who keeps your code safe
 
-**Purpose**: UI/UX design, frontend development, accessibility
-**Auto-activates**: `/design`, UI component creation
-**TodoWrite**: Required for UI design/development tasks (planning → creation → validation)
-**Best for**: Creating components, responsive design, visual validation
+### 🧪 Test-Engineer Agent
+**The Quality Guardian**
+- **What they do**: Creates tests, ensures quality, validates changes
+- **When they help**: Writing test suites, coverage analysis, E2E testing
+- **Auto-activates for**: `/test` command, quality assurance needs
+- **Real-world equivalent**: QA engineer who ensures everything works correctly
 
-### Security-Analyst Agent
+### 📚 Tech-Writer Agent
+**The Documentation Pro**
+- **What they do**: Creates clear documentation, API guides, tutorials
+- **When they help**: README files, user guides, API documentation, documentation sites
+- **Auto-activates for**: `/document` command, documentation requests
+- **Real-world equivalent**: Technical writer who makes complex things understandable
+- **Special ability**: Can build full documentation sites with Nextra, Docusaurus, or VitePress
 
-**Purpose**: Security audits, vulnerability assessment, compliance
-**Auto-activates**: `/security`, security-focused analysis
-**TodoWrite**: Required for security analysis tasks (scanning → assessment → reporting)
-**Best for**: Finding vulnerabilities, OWASP compliance, threat modeling
+### ☁️ Cloud-Engineer Agent
+**The Infrastructure Specialist**
+- **What they do**: Manages cloud resources, writes infrastructure code, optimizes costs
+- **When they help**: Cloud deployments, infrastructure setup, multi-cloud migrations
+- **Auto-activates for**: Infrastructure files (Terraform, CloudFormation, etc.)
+- **Real-world equivalent**: DevOps engineer who manages cloud infrastructure
+- **Supports**: AWS, Azure, GCP, and 20+ other cloud providers
 
-### Test-Engineer Agent
+## 📚 How to Use It
 
-**Purpose**: Test creation, E2E testing, quality assurance
-**Auto-activates**: `/test`, validation tasks
-**TodoWrite**: Required for testing tasks (planning → implementation → validation)
-**Best for**: Writing tests, coverage analysis, regression testing
+### Simple Examples - Let the System Choose
 
-### Tech-Writer Agent
-
-**Purpose**: Technical documentation, README files, user guides, documentation sites
-**Auto-activates**: `/document`, documentation tasks
-**TodoWrite**: Required for documentation tasks (analysis → writing → validation)
-**Best for**: Creating clear documentation, API references, tutorials, documentation websites with Nextra/Docusaurus/VitePress
-
-## 📚 Usage Examples
-
-### Basic Commands with Auto-Agent Routing
+The framework automatically picks the right agent based on what you ask:
 
 ```bash
-# Architect agent automatically selected for system analysis
-/analyze @src/ --comprehensive
+# Analyzing code? Architect agent steps in
+/analyze @src/ 
 
-# Coder agent handles implementation
-/implement "Add user authentication with JWT"
+# Building something? Coder agent takes over
+/implement "Add user authentication"
 
-# Designer agent creates UI components
-/design "Create responsive dashboard with dark mode"
+# Need UI? Designer agent handles it
+/design "Create a dashboard"
 
-# Security analyst performs audit
-/security @api/ --owasp
+# Security check? Security analyst investigates
+/security @api/
 
-# Test engineer creates test suite
-/test --e2e "User registration flow"
+# Need tests? Test engineer writes them
+/test "User registration"
 
-# Tech writer creates documentation
-/document @src/ --type api --scope comprehensive
+# Documentation? Tech writer creates it
+/document @src/
 ```
 
-### Manual Agent Selection
+### Taking Control - Choose Your Expert
+
+Sometimes you want a specific expert:
 
 ```bash
-# Force specific agent with flags
-/improve @src/ --agent-architect    # Architectural improvements
-/build --agent-designer             # UI-focused build
-/analyze --agent-security           # Security-focused analysis
+# Want architectural perspective on improvements
+/improve @src/ --agent-architect
+
+# Need designer to lead the build
+/build --agent-designer
+
+# Security-focused code review
+/analyze --agent-security
 ```
 
-### Agent + Persona Combinations
+### Advanced: Combining Agents with Personas
+
+Personas are like behavioral modifiers - they change HOW an agent approaches the task:
 
 ```bash
-# Combine agents with personas for enhanced behavior
-/analyze --agent-architect --persona-mentor  # Educational analysis
-/implement --agent-coder --persona-refactorer # Clean code focus
-/design --agent-designer --persona-performance # Optimized UI
+# Architect explains while analyzing (great for learning)
+/analyze --agent-architect --persona-mentor
+
+# Coder focuses on clean code principles
+/implement --agent-coder --persona-refactorer
+
+# Designer optimizes for performance
+/design --agent-designer --persona-performance
 ```
 
-### Multi-Agent Wave Operations
+### Team Mode: Multiple Agents Working Together
+
+For complex tasks, agents work in coordinated "waves":
 
 ```bash
-# Comprehensive improvement using multiple agents
+# Full team improvement cycle
 /improve @project/ --wave-mode
-# Wave 1: Architect analyzes
-# Wave 2: Security audits
-# Wave 3: Coder + Designer implement
-# Wave 4: Test-Engineer validates
 
-# Enterprise-scale operations
-/analyze @monorepo/ --wave-mode --enterprise
+What happens:
+1. Architect analyzes the system
+2. Security analyst checks for vulnerabilities  
+3. Coder and Designer work in parallel on fixes
+4. Test engineer validates everything
 ```
 
-### Complex Scenarios
+### Real-World Scenarios
 
 ```bash
-# Full-stack feature with multiple agents
+# Building a complete feature
 /implement "E-commerce checkout" --wave-mode
-# Architect designs the flow → Designer creates UI → Coder implements → Test validates
+# The team collaborates: Architect designs → Designer creates UI → Coder implements → Tests validate
 
-# Security-first implementation
+# Security-conscious development
 /implement "Payment processing" --agent-coder --persona-security
+# Coder implements with security as top priority
 
-# Performance optimization across stack
-/improve @app/ --focus performance --wave-mode
-# Architect identifies bottlenecks → Coder optimizes backend → Designer optimizes frontend
+# Performance optimization
+/improve @app/ --focus performance
+# Focused improvement on speed and efficiency
 
-# Comprehensive documentation generation
-/document @project/ --type guide --scope comprehensive --framework nextra
-# Tech-Writer analyzes patterns → Creates user guides → Builds documentation site
+# Complete documentation site
+/document @project/ --framework nextra
+# Tech writer creates a full documentation website
 ```
 
-## 🛠️ Setup
+## 🛠️ Quick Setup (5 minutes)
 
-1. **Clone/sync this repo to your Claude Code config directory:**
+### Step 1: Get the Framework
 
-   ```bash
-   cd ~/.claude
-   git init
-   git remote add origin https://github.com/rbonestell/claude-code.git
-   git fetch origin
-   git pull origin main
-   ```
-
-2. **Configure MCP servers in `~/.claude.json`:**
-   Add the MCP server configurations shown above
-
-3. **Start using enhanced Claude Code:**
-   Your agents will automatically activate based on context, or use flags for manual control
-
-## 🎨 Key Concepts
-
-### Agent Selection
-
-Agents are automatically selected based on:
-
-- **Command used** (`/analyze` → architect, `/implement` → coder)
-- **Keywords** in your request (UI → designer, security → security-analyst)
-- **File patterns** (_.test.js → test-engineer,_.css → designer)
-- **Complexity** of the task (system-wide → architect)
-
-### Wave Orchestration
-
-For complex tasks, waves coordinate multiple agents:
-
-1. **Analysis Wave**: Architect analyzes the system
-2. **Security Wave**: Security-analyst audits for vulnerabilities
-3. **Implementation Wave**: Coder and Designer work in parallel
-4. **Validation Wave**: Test-Engineer validates all changes
-
-### Agent Communication
-
-Agents share data through structured protocols:
-
-- **Architect** → provides findings and patterns to Coder/Designer/Tech-Writer
-- **Designer** → provides UI specs to Coder and documentation to Tech-Writer
-- **Coder** → provides implementation details to Test-Engineer and Tech-Writer
-- **Security-Analyst** → broadcasts vulnerabilities to all agents
-- **Test-Engineer** → reports quality metrics to all agents
-- **Tech-Writer** → creates documentation based on input from all agents
-
-### Persona Enhancement
-
-Personas modify agent behavior:
-
-- **Agent**: Technical capability (what it can do)
-- **Persona**: Behavioral style (how it does it)
-- **Combination**: Enhanced specialization (architect + mentor = educational analysis)
-
-## 📋 TodoWrite & Task Management
-
-### Mandatory TodoWrite Integration
-
-**All multi-step operations (3+ steps) REQUIRE TodoWrite initialization:**
-
-```yaml
-# Commands that MUST use TodoWrite:
-mandatory_commands:
-  - /analyze # Multi-phase system analysis
-  - /implement # Planning → coding → testing
-  - /build # Analysis → compilation → validation
-  - /improve # Analysis → enhancement → validation
-  - /design # Planning → creation → validation
-  - /troubleshoot # Investigation → diagnosis → resolution
-  - /task # Planning → execution → completion
-  - /workflow # Multi-stage orchestration
-```
-
-### TodoWrite Enforcement
-
-**Pre-execution validation blocks commands that don't properly initialize TodoWrite:**
-
-- **Multi-Step Detection**: Automatically detects operations requiring task tracking
-- **Initialization Check**: Verifies TodoWrite called within first 3 operations
-- **Execution Block**: Commands cannot proceed without proper TodoWrite setup
-- **Override Option**: Use `--skip-todo` flag to explicitly opt-out (with warning)
-
-### Quality Gates Integration
-
-**9-Step validation cycle with mandatory TodoWrite checkpoints:**
-
-1. **Step 0**: TodoWrite initialization validation _(MANDATORY)_
-2. **Step 1-8**: Standard quality gates (syntax, security, testing, etc.)
-3. **Step 9**: TodoWrite completion validation _(MANDATORY)_
-
-**Agents cannot complete tasks until TodoWrite status is properly validated.**
-
-### Agent TodoWrite Requirements
-
-Every specialized agent follows mandatory TodoWrite protocols:
-
-- **Initialization**: TodoWrite must be called within first 3 operations
-- **Status Updates**: Todo status updated at each phase transition
-- **Handoff Validation**: Todo status included in all inter-agent communication
-- **Completion Gates**: Tasks cannot be marked complete without proper validation
-
-## 🚀 Quick Start Guide
-
-### For System Analysis
+Clone this repository to your Claude Code configuration folder:
 
 ```bash
-/analyze @project/           # Architect analyzes entire project
-/analyze --focus security    # Security-focused analysis
-/analyze --agent-architect --persona-mentor  # Educational walkthrough
+cd ~/.claude
+git init
+git remote add origin https://github.com/rbonestell/claude-code.git
+git fetch origin
+git pull origin main
 ```
 
-### For Implementation
+### Step 2: Configure MCP Servers
+
+Add the MCP server configurations to your `~/.claude.json` file (see MCP Server Configuration section above for the exact JSON to add).
+
+### Step 3: Start Using It!
+
+That's it! The framework is now active. Try these commands to see it in action:
 
 ```bash
-/implement "feature description"     # Coder implements feature
-/implement --type component          # Designer creates UI component
-/build @src/ --agent-designer       # Designer-led build
+/analyze        # Analyze your current project
+/implement "feature name"  # Build something new
+/document       # Create documentation
 ```
 
-### For Testing & Quality
+## 🎨 Understanding Key Concepts
+
+### How Agents Are Chosen
+
+The framework is smart about picking the right expert:
+
+**Based on the command you use:**
+- `/analyze` → Architect takes the lead
+- `/implement` → Coder jumps in
+- `/design` → Designer handles it
+- `/test` → Test Engineer takes over
+
+**Based on what you're asking about:**
+- Mention "UI" or "component" → Designer agent
+- Talk about "security" or "vulnerability" → Security analyst
+- Ask about "performance" → Performance-focused approach
+
+**Based on the files involved:**
+- Test files (*.test.js) → Test engineer
+- Style files (*.css) → Designer
+- Infrastructure files (*.tf) → Cloud engineer
+
+### How Teams Work Together (Waves)
+
+Think of waves like a relay race where each team member does their part:
+
+**Example: Improving a project**
+1. **Wave 1**: Architect analyzes what needs improvement
+2. **Wave 2**: Security analyst checks for vulnerabilities
+3. **Wave 3**: Coder and Designer work on fixes simultaneously
+4. **Wave 4**: Test engineer validates everything works
+
+Each wave builds on the previous one, creating a comprehensive solution.
+
+### How Agents Share Information
+
+Agents don't work in isolation - they share findings:
+
+- **Architect** shares system analysis with everyone
+- **Security analyst** alerts everyone to vulnerabilities
+- **Designer** gives UI specifications to the coder
+- **Coder** provides code for testing
+- **Test engineer** reports results to the team
+- **Tech writer** documents what everyone built
+
+### What Are Personas?
+
+Personas are like personality modifiers for agents:
+
+- **Mentor persona**: Makes any agent explain things educationally
+- **Performance persona**: Focuses on speed and efficiency
+- **Security persona**: Prioritizes safety and protection
+- **Refactorer persona**: Emphasizes clean, maintainable code
+
+You can combine any agent with any persona for specialized behavior!
+
+## 📋 Smart Task Management
+
+### How the Framework Tracks Work
+
+For complex operations (anything with 3+ steps), the framework automatically manages tasks using TodoWrite. Think of it as a smart project manager that:
+
+- **Tracks Progress**: Knows what's done, what's in progress, what's next
+- **Ensures Completion**: Won't let tasks be marked complete without validation
+- **Coordinates Handoffs**: Makes sure each agent knows the current status
+
+### When Task Tracking Kicks In
+
+The system automatically starts tracking when you use commands like:
+
+- `/analyze` - Multi-phase analysis needs tracking
+- `/implement` - Planning → coding → testing cycle
+- `/build` - Multiple build steps
+- `/improve` - Analysis → enhancement → validation
+- `/design` - Design → implementation → review
+
+### Quality Assurance Built-In
+
+Every task goes through 9 quality checkpoints:
+
+1. **Start**: Verify task setup is correct
+2. **Middle Steps**: Check code quality, security, performance
+3. **End**: Validate everything works and is complete
+
+This ensures professional-grade output every time.
+
+### Why This Matters
+
+- **Nothing Gets Forgotten**: Every step is tracked
+- **Clear Progress**: You always know what's happening
+- **Quality Guaranteed**: Can't skip important validation
+- **Team Coordination**: Agents know what others have done
+
+## 🚀 Quick Start Examples
+
+### Analyzing Your Code
 
 ```bash
-/test --comprehensive              # Test-Engineer creates full suite
-/improve --focus quality           # Multi-agent quality improvement
-/security @api/                    # Security audit
+/analyze                     # Quick system analysis
+/analyze @src/              # Analyze specific folder
+/analyze --focus security   # Security-focused review
 ```
 
-### For Documentation
+### Building Features
 
 ```bash
-/document . --type readme          # Tech-Writer creates README
-/document @api/ --type api         # Generate API documentation
-/document --type guide --framework nextra  # Build documentation site
-/document src/auth --type inline   # Add inline code documentation
+/implement "user login"      # Build a new feature
+/build                      # Build your project
+/design "dashboard"         # Create UI components
 ```
 
-### For Complex Operations
+### Quality & Testing
 
 ```bash
-/improve @project/ --wave-mode    # Full multi-agent improvement (TodoWrite auto-enforced)
-/implement "big feature" --wave-mode --validate  # Validated implementation with TodoWrite
+/test                       # Create tests
+/improve                    # Improve code quality
+/security                   # Security audit
 ```
 
-## 🔧 Setup & Configuration
+### Documentation
 
-### Prerequisites
+```bash
+/document                   # Create documentation
+/document --type readme     # Update README
+/document --framework nextra # Build doc site
+```
 
-1. **Claude Code** with MCP server support
-2. **Node.js** for MCP server installations
-3. **Git** for configuration management
+### Advanced: Full Team Mode
 
-### Installation Steps
+```bash
+/improve --wave-mode        # Complete team improvement
+/implement "big feature" --wave-mode  # Multi-agent feature build
+```
 
-1. **Clone/sync this repo to your Claude Code config directory:**
+## 🔧 Complete Setup Guide
 
-   ```bash
-   cd ~/.claude
-   git init
-   git remote add origin https://github.com/rbonestell/claude-code.git
-   git fetch origin
-   git pull origin main
-   ```
+### What You Need
 
-2. **Configure MCP servers in `~/.claude.json`:**
-   Add the MCP server configurations shown in the MCP Servers section above
+1. **Claude Code** - The AI coding assistant (you're already using it!)
+2. **Node.js** - To run the MCP servers (most developers have this)
+3. **Git** - For getting the framework files
 
-3. **Start using enhanced Claude Code:**
-   - Agents automatically activate based on context
-   - TodoWrite enforcement ensures proper task management
-   - Use flags for manual agent/persona control
+### Installation (One Time Setup)
 
-### TodoWrite Troubleshooting
+#### Step 1: Get the Framework Files
 
-**Common Issues:**
+```bash
+cd ~/.claude
+git init
+git remote add origin https://github.com/rbonestell/claude-code.git
+git fetch origin
+git pull origin main
+```
 
-- **"MANDATORY: Call TodoWrite for multi-step operation"**
+#### Step 2: Add MCP Servers to Configuration
 
-  - This is expected behavior for complex tasks
-  - Initialize TodoWrite with appropriate todos for your operation
-  - Use `--skip-todo` flag only if absolutely necessary
+Open `~/.claude.json` and add the MCP server configuration from the "MCP Server Configuration" section above.
 
-- **Agent won't complete task**
+#### Step 3: Restart Claude Code
 
-  - Check if all todos are marked as completed
-  - Ensure proper evidence/validation is provided
-  - Review todo status with TodoRead before marking complete
+Close and reopen Claude Code to load the new configuration.
 
-- **Inter-agent handoff blocked**
-  - Verify sending agent has updated todo status
-  - Check that handoff includes todo validation reference
-  - Review MCP memory server connection
+#### Step 4: Test It Works
 
-**Best Practices:**
+Try a simple command:
 
-- Let the system enforce TodoWrite - it improves task tracking and completion rates
-- Create specific, actionable todos that match your operation phases
-- Update todo status in real-time as you progress
-- Don't mark tasks complete without proper validation
+```bash
+/analyze
+```
+
+If you see the Architect agent activate, you're all set!
+
+## 🔍 Troubleshooting
+
+### Common Questions
+
+### "Why does it say 'Call TodoWrite for multi-step operation'?"
+
+- This is normal for complex tasks
+- The system wants to track the work properly
+- Just let it create the task list automatically
+
+### "How do I know which agent is working?"
+
+- The agent will identify itself when it starts
+- Look for messages like "Architect agent analyzing..."
+
+### "Can I use my own tools instead of the Task tool?"
+
+- The framework uses the Task tool for safe code changes
+- This is intentional - it prevents accidental file overwrites
+- The Task tool is designed for incremental, reversible changes
+
+### "What if an MCP server isn't working?"
+
+- The framework has fallbacks for most operations
+- You can continue working with reduced capabilities
+- Check your `~/.claude.json` configuration
+
+### Getting Help
+
+- Framework issues: Check the documentation files in `.claude/`
+- Missing features: The framework is extensible - you can add your own agents
+- Best practices: Let the auto-selection work first, then override if needed
 
 ## 📝 License
 
