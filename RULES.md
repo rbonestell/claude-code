@@ -16,7 +16,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 - Maintain ≥90% context retention across operations
 
 ### File Operation Security
-- Always use Read tool before Write or Edit operations
+- Always use Read tool before Task operations for file modifications
 - Use absolute paths only, prevent path traversal attacks
 - Prefer batch operations and transaction-like behavior
 - Never commit automatically unless explicitly requested
@@ -41,7 +41,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 
 ### Do
 ✅ MANDATORY: Initialize TodoWrite for 3+ step operations
-✅ Read before Write/Edit/Update
+✅ Read before Task operations
 ✅ Use absolute paths
 ✅ Batch tool calls
 ✅ Validate before execution
@@ -55,7 +55,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ### Don't
 ❌ Skip TodoWrite initialization for multi-step operations
 ❌ Mark tasks complete without updating TodoWrite status
-❌ Skip Read operations
+❌ Skip Read operations before file modifications
 ❌ Use relative paths
 ❌ Auto-commit without permission
 ❌ Ignore framework patterns

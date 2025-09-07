@@ -119,38 +119,38 @@ wave_eligible:
 analysis:
   verbs: [analyze, review, explain, understand, investigate, troubleshoot]
   outputs: [insights, recommendations, reports]
-  typical_tools: [Grep, Read, Sequential]
+  typical_tools: [Grep, Read, mcp__sequential-thinking__sequentialthinking]
 
 creation:
   verbs: [create, build, implement, generate, design]
   outputs: [new files, features, components]
-  typical_tools: [Write, Context7]
+  typical_tools: [Task, Context7]
 
 implementation:
   verbs: [implement, develop, code, construct, realize]
   outputs: [working features, functional code, integrated components]
-  typical_tools: [Write, Edit, MultiEdit, Context7, Sequential]
+  typical_tools: [Task, Context7, mcp__sequential-thinking__sequentialthinking]
 
 modification:
   verbs: [update, refactor, improve, optimize, fix]
   outputs: [edited files, improvements]
-  typical_tools: [Edit, MultiEdit, Sequential]
+  typical_tools: [Task, mcp__sequential-thinking__sequentialthinking]
 
 debugging:
   verbs: [debug, fix, troubleshoot, resolve, investigate]
   outputs: [fixes, root causes, solutions]
-  typical_tools: [Grep, Sequential, Puppeteer]
+  typical_tools: [Grep, mcp__sequential-thinking__sequentialthinking, Puppeteer]
 
 iterative:
   verbs: [improve, refine, enhance, correct, polish, fix, iterate, loop]
   outputs: [progressive improvements, refined results, enhanced quality]
-  typical_tools: [Sequential, Read, Edit, MultiEdit, TodoWrite]
+  typical_tools: [mcp__sequential-thinking__sequentialthinking, Read, Task, TodoWrite]
 
 wave_operations:
   verbs: [comprehensively, systematically, thoroughly, progressively, iteratively]
   modifiers: [improve, optimize, refactor, modernize, enhance, audit, transform]
   outputs: [comprehensive improvements, systematic enhancements, progressive transformations]
-  typical_tools: [Sequential, Task, Read, Edit, MultiEdit, Context7]
+  typical_tools: [mcp__sequential-thinking__sequentialthinking, Task, Read, Context7]
   wave_patterns: [review-plan-implement-validate, assess-design-execute-verify, analyze-strategize-transform-optimize]
 ```
 
@@ -206,15 +206,15 @@ wave-optimization:
 
 | Pattern | Complexity | Domain | Auto-Activates | Agent | Confidence |
 |---------|------------|---------|----------------|-------|------------|
-| "analyze architecture" | complex | infrastructure | architect persona, --ultrathink, Sequential | architect | 95% |
+| "analyze architecture" | complex | infrastructure | architect persona, --ultrathink, mcp__sequential-thinking__sequentialthinking | architect | 95% |
 | "create component" | simple | frontend | frontend persona, Context7, --uc | designer | 90% |
-| "implement feature" | moderate | any | domain-specific persona, Context7, Sequential | coder | 88% |
+| "implement feature" | moderate | any | domain-specific persona, Context7, mcp__sequential-thinking__sequentialthinking | coder | 88% |
 | "implement API" | moderate | backend | backend persona, --seq, Context7 | coder | 92% |
 | "implement UI component" | simple | frontend | frontend persona, --c7 | designer | 94% |
 | "implement authentication" | complex | security | security persona, backend persona, --validate | coder + security-analyst | 90% |
-| "fix bug" | moderate | any | analyzer persona, --think, Sequential | coder | 85% |
+| "fix bug" | moderate | any | analyzer persona, --think, mcp__sequential-thinking__sequentialthinking | coder | 85% |
 | "optimize performance" | complex | backend | performance persona, --think-hard, Puppeteer | coder | 90% |
-| "security audit" | complex | security | security persona, --ultrathink, Sequential | security-analyst | 95% |
+| "security audit" | complex | security | security persona, --ultrathink, mcp__sequential-thinking__sequentialthinking | security-analyst | 95% |
 | "write documentation" | moderate | documentation | scribe persona, --persona-scribe=en, Context7 | tech-writer | 95% |
 | "improve iteratively" | moderate | iterative | intelligent persona, --seq, loop creation | architect → coder | 90% |
 | "analyze large codebase" | complex | any | --delegate --parallel-dirs, domain specialists | architect | 95% |
@@ -224,10 +224,10 @@ wave-optimization:
 | "modernize legacy system" | complex | legacy | --wave-mode --enterprise-waves --wave-checkpoint | architect → coder | 92% |
 | "comprehensive code review" | complex | quality | --wave-mode --wave-validation --systematic-waves | architect → test-engineer | 94% |
 | "design system creation" | complex | frontend | designer persona, Context7 | designer | 93% |
-| "test suite development" | moderate | testing | qa persona, Puppeteer, Sequential | test-engineer | 91% |
+| "test suite development" | moderate | testing | qa persona, Puppeteer, mcp__sequential-thinking__sequentialthinking | test-engineer | 91% |
 | "create README" | simple | documentation | scribe persona, Context7 | tech-writer | 92% |
 | "update documentation" | simple | documentation | scribe persona, Context7 | tech-writer | 88% |
-| "API documentation" | moderate | documentation | scribe persona, Context7, Sequential | tech-writer | 90% |
+| "API documentation" | moderate | documentation | scribe persona, Context7, mcp__sequential-thinking__sequentialthinking | tech-writer | 90% |
 | "user guide" | moderate | documentation | scribe persona, mentor persona, Context7 | tech-writer | 87% |
 
 ### Decision Trees
@@ -236,14 +236,14 @@ wave-optimization:
 
 **Base Tool Selection**:
 - **Search**: Grep (specific patterns) or Agent (open-ended)
-- **Understanding**: Sequential (complexity >0.7) or Read (simple)  
+- **Understanding**: mcp__sequential-thinking__sequentialthinking (complexity >0.7) or Read (simple)  
 - **Documentation**: Context7
 - **UI**: Context7 (via designer agent)
 - **Testing**: Puppeteer
 
 **Delegation & Wave Evaluation**:
 - **Delegation Score >0.6**: Add Task tool, auto-enable delegation flags based on scope
-- **Wave Score >0.7**: Add Sequential for coordination, auto-enable wave strategies based on requirements
+- **Wave Score >0.7**: Add mcp__sequential-thinking__sequentialthinking for coordination, auto-enable wave strategies based on requirements
 
 **Auto-Flag Assignment**:
 - Directory count >7 → `--delegate --parallel-dirs`
@@ -358,20 +358,20 @@ token_optimization:
 | Test suite creation | moderate | --delegate --parallel-files | test-engineer | 60% |
 
 **Sub-Agent Specialization Matrix**:
-- **Quality**: qa persona, complexity/maintainability focus, Read/Grep/Sequential tools
-- **Security**: security persona, vulnerabilities/compliance focus, Grep/Sequential/Context7 tools
-- **Performance**: performance persona, bottlenecks/optimization focus, Read/Sequential/Puppeteer tools
-- **Architecture**: architect persona, patterns/structure focus, Read/Sequential/Context7 tools
-- **API**: backend persona, endpoints/contracts focus, Grep/Context7/Sequential tools
+- **Quality**: qa persona, complexity/maintainability focus, Read/Grep/mcp__sequential-thinking__sequentialthinking tools
+- **Security**: security persona, vulnerabilities/compliance focus, Grep/mcp__sequential-thinking__sequentialthinking/Context7 tools
+- **Performance**: performance persona, bottlenecks/optimization focus, Read/mcp__sequential-thinking__sequentialthinking/Puppeteer tools
+- **Architecture**: architect persona, patterns/structure focus, Read/mcp__sequential-thinking__sequentialthinking/Context7 tools
+- **API**: backend persona, endpoints/contracts focus, Grep/Context7/mcp__sequential-thinking__sequentialthinking tools
 
 **Wave-Specific Specialization Matrix**:
-- **Review**: architect agent, current_state/quality_assessment focus, Read/Grep/Sequential tools
-- **Planning**: architect agent, strategy/design focus, Sequential/Context7/Write tools
-- **Implementation**: coder/designer agents, code_modification/feature_creation focus, Edit/MultiEdit/Task tools
-- **Validation**: test-engineer agent, testing/validation focus, Sequential/Puppeteer/Context7 tools
-- **Optimization**: coder agent with performance persona, performance_tuning/resource_optimization focus, Read/Sequential/Grep tools
-- **Security**: security-analyst agent, vulnerability/compliance focus, Grep/Sequential/Memory tools
-- **Documentation**: tech-writer agent, technical_writing/api_documentation focus, Context7/Sequential/TreeSitter tools
+- **Review**: architect agent, current_state/quality_assessment focus, Read/Grep/mcp__sequential-thinking__sequentialthinking tools
+- **Planning**: architect agent, strategy/design focus, mcp__sequential-thinking__sequentialthinking/Context7/Task tools
+- **Implementation**: coder/designer agents, code_modification/feature_creation focus, Task tools
+- **Validation**: test-engineer agent, testing/validation focus, mcp__sequential-thinking__sequentialthinking/Puppeteer/Context7 tools
+- **Optimization**: coder agent with performance persona, performance_tuning/resource_optimization focus, Read/mcp__sequential-thinking__sequentialthinking/Grep tools
+- **Security**: security-analyst agent, vulnerability/compliance focus, Grep/mcp__sequential-thinking__sequentialthinking/Memory tools
+- **Documentation**: tech-writer agent, technical_writing/api_documentation focus, Context7/mcp__sequential-thinking__sequentialthinking/TreeSitter tools
 
 #### Persona Auto-Activation System
 
@@ -457,11 +457,11 @@ Based on pattern match strength (40%), historical success rate (30%), context co
 quality_gates:
   step_0_todo: "MANDATORY TodoWrite initialization and status validation"
   step_1_syntax: "language parsers, Context7 validation, intelligent suggestions"
-  step_2_type: "Sequential analysis, type compatibility, context-aware suggestions"
+  step_2_type: "mcp__sequential-thinking__sequentialthinking analysis, type compatibility, context-aware suggestions"
   step_3_lint: "Context7 rules, quality analysis, refactoring suggestions"
-  step_4_security: "Sequential analysis, vulnerability assessment, OWASP compliance"
+  step_4_security: "mcp__sequential-thinking__sequentialthinking analysis, vulnerability assessment, OWASP compliance"
   step_5_test: "Puppeteer E2E, coverage analysis (≥80% unit, ≥70% integration)"
-  step_6_performance: "Sequential analysis, benchmarking, optimization suggestions"
+  step_6_performance: "mcp__sequential-thinking__sequentialthinking analysis, benchmarking, optimization suggestions"
   step_7_documentation: "Context7 patterns, completeness validation, accuracy verification"
   step_8_integration: "Puppeteer testing, deployment validation, compatibility verification"
   step_9_todo_completion: "MANDATORY TodoWrite completion validation before task closure"
@@ -533,7 +533,7 @@ Smart MCP server selection and orchestration.
 
 **Quick Selection Guide**:
 - **Context7**: Library docs, framework patterns
-- **Sequential**: Complex analysis, multi-step reasoning
+- **mcp__sequential-thinking__sequentialthinking**: Complex analysis, multi-step reasoning
 - **Context7**: UI components, design systems, framework patterns
 - **Puppeteer**: E2E testing, performance metrics
 

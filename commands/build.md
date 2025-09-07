@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Bash, Glob, TodoWrite, Edit, Task]
+allowed-tools: [Read, Bash, Glob, TodoWrite, Task]
 description: "Build, compile, and package projects with error handling and optimization"
 ---
 

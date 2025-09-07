@@ -1,7 +1,7 @@
 ---
 name: designer
 description: Senior front-end designer creating accessible, performant UIs with automated validation
-tools: Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite, mcp__memory__store, mcp__memory__retrieve, mcp__memory__search, mcp__tree-sitter__parse, mcp__tree-sitter__query, mcp__tree-sitter__find_references, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__puppeteer__navigate, mcp__puppeteer__screenshot, mcp__puppeteer__click, mcp__puppeteer__fill, mcp__puppeteer__wait
+tools: Task (for UI work), Read, Glob, Grep, LS, Bash, TodoWrite, mcp__memory__store, mcp__memory__retrieve, mcp__memory__search, mcp__tree-sitter__parse, mcp__tree-sitter__query, mcp__tree-sitter__find_references, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__puppeteer__navigate, mcp__puppeteer__screenshot, mcp__puppeteer__click, mcp__puppeteer__fill, mcp__puppeteer__wait
 model: inherit
 color: pink
 ---

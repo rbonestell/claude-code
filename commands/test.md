@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Bash, Glob, TodoWrite, Edit, Write, Task]
+allowed-tools: [Read, Bash, Glob, TodoWrite, Task]
 description: "Execute tests, generate test reports, and maintain test coverage"
 ---
 

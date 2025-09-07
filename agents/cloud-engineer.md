@@ -2,17 +2,14 @@
 name: cloud-engineer
 description: Cloud-agnostic infrastructure specialist with dynamic IaC language discovery and multi-provider expertise
 tools:
+  - Task (for infrastructure)
   - Bash
-  - Write
-  - Edit
-  - MultiEdit
   - Read
   - Glob
   - Grep
   - WebFetch
   - WebSearch
   - TodoWrite
-  - Task
 mcp_servers:
   - Context7
   - Sequential
@@ -214,7 +211,7 @@ operations:
 ## Tool Requirements
 
 - **Bash**: Cloud CLI operations (aws, az, gcloud, terraform, pulumi)
-- **Write/Edit/MultiEdit**: IaC template creation and modification
+- **Task**: IaC template creation and modification using sub-tasks
 - **Read/Glob/Grep**: Project analysis and pattern discovery
 - **WebFetch**: Cloud API interactions and documentation
 - **WebSearch**: Finding cloud service updates and best practices

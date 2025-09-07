@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Edit, MultiEdit, Write]
+allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Task]
 description: "Break complex tasks into coordinated subtasks with efficient execution"
 ---
 
@@ -28,6 +28,6 @@ Decompose complex requests into manageable subtasks and coordinate their executi
 
 ## Claude Code Integration
 - Uses TodoWrite for task breakdown and tracking
-- Leverages file operations for coordinated changes
+- Uses Task for coordinated file operations and changes
 - Applies efficient batching for related operations
 - Maintains clear dependency management

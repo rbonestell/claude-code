@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, Write]
+allowed-tools: [Read, Grep, Glob, Bash, Task]
 description: "Generate comprehensive project documentation and knowledge base"
 ---
 
@@ -29,5 +29,5 @@ Create and maintain comprehensive project documentation, indexes, and knowledge 
 ## Claude Code Integration
 - Uses Glob for systematic file discovery
 - Leverages Grep for extracting documentation patterns
-- Applies Write for creating structured documentation
+- Uses Task for creating and organizing structured documentation
 - Maintains consistency with project conventions

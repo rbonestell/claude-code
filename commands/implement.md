@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
+allowed-tools: [Read, Bash, Glob, TodoWrite, Task]
 description: "Feature and code implementation with intelligent persona activation and MCP integration"
 ---
 
@@ -36,7 +36,7 @@ Implement features, components, and code functionality with intelligent expert a
 ## Claude Code Integration
 - Uses Task tool to orchestrate @agent-architect → @agent-coder/@agent-designer → @agent-test-engineer → @agent-tech-writer workflow
 - Leverages Read and Glob for codebase analysis and context understanding
-- Uses Write/Edit/MultiEdit for code generation and modification
+- Uses Task for code generation, modification, and file operations
 - Applies TodoWrite for implementation progress tracking
 - Coordinates with MCP servers for specialized functionality
 - Auto-activates appropriate personas based on implementation type

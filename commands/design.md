@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Grep, Glob, Write, Edit, TodoWrite, Task]
+allowed-tools: [Read, Grep, Glob, TodoWrite, Task]
 description: "Design system architecture, APIs, and component interfaces"
 ---
 
@@ -36,7 +36,7 @@ Design system architecture, APIs, component interfaces, and technical specificat
 
 - Uses Task tool to orchestrate @agent-architect and @agent-designer
 - Uses Read for requirement analysis
-- Leverages Write for design documentation
+- Uses Task for design documentation and specification creation
 - Applies TodoWrite for design task tracking
 - Maintains consistency with architectural patterns
 - Shares design specifications between agents via MCP memory server

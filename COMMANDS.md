@@ -85,7 +85,7 @@ supporting-agents: ["designer", "architect"]
 - **Auto-Persona**: Frontend, Backend, Architect, Scribe
 - **Auto-Agent**: coder (primary), designer (UI components), architect (structure)
 - **MCP Integration**: Context7 (UI patterns and framework docs), Sequential (logic)
-- **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite, Edit, MultiEdit]
+- **Tool Orchestration**: [Read, Grep, Glob, Bash, TodoWrite, Task]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
 **`/implement $ARGUMENTS`**
@@ -103,7 +103,7 @@ supporting-agents: ["designer", "security-analyst"]
 - **Auto-Persona**: Frontend, Backend, Architect, Security (context-dependent)
 - **Auto-Agent**: coder (primary), designer (UI parts), security-analyst (auth features)
 - **MCP Integration**: Context7 (UI patterns and framework docs), Sequential (complex logic)
-- **Tool Orchestration**: [Read, Write, Edit, MultiEdit, Bash, Glob, TodoWrite, Task]
+- **Tool Orchestration**: [Read, Task, Bash, Glob, TodoWrite]
 - **Arguments**: `[feature-description]`, `--type component|api|service|feature`, `--framework <name>`, `--<flags>`
 
 
@@ -149,7 +149,7 @@ supporting-agents: ["coder", "designer"]
 - **Auto-Persona**: Refactorer, Performance, Architect, QA
 - **Auto-Agent**: architect (analysis), coder (implementation), designer (UI improvements)
 - **MCP Integration**: Sequential (logic), Context7 (patterns and UI improvements)
-- **Tool Orchestration**: [Read, Grep, Glob, Edit, MultiEdit, Bash]
+- **Tool Orchestration**: [Read, Grep, Glob, Task, Bash]
 - **Arguments**: `[target]`, `@<path>`, `!<command>`, `--<flags>`
 
 

@@ -296,11 +296,12 @@ todo_keys:
 - **Migration**: Auto-upgrade tools provided
 
 ### Quick Reference
-**Templates**: T1-T5 for common patterns
-**Error Codes**: E1-E5 for failure scenarios
+**Templates**: T1-T6 for common patterns (including TodoWrite validation)
+**Error Codes**: E1-E8 for failure scenarios (including TodoWrite errors)
 **Compression**: 40-60% reduction via references
 **Cache Strategy**: Per-agent TTL optimization
 **Progressive Disclosure**: Summary → Standard → Full
+**Task Tool Integration**: All file operations performed via Task tool
 
 ### Support & Monitoring
 - **Context Usage**: Alert at 75% threshold

@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Grep, Glob, Edit, MultiEdit, TodoWrite, Task]
+allowed-tools: [Read, Grep, Glob, TodoWrite, Task]
 description: "Apply systematic improvements to code quality, performance, and maintainability"
 ---
 
@@ -36,7 +36,7 @@ Apply systematic improvements to code quality, performance, maintainability, and
 
 - Uses Task tool to orchestrate @agent-architect → @agent-coder/@agent-designer workflow
 - Uses Read for comprehensive code analysis
-- Leverages MultiEdit for batch improvements
+- Uses Task for batch improvements and file operations
 - Applies TodoWrite for improvement tracking
 - Maintains safety and validation mechanisms
 - Shares improvement plans between agents via MCP memory server

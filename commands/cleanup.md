@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, Edit, MultiEdit]
+allowed-tools: [Read, Grep, Glob, Bash, Task]
 description: "Clean up code, remove dead code, and optimize project structure"
 ---
 
@@ -30,5 +30,5 @@ Systematically clean up code, remove dead code, optimize imports, and improve pr
 ## Claude Code Integration
 - Uses Glob for systematic file discovery
 - Leverages Grep for dead code detection
-- Applies MultiEdit for batch cleanup operations
+- Uses Task for batch cleanup operations and file modifications
 - Maintains backup and rollback capabilities

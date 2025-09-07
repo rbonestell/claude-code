@@ -103,7 +103,7 @@ Flag system for Claude Code SuperClaude framework with auto-activation and confl
 **`--agent-coder`**
 - Force @agent-coder for implementation tasks
 - Best for: Feature development, bug fixes, refactoring
-- Tools: Write, Edit, Context7, Memory
+- Tools: Task (for implementations), Context7, Memory
 
 **`--agent-designer`**
 - Force @agent-designer for UI/UX work

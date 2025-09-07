@@ -34,7 +34,7 @@ optimization_priority:
     - Cross-session persistence
     - Agent communication hub
 
-  2. Tree-Sitter: # Local analysis (fast)
+  2. mcp__tree-sitter: # Local analysis (fast)
     - Code structure parsing
     - Pattern identification
     - AST caching for reuse
@@ -44,7 +44,7 @@ optimization_priority:
     - Best practices research
     - Framework patterns
 
-  4. Puppeteer: # Browser automation (highest latency)
+  4. mcp__puppeteer: # Browser automation (highest latency)
     - UI validation
     - E2E testing
     - Visual regression testing
@@ -79,7 +79,7 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
     "architectural:decisions:*",
     "test:patterns:*"
   ],
-  "batch_tree_sitter_queries": [
+  "batch_mcp_tree_sitter_queries": [
     { "type": "find_functions", "pattern": "auth*" },
     { "type": "find_classes", "pattern": "*Service" },
     { "type": "find_patterns", "pattern": "repository" }
@@ -108,13 +108,13 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 
 | Agent                       | Domain                   | Primary Tools                                                            | MCP Servers                                                                                                   | Task Tool Type   | Optimization Priority  |
 | --------------------------- | ------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------- | ---------------- | ---------------------- |
-| **@agent-architect**        | System design & analysis | Bash, Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Tree-Sitter  | Memory (patterns), Context7 (docs), Tree-Sitter (AST), Puppeteer (validation)                                 | general-purpose  | Memory-first caching   |
-| **@agent-coder**            | Implementation & coding  | Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite            | Memory (patterns), Tree-Sitter (analysis), Context7 (libraries), Puppeteer (UI testing)                       | coder            | Pattern template reuse |
-| **@agent-designer**         | UI/UX & frontend         | Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite, Puppeteer | Context7 (UI patterns), Memory (design decisions), Tree-Sitter (components), Puppeteer (validation)           | designer         | Batch validations      |
-| **@agent-security-analyst** | Security & compliance    | Glob, Grep, LS, Read, WebFetch, TodoWrite, WebSearch, Tree-Sitter        | Memory (vulnerabilities), Tree-Sitter (code analysis), Context7 (security docs), Puppeteer (frontend testing) | security-analyst | Streaming findings     |
-| **@agent-test-engineer**    | Testing & QA             | Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite, Puppeteer | Memory (test patterns), Tree-Sitter (test analysis), Context7 (frameworks), Puppeteer (E2E testing)           | test-engineer    | Incremental updates    |
-| **@agent-tech-writer**      | Documentation & guides   | Write, Edit, MultiEdit, Read, Glob, Grep, LS, Bash, TodoWrite            | Context7 (docs standards), Memory (templates), Tree-Sitter (code extraction), Puppeteer (site validation)     | tech-writer      | Template caching       |
-| **@agent-cloud-engineer**  | Cloud & Infrastructure   | Bash, Read, Write, Edit, Glob, Grep, TodoWrite                         | Context7 (dynamic IaC docs), Memory (patterns), Sequential (analysis), Tree-Sitter (IaC parsing)              | cloud-engineer   | Discovery-first caching |
+| **@agent-architect**        | System design & analysis | Bash, Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, Task  | Memory (patterns), Context7 (docs), mcp__tree-sitter (AST), mcp__puppeteer (validation)                                 | general-purpose  | Memory-first caching   |
+| **@agent-coder**            | Implementation & coding  | Task (for implementations), Read, Glob, Grep, Bash, TodoWrite, BashOutput            | Memory (patterns), mcp__tree-sitter (analysis), Context7 (libraries), mcp__puppeteer (UI testing)                       | coder            | Pattern template reuse |
+| **@agent-designer**         | UI/UX & frontend         | Task (for UI work), Read, Glob, Grep, Bash, TodoWrite, BashOutput | Context7 (UI patterns), Memory (design decisions), mcp__tree-sitter (components), mcp__puppeteer (validation)           | designer         | Batch validations      |
+| **@agent-security-analyst** | Security & compliance    | Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, Task        | Memory (vulnerabilities), mcp__tree-sitter (code analysis), Context7 (security docs), mcp__puppeteer (frontend testing) | security-analyst | Streaming findings     |
+| **@agent-test-engineer**    | Testing & QA             | Task (for test operations), Read, Glob, Grep, Bash, TodoWrite, BashOutput | Memory (test patterns), mcp__tree-sitter (test analysis), Context7 (frameworks), mcp__puppeteer (E2E testing)           | test-engineer    | Incremental updates    |
+| **@agent-tech-writer**      | Documentation & guides   | Task (for documentation), Read, Glob, Grep, Bash, TodoWrite, BashOutput            | Context7 (docs standards), Memory (templates), mcp__tree-sitter (code extraction), mcp__puppeteer (site validation)     | tech-writer      | Template caching       |
+| **@agent-cloud-engineer**  | Cloud & Infrastructure   | Bash, Read, Task (for infrastructure), Glob, Grep, TodoWrite, BashOutput                         | Context7 (dynamic IaC docs), Memory (patterns), mcp__sequential (analysis), mcp__tree-sitter (IaC parsing)              | cloud-engineer   | Discovery-first caching |
 
 ## Agent Capabilities Matrix
 
@@ -128,7 +128,7 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 - **Handoff**: Provides specifications to @agent-coder, @agent-designer, and @agent-tech-writer
 - **MCP Optimization**: Session-wide pattern caching, reduces redundant analysis by 85%
 - **Pattern Recognition**: Uses Memory Server to store identified patterns for project reuse
-- **Context Efficiency**: Batches Tree-Sitter queries, uses progressive detail loading
+- **Context Efficiency**: Batches mcp__tree-sitter queries, uses progressive detail loading
 - **Emergency Protocols**: Falls back to cached patterns when Context7 unavailable
 
 ### @agent-coder
@@ -140,8 +140,8 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 - **Input**: Accepts @agent-architect findings and @agent-designer specifications
 - **Output**: Production-ready code with tests
 - **MCP Optimization**: Pattern template reuse, minimal Context7 usage (cached patterns first)
-- **Implementation Strategy**: "Hippocratic Oath" - do no harm, minimal intervention
-- **Context Efficiency**: Reuses stored patterns, batches file operations
+- **Implementation Strategy**: "Hippocratic Oath" - do no harm, minimal intervention via Task tool
+- **Context Efficiency**: Reuses stored patterns, batches Task operations for file modifications
 - **Rollback System**: Maintains checkpoints, circuit breakers on test failure
 
 ### @agent-designer
@@ -153,7 +153,7 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 - **Input**: Accepts @agent-architect constraints and requirements
 - **Output**: Design specifications for @agent-coder implementation
 - **MCP Integration**: Uses Context7 for UI component patterns and best practices
-- **MCP Optimization**: Batched Puppeteer validations across multiple viewports
+- **MCP Optimization**: Batched mcp__puppeteer validations across multiple viewports
 - **Design System**: Cached design tokens and patterns in Memory Server
 - **Context Efficiency**: Progressive loading of visual assets, compressed screenshots
 - **Quality Gates**: Circuit breakers on accessibility failures, performance degradation
@@ -179,9 +179,9 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 - **Best For**: Test suite development, validation, performance testing
 - **Input**: Test requirements from @agent-coder and @agent-designer
 - **Output**: Test results, coverage reports, quality metrics
-- **MCP Integration**: Uses Puppeteer for browser automation and E2E testing
+- **MCP Integration**: Uses mcp__puppeteer for browser automation and E2E testing
 - **MCP Optimization**: Incremental coverage updates, cached test patterns and utilities
-- **Test Strategy**: Pattern-driven test creation, reusing existing test utilities
+- **Test Strategy**: Pattern-driven test creation via Task tool, reusing existing test utilities
 - **Context Efficiency**: Progressive test reporting, batched E2E validations
 - **Quality Gates**: Circuit breakers on coverage drops, flaky test detection
 
@@ -193,11 +193,11 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 - **Best For**: README creation, API documentation, user guides, documentation sites
 - **Input**: Accepts patterns from @agent-architect, implementations from @agent-coder, UI specs from @agent-designer
 - **Output**: Complete documentation, coverage metrics, documentation sites
-- **MCP Integration**: Uses Context7 for best practices, Tree-Sitter for code analysis
-- **MCP Optimization**: Documentation template caching, batch content generation
+- **MCP Integration**: Uses Context7 for best practices, mcp__tree-sitter for code analysis
+- **MCP Optimization**: Documentation template caching, batch content generation via Task tool
 - **Multi-Agent Input**: Processes structured data from architect, coder, and designer agents
 - **Context Efficiency**: Progressive documentation building, cached templates and glossaries
-- **Framework Expertise**: Nextra, Docusaurus, VitePress with optimized build processes
+- **Framework Expertise**: Nextra, Docusaurus, VitePress with optimized build processes via Task tool
 
 ### @agent-cloud-engineer
 
@@ -207,9 +207,9 @@ cache:docs:libraries      # Context7 lookups (24h TTL)
 - **Best For**: Infrastructure provisioning, cloud migrations, disaster recovery, cost analysis
 - **Input**: Accepts requirements from @agent-architect, security policies from @agent-security-analyst
 - **Output**: Deployed infrastructure, IaC templates, cost reports, endpoint configurations
-- **MCP Integration**: Dynamic Context7 queries for discovered IaC language, Sequential for planning
+- **MCP Integration**: Dynamic Context7 queries for discovered IaC language, mcp__sequential for planning
 - **MCP Optimization**: Discovery-first caching, 4-hour IaC pattern retention
-- **Discovery Strategy**: Auto-detects IaC language (Terraform, Pulumi, CloudFormation, CDK, etc.)
+- **Discovery Strategy**: Auto-detects IaC language (Terraform, Pulumi, CloudFormation, CDK, etc.) via Task tool
 - **Context Efficiency**: Reference-based IaC storage, compressed deployment logs
 - **Provider Agnostic**: Equal support for AWS, Azure, GCP, and 20+ cloud providers
 
@@ -366,7 +366,7 @@ context_thresholds:
 
 #### Discovery Process
 
-1. **Initial Scan**: Tree-Sitter parses code structure
+1. **Initial Scan**: mcp__tree-sitter parses code structure
 2. **Pattern Extraction**: Identify recurring structures and conventions
 3. **Classification**: Categorize by domain (auth, data, UI, testing)
 4. **Deduplication**: Hash-based detection of duplicate patterns
@@ -506,7 +506,7 @@ comprehensive_improvement_wave:
     mcp_strategy: "incremental_updates"
     input: ["ref:code:modules", "ref:ui:components"]
     output: "cache:test:results"
-    optimization: "Batch Puppeteer validations"
+    optimization: "Batch mcp__puppeteer validations"
 
   wave_5_documentation:
     agent: @agent-tech-writer
@@ -539,8 +539,8 @@ wave_mcp_coordination:
 ### Agent-Specific Wave Optimizations
 
 - **@agent-architect**: Session-wide pattern caching, one-time discovery
-- **@agent-coder**: Template reuse across waves, minimal Context7 lookups
-- **@agent-designer**: Batched Puppeteer validations, cached design tokens
+- **@agent-coder**: Template reuse across waves via Task tool, minimal Context7 lookups
+- **@agent-designer**: Batched mcp__puppeteer validations, cached design tokens
 - **@agent-security-analyst**: Streaming findings, incremental reporting
 - **@agent-test-engineer**: Incremental coverage updates, test pattern library
 - **@agent-tech-writer**: Template caching, progressive content building
@@ -624,7 +624,7 @@ mcp_optimization_metrics:
   cache_hit_rates:
     memory_server: 72% # Target: 70%+
     context7_docs: 68% # Target: 60%+
-    tree_sitter_ast: 85% # Target: 80%+
+    mcp__tree_sitter_ast: 85% # Target: 80%+
     pattern_library: 78% # Target: 75%+
 
   query_batching_efficiency:
@@ -750,12 +750,12 @@ circuit_breakers:
 
     tree_sitter_overload:
       threshold: "Queue >10 requests"
-      action: "Defer non-critical parsing"
+      action: "Defer non-critical mcp__tree-sitter parsing"
       recovery: "Process queue when idle"
 
     puppeteer_instability:
       threshold: "3 consecutive failures"
-      action: "Skip visual validations"
+      action: "Skip visual validations via mcp__puppeteer"
       recovery: "Manual validation required"
 
   context_exhaustion:
@@ -812,19 +812,19 @@ degradation_levels:
 
 **@agent-architect**:
 
-- Fallback to cached patterns when Tree-Sitter fails
+- Fallback to cached patterns when mcp__tree-sitter fails
 - Use simplified analysis when context critical
 - Alert user when comprehensive analysis impossible
 
 **@agent-coder**:
 
-- Implement with basic patterns when templates unavailable
+- Implement with basic patterns via Task tool when templates unavailable
 - Skip non-critical Context7 lookups
 - Maintain rollback points for emergency restoration
 
 **@agent-designer**:
 
-- Skip batch validations, use basic responsive testing
+- Skip batch validations via mcp__puppeteer, use basic responsive testing
 - Fallback to cached design tokens
 - Alert on accessibility validation skips
 
@@ -842,8 +842,8 @@ degradation_levels:
 
 **@agent-tech-writer**:
 
-- Use basic templates when cache unavailable
-- Generate minimal documentation in emergency mode
+- Use basic templates via Task tool when cache unavailable
+- Generate minimal documentation via Task tool in emergency mode
 - Prioritize critical API documentation
 
 **@agent-cloud-engineer**:
@@ -1006,9 +1006,9 @@ loading_intelligence:
 ```
 Priority | Server | Use Case | Latency | Cache Strategy
 1 | Memory | Pattern storage | 0ms | Permanent cache
-2 | Tree-Sitter | Code analysis | Low | Session cache
+2 | mcp__tree-sitter | Code analysis | Low | Session cache
 3 | Context7 | Documentation | Medium | 24h cache
-4 | Puppeteer | Browser testing | High | No cache
+4 | mcp__puppeteer | Browser testing | High | No cache
 ```
 
 ### Context Threshold Actions
@@ -1026,13 +1026,13 @@ Context % | Action | Description
 
 ```
 Agent | Primary Strategy | Cache Focus | MCP Priority
-Architect | Session pattern cache | Global patterns | Memory→Tree-Sitter→Context7
+Architect | Session pattern cache | Global patterns | Memory→mcp__tree-sitter→Context7
 Coder | Template reuse | Code patterns | Memory→Context7 (minimal)
-Designer | Batch validations | Design tokens | Context7→Memory→Puppeteer
-Security | Streaming findings | Vulnerabilities | Memory→Tree-Sitter→Context7
-Test | Incremental updates | Test patterns | Memory→Puppeteer→Context7
-Tech-Writer | Template caching | Doc templates | Context7→Memory→Tree-Sitter
-Cloud-Engineer | Discovery-first | IaC patterns | Context7→Memory→Sequential
+Designer | Batch validations | Design tokens | Context7→Memory→mcp__puppeteer
+Security | Streaming findings | Vulnerabilities | Memory→mcp__tree-sitter→Context7
+Test | Incremental updates | Test patterns | Memory→mcp__puppeteer→Context7
+Tech-Writer | Template caching | Doc templates | Context7→Memory→mcp__tree-sitter
+Cloud-Engineer | Discovery-first | IaC patterns | Context7→Memory→mcp__sequential
 ```
 
 ### Cache Key Patterns

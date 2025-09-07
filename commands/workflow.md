@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Write, Edit, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__context7__context7]
+allowed-tools: [Read, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__context7__context7]
 description: "Generate structured implementation workflows from PRDs and feature requirements with expert guidance"
 wave-enabled: true
 complexity-threshold: 0.6
@@ -295,7 +295,7 @@ Analyze Product Requirements Documents (PRDs) and feature specifications to gene
 - **Context Integration** - <10 seconds for MCP server coordination
 
 ## Claude Code Integration
-- **Multi-Tool Orchestration** - Coordinates Read, Write, Edit, Glob, Grep for comprehensive analysis
+- **Multi-Tool Orchestration** - Coordinates Read, Task, Glob, Grep for comprehensive analysis
 - **Progressive Task Creation** - Uses TodoWrite for immediate next steps and Task for long-term planning
 - **MCP Server Coordination** - Intelligent routing to Context7 and Sequential based on workflow needs
 - **Cross-Command Integration** - Seamless handoff to implement, analyze, design, and other SuperClaude commands

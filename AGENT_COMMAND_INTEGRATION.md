@@ -9,12 +9,12 @@ This document summarizes how each command integrates with specialized agents and
 | Command | Primary Agent | Supporting Agents | MCP Servers | Workflow |
 |---------|--------------|-------------------|-------------|----------|
 | `/analyze` | architect | security-analyst | Sequential, Context7 | Architect analyzes → reports findings |
-| `/implement` | architect → coder/designer | test-engineer, tech-writer* | Context7, Sequential | Architect plans → Coder/Designer implement → Tech-writer docs* → Test validates |
-| `/build` | architect → coder | designer, test-engineer | Context7 | Architect analyzes → Coder builds → Test validates |
-| `/improve` | architect → coder | designer, test-engineer | Sequential, Context7 | Architect identifies → Coder/Designer improve → Test verifies |
-| `/design` | architect + designer | coder | Context7 | Architect system design + Designer UI → Coder planning |
-| `/test` | test-engineer | coder | Puppeteer, Sequential | Test-engineer leads → Coder implements tests |
-| `/troubleshoot` | architect | security-analyst → coder → test-engineer | Sequential | Architect diagnoses → Coder fixes → Test validates |
+| `/implement` | architect → coder/designer | test-engineer, tech-writer* | Context7, Sequential | Architect plans → Coder/Designer implement via Task tool → Tech-writer docs* → Test validates |
+| `/build` | architect → coder | designer, test-engineer | Context7 | Architect analyzes → Coder builds via Task tool → Test validates |
+| `/improve` | architect → coder | designer, test-engineer | Sequential, Context7 | Architect identifies → Coder/Designer improve via Task tool → Test verifies |
+| `/design` | architect + designer | coder | Context7 | Architect system design + Designer UI via Task tool → Coder planning |
+| `/test` | test-engineer | coder | Puppeteer, Sequential | Test-engineer leads → Coder implements tests via Task tool |
+| `/troubleshoot` | architect | security-analyst → coder → test-engineer | Sequential | Architect diagnoses → Coder fixes via Task tool → Test validates |
 
 *Note: tech-writer* indicates optional documentation generation when --documentation flag is used*
 
@@ -22,15 +22,15 @@ This document summarizes how each command integrates with specialized agents and
 
 | Command | Primary Agent | Supporting Agents | MCP Servers | Workflow |
 |---------|--------------|-------------------|-------------|----------|
-| `/document` | tech-writer | architect, designer | Context7, Sequential, Memory (templates) | Tech-writer creates docs → Architect provides patterns → Designer adds UI docs |
-| `/task` | architect | coder, designer, test-engineer | Sequential, Memory (project state) | Architect plans → Agents execute → Test validates |
-| `/workflow` | architect | all agents | Sequential, Context7 | Comprehensive multi-agent orchestration |
+| `/document` | tech-writer | architect, designer | Context7, Sequential, Memory (templates) | Tech-writer creates docs via Task tool → Architect provides patterns → Designer adds UI docs |
+| `/task` | architect | coder, designer, test-engineer | Sequential, Memory (project state) | Architect plans → Agents execute via Task tool → Test validates |
+| `/workflow` | architect | all agents | Sequential, Context7 | Comprehensive multi-agent orchestration via Task tool |
 
 ### Additional Enhanced Commands
 
 | Command | Primary Agent | Supporting Agents | MCP Servers | Workflow |
 |---------|--------------|-------------------|-------------|----------|
-| `/cleanup` | architect | coder | Tree-Sitter (dead code), Memory (patterns), Sequential | Technical debt reduction |
+| `/cleanup` | architect | coder | Tree-Sitter (dead code), Memory (patterns), Sequential | Technical debt reduction via Task tool |
 | `/estimate` | architect | - | Memory (historical), Context7 (benchmarks), Sequential | Evidence-based estimation |
 | `/git` | general | - | Memory (commit patterns), Sequential, Tree-Sitter (changes) | Git workflow assistance |
 | `/security` | security-analyst | architect | Tree-Sitter (vulnerabilities), Sequential, Context7, Memory (security patterns) | Security audits |
@@ -46,14 +46,16 @@ This document summarizes how each command integrates with specialized agents and
 ### Coder Agent
 - **Primary Role**: Implementation, bug fixes, refactoring
 - **Commands**: Implements in `/implement`, `/build`, `/improve`
-- **Outputs**: Production code, fixes, refactored code
+- **Outputs**: Production code, fixes, refactored code via Task tool
 - **MCP**: Context7 for patterns, Sequential for logic
+- **Tool Approach**: Uses Task tool for all file operations
 
 ### Designer Agent
 - **Primary Role**: UI/UX, frontend components
 - **Commands**: UI in `/implement`, `/design`, frontend `/build`
-- **Outputs**: Component specs, UI implementations
+- **Outputs**: Component specs, UI implementations via Task tool
 - **MCP**: Context7 for UI patterns, component best practices, and framework docs
+- **Tool Approach**: Uses Task tool for UI file operations
 
 ### Security-Analyst Agent
 - **Primary Role**: Security audits, vulnerability assessment
@@ -64,14 +66,16 @@ This document summarizes how each command integrates with specialized agents and
 ### Test-Engineer Agent
 - **Primary Role**: Testing, validation, quality assurance
 - **Commands**: Leads `/test`, validates all implementations
-- **Outputs**: Test results, coverage reports
+- **Outputs**: Test results, coverage reports via Task tool
 - **MCP**: Puppeteer for E2E, Sequential for planning
+- **Tool Approach**: Uses Task tool for test file operations
 
 ### Tech-Writer Agent
 - **Primary Role**: Technical documentation, API references, user guides
 - **Commands**: Leads `/document`, documentation aspects of other commands
-- **Outputs**: Technical docs, API documentation, README files, user guides
+- **Outputs**: Technical docs, API documentation, README files, user guides via Task tool
 - **MCP**: Context7 for documentation patterns, Sequential for content analysis
+- **Tool Approach**: Uses Task tool for all documentation file operations
 
 ## MCP Server Usage by Command
 
@@ -101,10 +105,10 @@ This document summarizes how each command integrates with specialized agents and
 - `/workflow` - Performance validation
 
 ### Tech-Writer with Context7 & Sequential
-- `/document` - Documentation patterns and content organization using Context7 patterns
-- `/implement` - Documentation creation when --documentation flag is used
-- Architecture docs - Sequential for analysis, Context7 for documentation best practices
-- API documentation - Context7 for API documentation standards and patterns
+- `/document` - Documentation patterns and content organization using Context7 patterns via Task tool
+- `/implement` - Documentation creation when --documentation flag is used via Task tool
+- Architecture docs - Sequential for analysis, Context7 for documentation best practices, Task tool for file creation
+- API documentation - Context7 for API documentation standards and patterns, Task tool for documentation generation
 
 ## Inter-Agent Communication Protocol
 
@@ -126,13 +130,13 @@ docs:coverage:*           - Documentation coverage metrics
 
 ### Standard Handoff Flow
 1. **Architect → Coder/Designer**: Analysis findings and specifications
-2. **Designer → Coder**: UI specifications for implementation
-3. **Coder → Test-Engineer**: Implementation details for testing
+2. **Designer → Coder**: UI specifications for Task tool implementation
+3. **Coder → Test-Engineer**: Implementation details for Task tool testing
 4. **Security-Analyst → All**: Security findings broadcast
 5. **Test-Engineer → All**: Test results and quality metrics
-6. **Architect → Tech-Writer**: Patterns and architectural decisions for documentation
-7. **Coder → Tech-Writer**: Implementation details and API specs for documentation
-8. **Designer → Tech-Writer**: UI specifications and component docs for user guides
+6. **Architect → Tech-Writer**: Patterns and architectural decisions for Task tool documentation
+7. **Coder → Tech-Writer**: Implementation details and API specs for Task tool documentation
+8. **Designer → Tech-Writer**: UI specifications and component docs for Task tool user guides
 
 ## Wave Integration
 
@@ -140,9 +144,9 @@ Commands with wave support orchestrate multiple agents in phases:
 
 1. **Analysis Wave**: Architect agent analyzes
 2. **Security Wave**: Security-analyst audits
-3. **Implementation Wave**: Coder/Designer implement in parallel
-4. **Documentation Wave**: Tech-writer creates comprehensive documentation
-5. **Validation Wave**: Test-engineer validates
+3. **Implementation Wave**: Coder/Designer implement in parallel via Task tool
+4. **Documentation Wave**: Tech-writer creates comprehensive documentation via Task tool
+5. **Validation Wave**: Test-engineer validates via Task tool
 
 ## Best Practices
 

@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Bash, Read, Glob, TodoWrite, Edit]
+allowed-tools: [Bash, Read, Glob, TodoWrite, Task]
 description: "Git operations with intelligent commit messages and branch management"
 ---
 

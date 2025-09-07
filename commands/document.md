@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Grep, Glob, Write, Edit, Task]
+allowed-tools: [Read, Grep, Glob, Task]
 description: "Create clear, accurate technical documentation following project patterns"
 ---
 
@@ -66,7 +66,7 @@ Create clear, accurate technical documentation that follows existing project pat
   - Memory: Store and retrieve documentation patterns
 - **Tools**:
   - Read/Grep: Analyze existing documentation
-  - Write/Edit: Create or update documentation
+  - Task: Create, update, and manage documentation files
   - Task: Coordinate with other agents when needed
 
 ## Examples

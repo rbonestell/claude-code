@@ -201,7 +201,7 @@ quality_gates:
 batch_optimization:
   memory_operations:
     read_batch_size: 10   # Read 10 keys at once
-    write_batch_size: 5   # Write 5 keys at once
+    write_batch_size: 5   # Task operations batch size
     todo_batch_size: 3    # Batch todo status updates
     
   tree_sitter_queries:

@@ -45,7 +45,7 @@
 - **Recovery Strategies**: Design systems with graceful degradation
 
 ### Testing Philosophy
-- **Test-Driven Development**: Write tests before implementation to clarify requirements
+- **Test-Driven Development**: Create tests before implementation to clarify requirements
 - **Testing Pyramid**: Emphasize unit tests, support with integration tests, supplement with E2E tests
 - **Tests as Documentation**: Tests should serve as executable examples of system behavior
 - **Comprehensive Coverage**: Test all critical paths and edge cases thoroughly

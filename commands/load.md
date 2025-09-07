@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, Write]
+allowed-tools: [Read, Grep, Glob, Bash, Task]
 description: "Load and analyze project context, configurations, and dependencies"
 ---
 
@@ -30,4 +30,4 @@ Load and analyze project context, configurations, dependencies, and environment 
 - Uses Glob for comprehensive project discovery
 - Leverages Read for configuration analysis
 - Applies Bash for environment validation
-- Maintains efficient context caching mechanisms
+- Uses Task for context processing and caching mechanisms
