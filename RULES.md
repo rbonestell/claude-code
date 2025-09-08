@@ -15,11 +15,15 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 - Use /spawn and /task for complex multi-session workflows
 - Maintain ≥90% context retention across operations
 
-### File Operation Security
-- Always use Read tool before Task operations for file modifications
+### File Operation Rules
+- **MANDATORY**: Use built-in file tools (Read, Write, Edit, MultiEdit) for all file operations
+- **FALLBACK ONLY**: Use bash commands for file operations only when built-in tools fail or are insufficient
+- Always use Read tool before any file modifications to understand context
+- Use Edit/MultiEdit for modifying existing files, Write only for new files when necessary
 - Use absolute paths only, prevent path traversal attacks
-- Prefer batch operations and transaction-like behavior
+- Prefer batch operations (MultiEdit) for multiple changes to same file
 - Never commit automatically unless explicitly requested
+- Use Task tool only for complex operations requiring specialized sub-agent expertise
 
 ### Framework Compliance
 - Check package.json/pyproject.toml before using libraries
@@ -41,7 +45,8 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 
 ### Do
 ✅ MANDATORY: Initialize TodoWrite for 3+ step operations
-✅ Read before Task operations
+✅ Use built-in file tools (Read, Write, Edit, MultiEdit) for file operations
+✅ Read before any file modifications
 ✅ Use absolute paths
 ✅ Batch tool calls
 ✅ Validate before execution
@@ -55,6 +60,7 @@ Simple actionable rules for Claude Code SuperClaude framework operation.
 ### Don't
 ❌ Skip TodoWrite initialization for multi-step operations
 ❌ Mark tasks complete without updating TodoWrite status
+❌ Use bash commands for file operations (except as fallback when built-in tools fail)
 ❌ Skip Read operations before file modifications
 ❌ Use relative paths
 ❌ Auto-commit without permission
