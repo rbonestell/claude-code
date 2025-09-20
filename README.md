@@ -5,7 +5,7 @@
 [![Agents](https://img.shields.io/badge/Agents-7%20Specialized-orange)](agents/)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
 
-A powerful collection of battle-tested Claude Code configurations, specialized AI agents, and an enhanced SuperClaude Framework that makes AI-assisted development smarter, faster, and more organized.
+A powerful collection of battle-tested Claude Code configurations, specialized AI agents, and an enhanced HyperClaude Framework that makes AI-assisted development smarter, faster, and more organized.
 
 ## ✨ What Is This?
 
@@ -14,8 +14,9 @@ Think of this as your AI development team in a box. Instead of one AI assistant 
 ### What Makes This Special
 
 - **🤖 7 Specialized AI Agents** - Each agent is an expert in their domain:
+
   - **Architect** - System design and code structure expert
-  - **Coder** - Implementation and bug-fixing specialist  
+  - **Coder** - Implementation and bug-fixing specialist
   - **Designer** - UI/UX and frontend expert
   - **Security Analyst** - Vulnerability and compliance specialist
   - **Test Engineer** - Quality assurance and testing expert
@@ -33,6 +34,7 @@ Think of this as your AI development team in a box. Instead of one AI assistant 
 ### In Simple Terms
 
 When you ask for help with a project, the framework:
+
 1. Figures out what kind of help you need
 2. Assigns the right expert (or team of experts)
 3. Tracks the work through completion
@@ -57,6 +59,7 @@ It's like having a full development team that understands context, remembers pre
 ### How It Works
 
 The framework uses **MCP (Model Context Protocol) servers** - think of these as specialized tools that give the AI agents superpowers:
+
 - Remember things between conversations
 - Look up documentation
 - Analyze code structure
@@ -69,7 +72,7 @@ The framework uses **MCP (Model Context Protocol) servers** - think of these as 
 
 ### What Are MCP Servers?
 
-MCP servers are external tools that enhance Claude Code's capabilities. Think of them as specialized assistants that help with specific tasks. The framework documentation may use shorthand names (like "Sequential" or "mcp__tree-sitter"), but the actual tool names in Claude Code are shown below.
+MCP servers are external tools that enhance Claude Code's capabilities. Think of them as specialized assistants that help with specific tasks. The framework documentation may use shorthand names (like "Sequential" or "mcp\_\_tree-sitter"), but the actual tool names in Claude Code are shown below.
 
 ### Required Configuration
 
@@ -115,27 +118,31 @@ Add these to your `~/.claude.json` file (in the root of your home directory):
 
 ### What Each Server Does
 
-| Server Name | Documentation Shorthand | Purpose |
-|-------------|------------------------|---------|
-| **memory** | Memory, mcp__memory | Helps agents remember information and share data with each other |
-| **puppeteer** | Puppeteer, mcp__puppeteer | Tests websites and captures screenshots |
-| **context7** | Context7, mcp__context7 | Looks up documentation and best practices for libraries |
-| **tree-sitter** | Tree-Sitter, mcp__tree-sitter | Analyzes code structure and finds patterns |
-| **sequential-thinking** | Sequential, mcp__sequential | Solves complex problems step-by-step |
+| Server Name             | Documentation Shorthand         | Purpose                                                          |
+| ----------------------- | ------------------------------- | ---------------------------------------------------------------- |
+| **memory**              | Memory, mcp\_\_memory           | Helps agents remember information and share data with each other |
+| **puppeteer**           | Puppeteer, mcp\_\_puppeteer     | Tests websites and captures screenshots                          |
+| **context7**            | Context7, mcp\_\_context7       | Looks up documentation and best practices for libraries          |
+| **tree-sitter**         | Tree-Sitter, mcp\_\_tree-sitter | Analyzes code structure and finds patterns                       |
+| **sequential-thinking** | Sequential, mcp\_\_sequential   | Solves complex problems step-by-step                             |
 
 ## 🤖 Meet Your AI Development Team
 
 Each agent is a specialist, just like team members in a real development company:
 
 ### 🏗️ Architect Agent
+
 **The System Designer**
+
 - **What they do**: Analyzes your codebase, identifies patterns, plans improvements
 - **When they help**: System analysis, code reviews, architecture decisions
 - **Auto-activates for**: `/analyze` command, complex system questions
 - **Real-world equivalent**: Senior architect who reviews code and plans system structure
 
-### 💻 Coder Agent  
+### 💻 Coder Agent
+
 **The Implementation Expert**
+
 - **What they do**: Writes code, fixes bugs, implements features
 - **When they help**: Building new features, fixing issues, refactoring code
 - **Auto-activates for**: `/implement`, `/build` commands
@@ -143,28 +150,36 @@ Each agent is a specialist, just like team members in a real development company
 - **Special ability**: Uses the Task tool for safe, incremental code changes
 
 ### 🎨 Designer Agent
+
 **The UI/UX Specialist**
+
 - **What they do**: Creates user interfaces, ensures accessibility, optimizes frontend
 - **When they help**: Building components, responsive design, user experience
 - **Auto-activates for**: `/design` command, UI-related requests
 - **Real-world equivalent**: Frontend developer with strong design skills
 
 ### 🔒 Security-Analyst Agent
+
 **The Security Expert**
+
 - **What they do**: Finds vulnerabilities, ensures compliance, reviews security
 - **When they help**: Security audits, threat assessment, compliance checks
 - **Auto-activates for**: `/security` command, security concerns
 - **Real-world equivalent**: Security engineer who keeps your code safe
 
 ### 🧪 Test-Engineer Agent
+
 **The Quality Guardian**
+
 - **What they do**: Creates tests, ensures quality, validates changes
 - **When they help**: Writing test suites, coverage analysis, E2E testing
 - **Auto-activates for**: `/test` command, quality assurance needs
 - **Real-world equivalent**: QA engineer who ensures everything works correctly
 
 ### 📚 Tech-Writer Agent
+
 **The Documentation Pro**
+
 - **What they do**: Creates clear documentation, API guides, tutorials
 - **When they help**: README files, user guides, API documentation, documentation sites
 - **Auto-activates for**: `/document` command, documentation requests
@@ -172,7 +187,9 @@ Each agent is a specialist, just like team members in a real development company
 - **Special ability**: Can build full documentation sites with Nextra, Docusaurus, or VitePress
 
 ### ☁️ Cloud-Engineer Agent
+
 **The Infrastructure Specialist**
+
 - **What they do**: Manages cloud resources, writes infrastructure code, optimizes costs
 - **When they help**: Cloud deployments, infrastructure setup, multi-cloud migrations
 - **Auto-activates for**: Infrastructure files (Terraform, CloudFormation, etc.)
@@ -187,7 +204,7 @@ The framework automatically picks the right agent based on what you ask:
 
 ```bash
 # Analyzing code? Architect agent steps in
-/analyze @src/ 
+/analyze @src/
 
 # Building something? Coder agent takes over
 /implement "Add user authentication"
@@ -245,7 +262,7 @@ For complex tasks, agents work in coordinated "waves":
 
 What happens:
 1. Architect analyzes the system
-2. Security analyst checks for vulnerabilities  
+2. Security analyst checks for vulnerabilities
 3. Coder and Designer work in parallel on fixes
 4. Test engineer validates everything
 ```
@@ -305,26 +322,30 @@ That's it! The framework is now active. Try these commands to see it in action:
 The framework is smart about picking the right expert:
 
 **Based on the command you use:**
+
 - `/analyze` → Architect takes the lead
 - `/implement` → Coder jumps in
 - `/design` → Designer handles it
 - `/test` → Test Engineer takes over
 
 **Based on what you're asking about:**
+
 - Mention "UI" or "component" → Designer agent
 - Talk about "security" or "vulnerability" → Security analyst
 - Ask about "performance" → Performance-focused approach
 
 **Based on the files involved:**
-- Test files (*.test.js) → Test engineer
-- Style files (*.css) → Designer
-- Infrastructure files (*.tf) → Cloud engineer
+
+- Test files (\*.test.js) → Test engineer
+- Style files (\*.css) → Designer
+- Infrastructure files (\*.tf) → Cloud engineer
 
 ### How Teams Work Together (Waves)
 
 Think of waves like a relay race where each team member does their part:
 
 **Example: Improving a project**
+
 1. **Wave 1**: Architect analyzes what needs improvement
 2. **Wave 2**: Security analyst checks for vulnerabilities
 3. **Wave 3**: Coder and Designer work on fixes simultaneously

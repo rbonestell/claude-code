@@ -1,445 +1,417 @@
-# SHARED_PATTERNS.md - Common Patterns for Agent Optimization
+# Shared MCP Optimization Patterns
 
-**MCP Server Naming**: References to Context7, Sequential, Tree-Sitter, and Puppeteer in this document are shorthand. See MCP.md for actual tool function names.
+## Overview
 
-Shared patterns and optimizations used across all SuperClaude agents to reduce duplication and ensure consistency.
+Unified MCP server usage patterns and optimization strategies shared across all HyperClaude Nano agents for maximum efficiency and consistency.
 
-## MCP Server Optimization Matrix
+## MCP Server Matrix
 
-| Server | Primary Usage | Cache Strategy | Performance Gain |
-|--------|---------------|----------------|------------------|
-| **Memory** | Pattern storage, cross-agent sharing | Persistent, 2h TTL | 40% context reduction |
-| **Tree-Sitter** | Code analysis, AST parsing | Session cache, batch queries | 35% faster analysis |
-| **Context7** | Documentation, framework patterns | Version-aware, 1h TTL | 50% lookup reduction |
-| **Puppeteer** | Testing, visual validation | Result cache, baseline storage | Automated validation |
-| **Sequential** | Complex analysis, multi-step reasoning | Pattern cache, 4h TTL | 30% faster reasoning |
+### Context7 Server
 
-### Usage Strategy (All Agents)
+**Primary Use Cases:**
 
-**Memory first** → **Context7 research** → **Tree-Sitter analysis** → **Puppeteer validation**
+- Framework documentation and best practices
+- Library API references and examples
+- Language-specific patterns and idioms
+- Security standards and compliance guidelines
 
-## Agent Registry & Keys
-
-### Agent Compressed Keys
-
-| Agent | Standard Keys | Compressed Keys | Cache TTL | Compression |
-|-------|--------------|-----------------|-----------|-------------|
-| **architect** | `review:*`, `execution:*`, `arch:*` | `r:*`, `e:*`, `a:*` | 1h | 70% |
-| **coder** | `impl:*`, `code:*`, `test-req:*` | `i:*`, `c:*`, `tr:*` | 30m | 65% |
-| **designer** | `design:*`, `ui:*`, `a11y:*` | `d:*`, `u:*`, `ax:*` | 45m | 60% |
-| **security** | `sec:*`, `vuln:*`, `threat:*` | `s:*`, `v:*`, `th:*` | 2h | 75% |
-| **test** | `test:*`, `coverage:*`, `regression:*` | `t:*`, `cov:*`, `reg:*` | 30m | 55% |
-| **tech-writer** | `docs:*`, `templates:*`, `coverage:*` | `do:*`, `tmp:*`, `dcov:*` | 1h | 50% |
-| **cloud-engineer** | `cloud:*`, `iac:*`, `provider:*` | `c:*`, `iac:*`, `prov:*` | 4h | 60% |
-| **ALL AGENTS** | `todo:*`, `todo-status:*`, `todo-validation:*` | `td:*`, `tds:*`, `tdv:*` | 15m | 60% |
-
-## Communication Protocol Templates
-
-### Reference-Based Handoffs (T1-T6)
+**Optimization Strategies:**
 
 ```yaml
-T1: # Basic handoff (80% cases)
-  format: "{ver, ts, from, to, ref_id, todo_ref}"
-  
-T2: # Priority handoff  
-  format: "{ver, ts, from, to, data_ref, priority, todo_ref}"
-  
-T3: # Batch operations
-  format: "{ver, ts, from, to, batch_refs[], todo_ref}"
-  
-T4: # Change notifications
-  format: "{ver, ts, from, to, delta_ref, todo_ref}"
-  
-T5: # Multi-agent alerts
-  format: "{ver, ts, broadcast, severity, ref_ids[], todo_ref}"
-  
-T6: # TodoWrite validation (NEW)
-  format: "{ver, ts, from, to, todo_validation_ref}"
+query_patterns:
+  specific_first: "[exact_library] [exact_feature] documentation"
+  fallback_general: "[language] [concept] best practices"
+  cache_results: true
+  batch_queries: true
+
+performance:
+  cache_hit_target: 70%
+  query_reduction: 50%
+  token_savings: 40%
 ```
 
-### Protocol Levels (Progressive Disclosure)
+**Agent-Specific Usage:**
+
+- **Architect**: Design patterns, architectural best practices
+- **Coder**: Framework APIs, implementation examples
+- **Designer**: UI frameworks, accessibility standards
+- **Security**: Security guidelines, vulnerability databases
+- **Test-Engineer**: Testing frameworks, assertion libraries
+- **Tech-Writer**: Documentation standards, style guides
+- **Cloud-Engineer**: IaC documentation, provider APIs
+
+### Memory Server
+
+**Primary Use Cases:**
+
+- Pattern persistence across sessions
+- Inter-agent communication storage
+- Project context maintenance
+- Knowledge accumulation
+
+**Key Patterns:**
 
 ```yaml
-protocol_levels:
-  level_1: # Summary (10% detail)
-    content: "Protocol type, agent pair, priority, reference ID"
-    size: "~100 bytes"
-    
-  level_2: # Standard (40% detail)
-    content: "Core data structure with compressed fields"
-    size: "~500 bytes"
-    
-  level_3: # Full (100% detail)
-    content: "Complete specification (on-demand only)"
-    size: "~2KB+"
+storage_patterns:
+  hierarchical_keys: "category:subcategory:specific:id"
+  atomic_updates: true
+  batch_operations: true
+
+retrieval_patterns:
+  wildcard_search: "project:patterns:*"
+  specific_fetch: "exact:key:path"
+  related_fetch: ["key1", "key2", "key3"]
+
+performance:
+  batch_size: 10
+  compression: true
+  token_reduction: 40%
 ```
 
-### Memory Key Structure (Compressed)
+**Cross-Agent Memory Keys:**
+
+```text
+project:patterns:*        # Shared architectural patterns
+implementation:patterns:* # Code patterns for reuse
+test:patterns:*          # Testing patterns and utilities
+security:patterns:*      # Security configurations
+design:patterns:*        # UI/UX patterns
+docs:templates:*         # Documentation templates
+```
+
+### Tree-Sitter Server
+
+**Primary Use Cases:**
+
+- Code structure analysis
+- Pattern detection and validation
+- AST-based searching
+- Syntax error detection
+
+**Optimization Patterns:**
 
 ```yaml
-# Standard Format: {domain}:{type}:{identifier}
-project:patterns:arch-001     → p:pat:arch-001    # 60% shorter
-security:vulnerabilities:001  → s:vul:001         # 65% shorter  
-test:results:run-001         → t:res:run-001     # 55% shorter
-docs:completed:tech-001      → d:com:tech-001    # 60% shorter
-todo:status:agent-001        → td:stat:ag-001    # 65% shorter
-todo:validation:task-001     → td:val:t-001      # 70% shorter
-architectural:decisions:*    → a:dec:*           # 65% shorter
-implementation:status:*       → i:stat:*          # 60% shorter
-design:updates:*             → d:upd:*           # 55% shorter
-wave:phases:*                → w:ph:*            # 60% shorter
-wave:checkpoints:*           → w:cp:*            # 65% shorter
+analysis_patterns:
+  search_specificity:
+    exact: "function:specific_name"
+    fuzzy: "pattern:approximate_match"
+    type: "filter:by:element:type"
 
-# Key Mapping Table (stored in memory)
-key_mappings:
-  "p": "project", "s": "security", "t": "test", "d": "docs", "td": "todo", "c": "cloud"
-  "a": "architectural", "i": "implementation", "w": "wave"
-  "pat": "patterns", "vul": "vulnerabilities", "res": "results", "com": "completed"
-  "stat": "status", "val": "validation", "ag": "agent", "iac": "infrastructure"
-  "opt": "optimization", "cost": "cost", "prov": "provider", "dec": "decisions"
-  "upd": "updates", "ph": "phases", "cp": "checkpoints"
+  batch_analysis:
+    files: ["file1", "file2", "file3"]
+    patterns: ["pattern1", "pattern2"]
+    combine_results: true
+
+performance:
+  cache_ast: true
+  incremental_parsing: true
+  token_reduction: 35%
 ```
 
-## Quality Gates Framework
+**Agent Usage Matrix:**
 
-### 8-Step Validation Cycle
+| Agent | Primary Use | Secondary Use |
+|-------|------------|---------------|
+| Architect | Pattern analysis | Dependency mapping |
+| Coder | Pattern templates | Error checking |
+| Designer | Component analysis | Prop extraction |
+| Security | Vulnerability scanning | Data flow analysis |
+| Test-Engineer | Test structure | Coverage analysis |
+| Tech-Writer | API extraction | Example mining |
+
+### Puppeteer Server
+
+**Primary Use Cases:**
+
+- Visual validation and testing
+- Screenshot generation
+- E2E testing automation
+- Cross-browser verification
+
+**Optimization Strategies:**
 
 ```yaml
-validation_steps:
-  step_1_syntax: "Language parsers, Context7 validation"
-  step_2_type: "Sequential analysis, type compatibility" 
-  step_3_lint: "Context7 rules, quality analysis"
-  step_4_security: "Tree-Sitter + Sequential vulnerability assessment"
-  step_5_test: "Puppeteer E2E, coverage ≥80% unit, ≥70% integration"
-  step_6_performance: "Sequential benchmarking, optimization"
-  step_7_documentation: "Context7 patterns, completeness validation" 
-  step_8_integration: "Puppeteer testing, deployment validation"
+browser_management:
+  headless: true
+  reuse_instance: true
+  parallel_limit: 3
+
+screenshot_optimization:
+  compress: true
+  selective_capture: true
+  viewport_presets: [320, 768, 1440, 1920]
+
+performance:
+  cache_screenshots: true
+  batch_operations: true
+  resource_pooling: true
 ```
 
-### Success Metrics (All Agents)
+**Agent-Specific Patterns:**
 
-- **Technical Excellence**: Pattern consistency >90%, Quality gates pass
-- **Performance**: Response time <200ms, Token efficiency 40-60% reduction
-- **Integration**: MCP coordination >95% success, Agent handoff <150ms
-- **User Value**: Task completion >95%, Context retention >90%
+- **Designer**: Visual regression, responsive testing
+- **Test-Engineer**: E2E scenarios, interaction testing
+- **Tech-Writer**: Documentation screenshots, UI examples
+- **Security**: XSS testing, authentication flows
 
-## Error Handling (E1-E8)
+### Sequential-Thinking Server
+
+**Primary Use Cases:**
+
+- Complex problem decomposition
+- Multi-step planning
+- Decision tree analysis
+- Cost-benefit evaluation
+
+**Usage Patterns:**
 
 ```yaml
-error_codes:
-  E1: "Handoff failure → Retry with exponential backoff (3x)"
-  E2: "Validation error → Request regeneration"  
-  E3: "Timeout → Circuit breaker activation"
-  E4: "Memory reference not found → Fallback to general agent"
-  E5: "Compression error → Use uncompressed protocol"
-  E6: "TodoWrite not initialized → Block execution, require initialization"
-  E7: "Todo validation failed → Reject handoff, request todo completion"
-  E8: "Critical todos incomplete → Escalate to user, block progress"
+thinking_patterns:
+  initial_thoughts: 3-5
+  max_thoughts: 10
+  allow_revision: true
+  branch_on_uncertainty: true
+
+optimization:
+  cache_reasoning: true
+  reuse_patterns: true
+  compress_output: true
+
+triggers:
+  complexity_threshold: high
+  uncertainty_level: >0.3
+  multi_dependency: true
 ```
 
-## Progressive Disclosure Levels
+### IDE Server
+
+**Primary Use Cases:**
+
+- Language diagnostics
+- Code execution (Jupyter)
+- Error detection
+- Intellisense data
+
+**Optimization Patterns:**
 
 ```yaml
-disclosure_levels:
-  level_1: # Summary (10% detail)
-    content: "Protocol type, agent pair, priority, reference ID"
-    usage: "Context >85% or emergency mode"
-    
-  level_2: # Standard (40% detail) 
-    content: "Core structure, compressed fields, key references"
-    usage: "Context 60-85% or standard operations"
-    
-  level_3: # Full (100% detail)
-    content: "Complete specification, full context"
-    usage: "Context <60% or complex analysis required"
+diagnostic_patterns:
+  batch_files: true
+  incremental_check: true
+  severity_filter: ["error", "warning"]
+
+execution_patterns:
+  stateful_kernel: true
+  result_caching: true
+  output_limit: 1000_lines
 ```
 
-## TodoWrite Validation Utilities (NEW)
+## Cross-Server Optimization
 
-### Mandatory TodoWrite Enforcement
-
-**Initialization Validation**:
+### Parallel Operations
 
 ```yaml
-todo_validation:
-  step_detection:
-    triggers: [multi_step_operation, agent_handoff, complexity >= 0.5]
-    min_steps: 3
-    auto_suggest: true
-    
-  initialization_check:
-    required_within: 3  # operations
-    validation_key: "td:init:{agent-session-id}"
-    blocking: true      # block execution if not initialized
-    
-  status_validation:
-    required_states: ["pending", "in_progress", "completed"]
-    transition_logging: true
-    completion_evidence: required
+parallel_patterns:
+  discovery:
+    - tree-sitter: analyze_structure
+    - memory: retrieve_patterns
+    - context7: fetch_best_practices
+
+  validation:
+    - tree-sitter: syntax_check
+    - puppeteer: visual_test
+    - ide: diagnostic_check
 ```
 
-**Handoff Integration**:
+### Sequential Operations
 
 ```yaml
-handoff_validation:
-  template: "T6"  # TodoWrite validation handoff
-  required_fields: ["todo_validation_ref", "required_todos", "completed_todos"]
-  blocking_conditions: ["critical_todos_incomplete"]
-  validation_checksum: "CRC32"
+sequential_patterns:
+  documentation_flow:
+    1: tree-sitter → extract_api
+    2: context7 → enhance_with_examples
+    3: memory → store_templates
+    4: puppeteer → capture_screenshots
+
+  security_flow:
+    1: tree-sitter → identify_patterns
+    2: memory → compare_known_vulnerabilities
+    3: context7 → fetch_remediation
+    4: sequential → analyze_complexity
 ```
 
-**Quality Gate Integration**:
+## Performance Metrics
+
+### Baseline vs Optimized
 
 ```yaml
-quality_gates:
-  step_0: "TodoWrite initialization validation (MANDATORY)"
-  step_9: "TodoWrite completion validation (MANDATORY)"
-  evidence: ["initialization_timestamp", "status_updates", "completion_validation"]
+metrics:
+  token_usage:
+    baseline: 15000
+    optimized: 9000
+    reduction: 40%
+
+  response_time:
+    baseline: 5s
+    optimized: 2s
+    improvement: 60%
+
+  accuracy:
+    baseline: 85%
+    optimized: 95%
+    improvement: 10%
+
+  cache_effectiveness:
+    memory_hit_rate: 70%
+    context7_reuse: 65%
+    ast_cache: 80%
 ```
 
-## Batch Operation Strategies
+## Batch Operation Templates
+
+### Memory Batch Store
+
+```
+mcp__memory__create_entities([
+  {name: "pattern1", entityType: "pattern", observations: []},
+  {name: "pattern2", entityType: "pattern", observations: []},
+  {name: "pattern3", entityType: "pattern", observations: []}
+])
+```
+
+### Tree-Sitter Batch Search
+
+```
+mcp__tree-sitter__search_code({
+  query: "function",
+  types: ["function", "method", "arrow_function"],
+  maxResults: 50,
+  pathPattern: "src"
+})
+```
+
+### Context7 Batch Query
+
+```
+// Query once, use multiple times
+mcp__context7__resolve-library-id("react")
+// Then specific feature queries
+mcp__context7__get-library-docs({
+  context7CompatibleLibraryID: "/facebook/react",
+  topic: "hooks"
+})
+```
+
+## Error Handling Patterns
+
+### Fallback Strategies
 
 ```yaml
-batch_optimization:
-  memory_operations:
-    read_batch_size: 10   # Read 10 keys at once
-    write_batch_size: 5   # Task operations batch size
-    todo_batch_size: 3    # Batch todo status updates
-    
-  tree_sitter_queries:
-    batch_ast_parsing: true
-    cache_parsed_trees: true
-    
-  context7_lookups:
-    batch_documentation: true
-    version_aware_cache: true
-    
-  puppeteer_operations:
-    batch_screenshots: true
-    parallel_browser_instances: 3
+fallback_chain:
+  primary: mcp_server_call
+  secondary: native_tool_call
+  tertiary: manual_implementation
+
+retry_logic:
+  max_attempts: 3
+  backoff: exponential
+  timeout: 30s
+
+degradation:
+  full_feature → reduced_feature → basic_feature
 ```
 
-## Wave Orchestration Patterns
-
-### Wave Mode Activation
+### Cache Invalidation
 
 ```yaml
-wave_activation:
-  auto_triggers:
-    complexity: ">= 0.7"
-    file_count: "> 20"
-    operation_types: "> 2"
-    multi_domain: true
-  
-  strategies:
-    progressive: "Incremental enhancement"
-    systematic: "Methodical analysis"
-    adaptive: "Dynamic configuration"
-    enterprise: "Large-scale orchestration"
-  
-  optimization:
-    use_reference_protocol: true
-    progressive_handoff: true
-    batch_memory_operations: true
-    cache_wave_results: true
+cache_rules:
+  memory_ttl: session_persistent
+  context7_ttl: 24_hours
+  tree-sitter_ttl: file_change_based
+  puppeteer_ttl: 1_hour
+
+invalidation_triggers:
+  - file_modification
+  - dependency_update
+  - explicit_refresh
+  - error_threshold_exceeded
 ```
 
-### Loop Mode Integration
+## Agent Coordination Patterns
+
+### Wave Orchestration MCP Usage
 
 ```yaml
-loop_patterns:
-  auto_triggers:
-    - "polish", "refine", "enhance", "improve"
-  default_iterations: 3
-  max_iterations: 10
-  validation_between: true
-  progressive_improvement: true
+wave_1_architect:
+  - tree-sitter: analyze_all
+  - memory: store_patterns
+  - sequential: plan_approach
+
+wave_2_security:
+  - tree-sitter: vulnerability_scan
+  - context7: security_standards
+  - memory: store_findings
+
+wave_3_parallel:
+  coder:
+    - memory: retrieve_patterns
+    - context7: implementation_docs
+    - tree-sitter: generate_templates
+  designer:
+    - context7: ui_patterns
+    - puppeteer: visual_validation
+    - memory: store_components
+
+wave_4_test:
+  - tree-sitter: test_analysis
+  - puppeteer: e2e_testing
+  - memory: coverage_metrics
+
+wave_5_doc:
+  - memory: retrieve_all
+  - context7: doc_standards
+  - tree-sitter: extract_apis
 ```
 
-## Agent-Command Integration Patterns
+## Optimization Checklist
 
-### Command-Agent Routing Matrix
+### Before MCP Call
 
-```yaml
-command_routing:
-  /analyze: 
-    primary: architect
-    supporting: [security-analyst]
-    mcp: [Sequential, Context7]
-  
-  /implement:
-    primary: architect
-    sequence: [architect, coder/designer, test-engineer]
-    mcp: [Context7, Sequential]
-  
-  /build:
-    primary: architect
-    sequence: [architect, coder, test-engineer]
-    mcp: [Context7]
-  
-  /design:
-    primary: architect + designer
-    supporting: [coder]
-    mcp: [Context7]
-  
-  /document:
-    primary: tech-writer
-    supporting: [architect, designer]
-    mcp: [Context7, Sequential, Memory]
-  
-  /security:
-    primary: security-analyst
-    supporting: [architect]
-    mcp: [Tree-Sitter, Sequential, Context7, Memory]
-```
+- [ ] Check Memory cache first
+- [ ] Batch related operations
+- [ ] Use specific queries over general
+- [ ] Set appropriate timeout
+- [ ] Prepare fallback strategy
 
-### Agent Handoff Sequences
+### During MCP Call
 
-```yaml
-standard_handoff_flows:
-  analysis_flow:
-    - "Architect → Coder/Designer"
-    - "Designer → Coder"
-    - "Coder → Test-Engineer"
-  
-  broadcast_flows:
-    - "Security-Analyst → All"
-    - "Test-Engineer → All"
-  
-  documentation_flows:
-    - "Architect → Tech-Writer"
-    - "Coder → Tech-Writer"
-    - "Designer → Tech-Writer"
-```
+- [ ] Monitor response time
+- [ ] Validate returned data
+- [ ] Handle partial results
+- [ ] Track token usage
 
-## Cloud Engineer Patterns (NEW)
+### After MCP Call
 
-### IaC Discovery Protocol
+- [ ] Store results in Memory
+- [ ] Update cache metrics
+- [ ] Log performance data
+- [ ] Clean up resources
 
-```yaml
-iac_detection:
-  file_patterns:
-    terraform: ["*.tf", "*.tfvars", "terraform/*"]
-    pulumi: ["Pulumi.*", "*.ts", "*.py", "*.go"]
-    cloudformation: ["*.yaml", "*.yml", "Resources:"]
-    cdk: ["cdk.json", "*.cdk.ts"]
-    bicep: ["*.bicep"]
-    ansible: ["playbook.yml", "tasks/"]
-  
-  cache_strategy:
-    iac_patterns: "4h TTL per language"
-    provider_configs: "2h TTL"
-    cost_optimizations: "24h TTL"
-```
+## Best Practices
 
-### Multi-Cloud Abstraction
+1. **Cache Aggressively**: Use Memory server for cross-session persistence
+2. **Batch Operations**: Combine related calls into single operations
+3. **Specific Queries**: Use exact names/paths over wildcards when possible
+4. **Progressive Enhancement**: Start with cached, enhance with live data
+5. **Fail Gracefully**: Always have fallback for MCP failures
+6. **Monitor Usage**: Track token consumption and optimize heavy operations
+7. **Share Patterns**: Store discovered patterns for other agents
+8. **Validate Early**: Check data structure before processing
 
-```yaml
-cloud_providers:
-  major: [AWS, Azure, GCP, Alibaba]
-  alternative: [DigitalOcean, Linode, Vultr, Hetzner]
-  specialized: [OCI, IBM Cloud, VMware]
-  edge_hybrid: [AWS Outposts, Azure Stack, Google Anthos]
-  
-abstraction_layer:
-  compute: "Universal VM/container/serverless model"
-  storage: "Object/block/file system abstraction"
-  networking: "VPC/subnet/firewall normalization"
-  database: "Relational/NoSQL/cache patterns"
-```
+## Version
 
-## Compression Techniques
+Pattern Version: 1.0.0
+Framework: HyperClaude Nano
+Last Updated: 2024
 
-### Symbol System (All Agents)
-
-```yaml
-logic_flow:
-  "→": "leads to, implies"
-  "⇒": "transforms to"  
-  "←": "rollback, reverse"
-  "⇄": "bidirectional"
-  "∴": "therefore"
-  "∵": "because"
-
-status_progress:
-  "✅": "completed, passed"
-  "❌": "failed, error" 
-  "⚠️": "warning"
-  "🔄": "in progress"
-  "⏳": "waiting, pending"
-  "🚨": "critical, urgent"
-
-technical_domains:
-  "⚡": "Performance"
-  "🔍": "Analysis"
-  "🛡️": "Security"
-  "🎨": "Design"
-  "🧪": "Testing"
-  "📚": "Documentation"
-```
-
-### Abbreviations (Standard)
-
-```yaml
-system: "cfg, impl, arch, perf, ops, env"
-process: "req, deps, val, test, docs, std"  
-quality: "qual, sec, err, rec, sev, opt"
-```
-
-## Circuit Breaker Patterns
-
-```yaml
-circuit_breakers:
-  agent_handoff:
-    failure_threshold: 3
-    timeout: 30s
-    fallback: "general-purpose agent"
-    
-  mcp_server:
-    failure_threshold: 5  
-    timeout: 60s
-    fallback: "native tools + WebSearch"
-    
-  memory_operations:
-    failure_threshold: 3
-    timeout: 10s
-    fallback: "local cache"
-```
-
-## Performance Monitoring
-
-```yaml
-performance_targets:
-  context_usage: 40-50% reduction
-  handoff_time: <150ms
-  data_size: <8KB
-  cache_hit_rate: >70%
-  success_rate: >95%
-  
-monitoring_alerts:
-  context_threshold: 75% # Alert when context usage exceeds
-  performance_degradation: 20% # Alert on performance drop
-  failure_rate: 5% # Alert on failure spike
-```
-
-## Integration Guidelines
-
-### For Agent Files
-
-1. **Reference this file**: `@SHARED_PATTERNS.md for optimization details`
-2. **Use MCP table**: Reference standard MCP optimization table
-3. **Apply compression**: Use shared symbol system and abbreviations
-4. **Follow protocols**: Use T1-T6 templates for communication
-5. **Monitor performance**: Apply shared success metrics
-
-### For Command Integration
-
-1. **MCP Selection**: Use optimized server combinations
-2. **Batch Operations**: Apply shared batching strategies  
-3. **Error Handling**: Use E1-E8 error codes (includes TodoWrite validation)
-4. **Resource Management**: Apply compression at threshold levels
-5. **Quality Gates**: Use 8-step validation cycle with TodoWrite gates
-
----
-
-**Context Optimization Achieved**: **15-25% additional reduction** through pattern sharing and deduplication across all agents.
+All agents should follow these patterns for consistent MCP usage and optimal performance.
