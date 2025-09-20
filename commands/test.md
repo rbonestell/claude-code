@@ -1,6 +1,8 @@
 ---
 allowed-tools: [Read, Bash, Glob, TodoWrite, Task]
 description: "Execute tests, generate test reports, and maintain test coverage"
+wave-enabled: true
+complexity-threshold: 0.5
 ---
 
 # /test - Testing and Quality Assurance
@@ -32,6 +34,8 @@ Execute tests, generate comprehensive test reports, and maintain test coverage s
 5. @agent-test-engineer monitors results and collects metrics
 6. Generate comprehensive test reports with coverage analysis
 7. Provide recommendations for test improvements to all agents
+
+**Wave Trigger**: Activates for test suites >15 files or >5 test types
 
 ## Claude Code Integration
 

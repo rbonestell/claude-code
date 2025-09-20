@@ -1,6 +1,8 @@
 ---
-allowed-tools: [Read, Grep, Glob, Task]
+allowed-tools: [Read, Grep, Glob, Task, WebSearch, WebFetch]
 description: "Create clear, accurate technical documentation following project patterns"
+wave-enabled: true
+complexity-threshold: 0.5
 ---
 
 # /document - Technical Documentation
@@ -64,6 +66,7 @@ Create clear, accurate technical documentation that follows existing project pat
   - Tree-Sitter: Analyze code structure and extract signatures
   - Context7: Research best practices when patterns unclear
   - Memory: Store and retrieve documentation patterns
+  - **Search Priority**: WebSearch > WebFetch for documentation standards
 - **Tools**:
   - Read/Grep: Analyze existing documentation
   - Task: Create, update, and manage documentation files

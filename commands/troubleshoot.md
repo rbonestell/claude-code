@@ -1,6 +1,8 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Task]
+allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Task, WebSearch, WebFetch]
 description: "Diagnose and resolve issues in code, builds, or system behavior"
+wave-enabled: true
+complexity-threshold: 0.7
 ---
 
 # /troubleshoot - Issue Diagnosis and Resolution
@@ -31,6 +33,9 @@ Systematically diagnose and resolve issues in code, builds, deployments, or syst
 5. Pass findings to @agent-coder for fix implementation
 6. Use @agent-test-engineer to validate the fix
 7. Apply fixes and verify resolution
+
+**Wave Trigger**: Complex issues spanning >15 files or >3 domains
+**Search Priority**: WebSearch > WebFetch for error resolution patterns
 
 ## Claude Code Integration
 

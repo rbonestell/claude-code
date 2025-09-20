@@ -1,6 +1,8 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, TodoWrite]
+allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Task]
 description: "Analyze code quality, security, performance, and architecture"
+wave-enabled: true
+complexity-threshold: 0.6
 ---
 
 # /analyze - Code Analysis
@@ -22,9 +24,12 @@ Execute comprehensive code analysis across quality, security, performance, and a
 ## Execution
 1. Discover and categorize files for analysis
 2. Apply appropriate analysis tools and techniques (use @agent-architect for system-wide analysis)
-3. Generate findings with severity ratings
-4. Create actionable recommendations with priorities
-5. Present comprehensive analysis report
+3. **PARALLEL**: For security focus, engage @agent-security-analyst alongside architect
+4. Generate findings with severity ratings
+5. Create actionable recommendations with priorities
+6. Present comprehensive analysis report
+
+**Wave Trigger**: Activates for codebases >15 files or >5 component types
 
 ## Claude Code Integration
 - Uses Glob for systematic file discovery

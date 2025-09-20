@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__context7__context7]
+allowed-tools: [Read, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__context7__resolve-library-id, mcp__context7__get-library-docs]
 description: "Generate structured implementation workflows from PRDs and feature requirements with expert guidance"
 wave-enabled: true
 complexity-threshold: 0.6
