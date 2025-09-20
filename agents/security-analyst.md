@@ -1,7 +1,7 @@
 ---
 name: security-analyst
 description: Use this agent when conducting security reviews of source code and projects
-tools: Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__tree-sitter__search_code, mcp__tree-sitter__find_usage, mcp__tree-sitter__analyze_code, mcp__tree-sitter__check_errors, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__ide__getDiagnostics
+tools: Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillShell, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__tree-sitter__search_code, mcp__tree-sitter__find_usage, mcp__tree-sitter__analyze_code, mcp__tree-sitter__check_errors, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__ide__getDiagnostics
 model: inherit
 color: red
 ---

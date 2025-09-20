@@ -3,23 +3,10 @@
 
 # Allow explicit resources
 !.gitignore
-!README.md
 !LICENSE
 !agents/
 !agents/**
 !commands/
 !commands/**
 
-!CLAUDE.md
-!SHARED_PATTERNS.md
-!COMMANDS.md
-!FLAGS.md
-!MCP.md
-!MODES.md
-!ORCHESTRATOR.md
-!PERSONAS.md
-!PRINCIPLES.md
-!RULES.md
-!AGENTS.md
-!AGENT_PROTOCOLS.md
-!AGENT_COMMAND_INTEGRATION.md
+!*.md
