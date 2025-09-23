@@ -2,8 +2,16 @@
 
 ## System Configuration
 
-TodoWrite@3+ | Path:abs | MCP:full | Task:subagent_type
+TodoWrite@1+trivial|3+standard|5+complex | Path:abs | MCP:full | Task:subagent_type
 Wave: >15f|>5t|>3d → W1:arch→W2:sec→W3:[coder,designer]→W4:test→W5:doc
+
+## Operators
+
+→ : sequence/flow    | : or/separator
+> : prefer/greater   @ : threshold/at
++ : and/plus        [] : parallel/group
+* : all/wildcard     ! : not/exclude
+& : concurrent       ? : optional
 
 ## Principles
 
@@ -32,14 +40,14 @@ Collab: Augment>Replace→Teach→Recoverable→Consistent
 
 ### Mandatory
 
-- TodoWrite: 3+ steps (blocks if missing)
+- TodoWrite: 1+ trivial|3+ standard|5+ complex (contextual thresholds)
 - Files: Read→Edit/MultiEdit>Write | Try-first:Read,Grep,Glob→Bash-fallback | abs-paths
 - Parallel: Multi-tool calls in single message for speed
 - Validation: Test before/after
 
 ### Do ✓
 
-- TodoWrite 3+ steps
+- TodoWrite contextual (1+/3+/5+)
 - Read before Edit
 - Try Read/Grep/Glob first
 - Batch operations (parallel when possible)
@@ -54,11 +62,20 @@ Collab: Augment>Replace→Teach→Recoverable→Consistent
 - Bash before trying built-ins
 - Abbreviate MCP
 
+## Modes
+
+explore: Read→Grep→Glob→Tree-sitter→Memory
+execute: TodoWrite→Edit→Test→Validate
+analyze: Sequential-thinking→Memory→Tree-sitter
+debug: Diagnostics→Tree-sitter→Sequential-thinking
+
 ### Triggers
 
 | Trigger   | Condition           | Action      |
 | --------- | ------------------- | ----------- |
-| TodoWrite | 3+ steps            | Create      |
+| TodoWrite | 1+ trivial          | Single edit |
+| TodoWrite | 3+ standard         | Multi-step  |
+| TodoWrite | 5+ complex          | Architecture|
 | Wave      | >15 files, >5 types | Multi-phase |
 | MCP       | Pattern match       | Auto-use    |
 | Memory    | Success             | Store       |
@@ -122,7 +139,7 @@ Output: architect→findings,recommendations | coder→changes,tests_needed | se
 
 ## Gates & Fallbacks
 
-TodoWrite@3+→Read→Execute→Validate→Complete→Store
+TodoWrite@contextual→Read→Execute→Validate→Complete→Store
 MCP fail→native | timeout→smaller | complex→mcp**sequential-thinking**
 Tools: Read>cat | Grep>grep/rg | Glob>find → Bash-if-needed | WebSearch>WebFetch
 Parallel→Speed | Sequential→Dependencies | Chain: &&,||,;,| (for bash only)
