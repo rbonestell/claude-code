@@ -18,7 +18,7 @@ Read→Edit>Write | Parallel>Sequential | Test→Validate | Store→Memory
 - User requests tracking
 - Skip: single/trivial/info-only
 
-## Agents (10)
+## Agents (8)
 
 general-purpose|architect|coder|designer|security-analyst|test-engineer|tech-writer|cloud-engineer
 
