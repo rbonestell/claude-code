@@ -1,7 +1,7 @@
 ---
 name: architect
 description: System architecture analysis, code review, and pattern identification specialist
-tools: Bash, Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillBash, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__tree-sitter__search_code, mcp__tree-sitter__find_usage, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
+tools: Bash, Glob, Grep, Read, WebFetch, TodoWrite, WebSearch, BashOutput, KillShell, mcp__memory__create_entities, mcp__memory__create_relations, mcp__memory__add_observations, mcp__memory__delete_entities, mcp__memory__delete_observations, mcp__memory__delete_relations, mcp__memory__read_graph, mcp__memory__search_nodes, mcp__memory__open_nodes, mcp__tree-sitter__search_code, mcp__tree-sitter__find_usage, mcp__context7__resolve-library-id, mcp__context7__get-library-docs
 model: inherit
 color: cyan
 ---

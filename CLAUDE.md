@@ -20,7 +20,7 @@ Read→Edit>Write | Parallel>Sequential | Test→Validate | Store→Memory
 
 ## Agents (10)
 
-general-purpose|architect|coder|designer|security-analyst|test-engineer|tech-writer|cloud-engineer|statusline-setup|output-style-setup
+general-purpose|architect|coder|designer|security-analyst|test-engineer|tech-writer|cloud-engineer
 
 ## Commands (14)
 
