@@ -1,5 +1,25 @@
 # HyperClaude Nano
 
+## 🚨 CRITICAL: BUILT-IN TOOLS MANDATORY 🚨
+
+**ABSOLUTE RULE: NEVER use bash commands for file operations**
+**VIOLATION = FAILURE. No exceptions without explicit justification.**
+
+### ⛔ BANNED BASH COMMANDS ⛔
+
+- `cat`, `head`, `tail`, `less`, `more` → **USE Read**
+- `grep`, `rg`, `ag`, `ack` → **USE Grep**
+- `find`, `ls` (for searching) → **USE Glob**
+- `echo >`, `echo >>`, `>`, `>>` → **USE Write**
+- `sed`, `awk`, `perl -pi` → **USE Edit/MultiEdit**
+- `tree`, `du -h` → **USE Glob + Read**
+- `wc -l`, `wc -w` → **USE Read + process**
+
+### WHEN FORCED TO USE BASH:
+
+**MUST provide justification BEFORE execution:**
+"Using bash because: [specific reason built-ins cannot work]"
+
 ## Config
 
 TodoWrite: 3+steps|complex|multi-file | Path:abs | MCP:auto | Task(subagent_type,prompt,description)
@@ -8,7 +28,7 @@ Wave: >15f|>5t|>3d → W1:arch→W2:sec→W3:[coder,designer]→W4:test→W5:doc
 ## Core
 
 Evidence>Assumptions | Code>Docs | Efficiency>Verbosity | SOLID+DRY+KISS+YAGNI
-Read→Edit>Write | Parallel>Sequential | Test→Validate | Store→Memory
+**BUILT-INS>Bash** | Read→Edit>Write | Parallel>Sequential | Test→Validate
 
 ## TodoWrite Triggers
 
@@ -41,11 +61,27 @@ tree-sitter: search,usage,analyze,errors
 puppeteer: navigate,interact,test
 sequential-thinking: complex,--think
 
-## Tool Priority
+## 🔴 TOOL PRIORITY - ZERO TOLERANCE 🔴
 
-Read>Grep>Glob>Tree>Bash
-MultiEdit>Edit>Write
-Parallel:reads,bash,agents
+### FILE OPERATIONS (NEVER BASH):
+
+1. **Read** - ALWAYS first choice for viewing files
+2. **Grep** - ALWAYS for content search
+3. **Glob** - ALWAYS for file discovery
+4. **Tree-sitter** - ALWAYS for code analysis
+5. **Bash** - ONLY with explicit justification
+
+### EDIT OPERATIONS (NEVER BASH):
+
+1. **MultiEdit** - Multiple changes same file
+2. **Edit** - Single change
+3. **Write** - New files only
+4. **NEVER** - echo, sed, awk, perl
+
+### PARALLEL MANDATORY:
+
+- ALWAYS parallel: reads, searches, independent ops
+- NEVER sequential when parallel possible
 
 ## Git
 
@@ -72,17 +108,46 @@ Before-complete:tests,lint,typecheck
 Store-success→memory
 Fail→retry|fallback|ask
 
-## Patterns
+## ❌ VIOLATIONS - AUTOMATIC FAILURE ❌
 
-Read→Edit→Test→Store
-Todo→Track→Complete
-Plan→Exit→Execute
-Parallel→Speed
-Never:skip-read,relative-paths,unnecessary-files,proactive-docs
+1. Using `cat` instead of Read
+2. Using `grep/rg` instead of Grep
+3. Using `find` instead of Glob
+4. Using `echo >` instead of Write
+5. Using `sed/awk` instead of Edit
+6. Not explaining why bash was necessary
+7. Sequential ops when parallel available
+
+## ✅ CORRECT PATTERNS ✅
+
+```
+# WRONG - NEVER DO THIS:
+bash: cat file.txt
+bash: grep "pattern" *.js
+bash: find . -name "*.py"
+bash: echo "content" > file.txt
+
+# RIGHT - ALWAYS DO THIS:
+Read: file.txt
+Grep: pattern in *.js
+Glob: **/*.py
+Write: content to file.txt
+```
+
+## Enforcement Protocol
+
+**BEFORE ANY OPERATION:**
+
+1. Can built-in tool do this? → USE IT
+2. Absolutely impossible with built-ins? → EXPLAIN WHY
+3. Only then use bash WITH JUSTIFICATION
+
+**NO EXCEPTIONS. NO SHORTCUTS. BUILT-INS FIRST, ALWAYS.**
 
 # Important Reminders
 
 Do what has been asked; nothing more, nothing less.
-NEVER create files unless they're absolutely necessary for achieving your goal.
-ALWAYS prefer editing an existing file to creating a new one.
-NEVER proactively create documentation files (\*.md) or README files. Only create documentation files if explicitly requested by the User.
+NEVER create files unless absolutely necessary.
+ALWAYS prefer editing existing files.
+NEVER proactively create documentation.
+**ALWAYS USE BUILT-IN TOOLS - NO EXCUSES.**
