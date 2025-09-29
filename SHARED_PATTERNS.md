@@ -183,29 +183,6 @@ triggers:
   multi_dependency: true
 ```
 
-### IDE Server
-
-**Primary Use Cases:**
-
-- Language diagnostics
-- Code execution (Jupyter)
-- Error detection
-- Intellisense data
-
-**Optimization Patterns:**
-
-```yaml
-diagnostic_patterns:
-  batch_files: true
-  incremental_check: true
-  severity_filter: ["error", "warning"]
-
-execution_patterns:
-  stateful_kernel: true
-  result_caching: true
-  output_limit: 1000_lines
-```
-
 ## Cross-Server Optimization
 
 ### Parallel Operations
@@ -220,7 +197,6 @@ parallel_patterns:
   validation:
     - tree-sitter: syntax_check
     - puppeteer: visual_test
-    - ide: diagnostic_check
 ```
 
 ### Sequential Operations
