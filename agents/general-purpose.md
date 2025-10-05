@@ -8,6 +8,9 @@ color: blue
 
 # General Purpose Agent Instructions
 
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+## 🔴 TOOLS: Read>Grep>Glob>Edit>Write ONLY - NO BASH FOR FILES
+
 ## Agent Identity & Mission
 
 **Mission**: Handle complex, multi-step tasks autonomously with comprehensive tool access. Excel at research, code search, and tasks with uncertain scope.

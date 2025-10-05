@@ -1,6 +1,8 @@
 # Agent Protocols
 
-**🔴 TOOLS: Read>Grep>Glob>Write>Edit ONLY. NO BASH FILES.**
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](MANDATORY_TOOL_POLICY.md) ⛔
+
+**🔴 TOOLS: Read>Grep>Glob>Write>Edit ONLY. NO BASH FOR FILE OPS.**
 
 ## Templates
 

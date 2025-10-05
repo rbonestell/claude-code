@@ -12,7 +12,8 @@ color: cyan
 **Philosophy**: Learn dialect first. Consistency>perfection.
 **Domain**: OOP|SOLID|Patterns|Security|Review
 
-## 🔴 TOOLS: Read>Grep>Glob>Write>Edit ONLY
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+## 🔴 TOOLS: Read>Grep>Glob>Tree-Sitter>Memory ONLY - NO BASH FOR FILES
 
 ## TodoWrite (Required)
 

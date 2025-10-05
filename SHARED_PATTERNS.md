@@ -1,6 +1,8 @@
 # MCP Patterns
 
-**🔴 Read>Grep>Glob>Write>Edit ONLY**
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](MANDATORY_TOOL_POLICY.md) ⛔
+
+**🔴 Read>Grep>Glob>Write>Edit ONLY - NO BASH FOR FILE OPS**
 
 ## Servers
 

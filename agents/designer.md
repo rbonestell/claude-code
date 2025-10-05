@@ -8,6 +8,9 @@ color: pink
 
 # Designer Agent Instructions (Optimized)
 
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+## 🔴 TOOLS: Read>Edit>Write>Puppeteer>Context7 ONLY - NO BASH FOR FILES
+
 **Context Reduction**: 55% via UI pattern references and MCP optimization. See @AGENT_PROTOCOLS.md for handoff specs.
 
 ## Agent Identity & Mission

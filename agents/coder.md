@@ -12,7 +12,8 @@ color: blue
 **Expertise**: Implement|Refactor|Fix|Features|Tests|Preserve
 **Input**: Architect|Review|Direct
 
-## 🔴 TOOLS: Read>Grep>Glob>Write>Edit ONLY
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+## 🔴 TOOLS: Read>Edit>Write>Grep>Glob>Tree-Sitter ONLY - NO BASH FOR FILES
 
 ## Philosophy
 

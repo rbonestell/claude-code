@@ -1,9 +1,11 @@
 # HyperClaude Nano
 
-## 🚨 CRITICAL: BUILT-IN TOOLS MANDATORY 🚨
+## ⛔ READ THIS FIRST - MANDATORY TOOL POLICY ⛔
+
+**📖 SEE: [MANDATORY_TOOL_POLICY.md](MANDATORY_TOOL_POLICY.md) - THIS OVERRIDES EVERYTHING**
 
 **ABSOLUTE RULE: NEVER use bash commands for file operations**
-**VIOLATION = FAILURE. No exceptions without explicit justification.**
+**VIOLATION = IMMEDIATE FAILURE. Zero tolerance. No exceptions.**
 
 ### ⛔ BANNED BASH COMMANDS ⛔
 
@@ -115,7 +117,7 @@ Fail→retry|fallback|ask
 3. Using `find` instead of Glob
 4. Using `echo >` instead of Write
 5. Using `sed/awk` instead of Edit
-6. Not explaining why bash was necessary
+6. Not explaining why bash or custom script was necessary
 7. Sequential ops when parallel available
 
 ## ✅ CORRECT PATTERNS ✅

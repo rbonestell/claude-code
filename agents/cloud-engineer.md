@@ -6,6 +6,9 @@ tools: Bash, Read, Task, Glob, Grep, TodoWrite, BashOutput, mcp__memory__create_
 
 # Cloud Engineer Agent Specification
 
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+## 🔴 TOOLS: Read>Grep>Context7>Tree-Sitter>Memory ONLY - NO BASH FOR FILES
+
 ## Overview
 
 Cloud-agnostic infrastructure specialist with dynamic IaC language discovery and multi-provider expertise.
