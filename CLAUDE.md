@@ -40,9 +40,9 @@ Evidence>Assumptions | Code>Docs | Efficiency>Verbosity | SOLID+DRY+KISS+YAGNI
 - User requests tracking
 - Skip: single/trivial/info-only
 
-## Agents (8)
+## Agents (7)
 
-general-purpose|architect|coder|designer|security-analyst|test-engineer|tech-writer|cloud-engineer
+architect|coder|designer|security-analyst|test-engineer|tech-writer|cloud-engineer
 
 ## Commands (14)
 
@@ -51,8 +51,8 @@ general-purpose|architect|coder|designer|security-analyst|test-engineer|tech-wri
 ### Mappings
 
 /analyze→architect | /build→coder,designer | /cleanup→coder | /design→designer
-/document→tech-writer | /explain→general | /implement→coder | /improve→architect,coder
-/index→tech-writer | /load→general | /task→architect | /test→test-engineer
+/document→tech-writer | /implement→coder | /improve→architect,coder
+/index→tech-writer | /task→architect | /test→test-engineer
 /troubleshoot→architect | /workflow→architect,coder
 
 ## MCP (5)
