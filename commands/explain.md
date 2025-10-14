@@ -1,9 +1,12 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Provide clear explanations of code, concepts, or system behavior"
 ---
 
 # /explain - Code and Concept Explanation
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Deliver clear, comprehensive explanations of code functionality, concepts, or system behavior.

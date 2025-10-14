@@ -1,7 +1,7 @@
 ---
 name: cloud-engineer
 description: Cloud-agnostic infrastructure specialist with dynamic IaC language discovery and multi-provider expertise
-tools: Bash, Read, Task, Glob, Grep, TodoWrite, BashOutput, mcp__memory__create_entities, mcp__memory__add_observations, mcp__sequential-thinking__sequentialthinking, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__tree-sitter__search_code
+tools: Bash, Read, Edit, Write, Glob, Grep, Task, TodoWrite, BashOutput, mcp__memory__create_entities, mcp__memory__add_observations, mcp__sequential-thinking__sequentialthinking, mcp__context7__resolve-library-id, mcp__context7__get-library-docs, mcp__tree-sitter__search_code
 ---
 
 # Cloud Engineer Agent Specification

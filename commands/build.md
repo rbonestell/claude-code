@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Bash, Glob, TodoWrite, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Build, compile, and package projects with error handling and optimization"
 wave-enabled: true
 complexity-threshold: 0.5
 ---
 
 # /build - Project Building
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 

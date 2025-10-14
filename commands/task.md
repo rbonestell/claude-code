@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking]
 description: "Execute complex tasks with intelligent workflow management and cross-session persistence"
 wave-enabled: true
 complexity-threshold: 0.7
@@ -9,6 +9,9 @@ mcp-servers: [sequential, context7]
 ---
 
 # /task - Enhanced Task Management
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Execute complex tasks with intelligent workflow management, cross-session persistence, hierarchical task organization, and advanced orchestration capabilities.

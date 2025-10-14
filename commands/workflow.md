@@ -1,5 +1,5 @@
 ---
-allowed-tools: [Read, Glob, Grep, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__context7__resolve-library-id, mcp__context7__get-library-docs]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task, mcp__sequential-thinking__sequentialthinking, mcp__context7__resolve-library-id, mcp__context7__get-library-docs]
 description: "Generate structured implementation workflows from PRDs and feature requirements with expert guidance"
 wave-enabled: true
 complexity-threshold: 0.6
@@ -9,6 +9,9 @@ mcp-servers: [sequential, context7]
 ---
 
 # /workflow - Implementation Workflow Generator
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Analyze Product Requirements Documents (PRDs) and feature specifications to generate comprehensive, step-by-step implementation workflows with expert guidance, dependency mapping, and automated task orchestration.

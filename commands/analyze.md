@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Analyze code quality, security, performance, and architecture"
 wave-enabled: true
 complexity-threshold: 0.6
 ---
 
 # /analyze - Code Analysis
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Execute comprehensive code analysis across quality, security, performance, and architecture domains.

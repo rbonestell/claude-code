@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Bash, Glob, TodoWrite, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Execute tests, generate test reports, and maintain test coverage"
 wave-enabled: true
 complexity-threshold: 0.5
 ---
 
 # /test - Testing and Quality Assurance
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 

@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Grep, Glob, TodoWrite, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Apply systematic improvements to code quality, performance, and maintainability"
 wave-enabled: true
 complexity-threshold: 0.6
 ---
 
 # /improve - Code Improvement
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 

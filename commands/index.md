@@ -1,9 +1,12 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Generate comprehensive project documentation and knowledge base"
 ---
 
 # /index - Project Documentation
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Create and maintain comprehensive project documentation, indexes, and knowledge bases.

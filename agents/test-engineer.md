@@ -1,7 +1,7 @@
 ---
 name: test-engineer
 description: Use this agent when reviewing, updating, adding, or enhancing tests in any project.
-tools: Task, Read, Glob, Grep, Bash, TodoWrite, BashOutput, mcp__memory__create_entities, mcp__memory__add_observations, mcp__tree-sitter__search_code, mcp__tree-sitter__find_usage, mcp__context7__get-library-docs, mcp__puppeteer__navigate, mcp__puppeteer__screenshot, mcp__puppeteer__click, mcp__puppeteer__fill, mcp__puppeteer__select, mcp__puppeteer__hover, mcp__puppeteer__evaluate
+tools: Task, Read, Edit, Write, Glob, Grep, Bash, TodoWrite, BashOutput, mcp__memory__create_entities, mcp__memory__add_observations, mcp__tree-sitter__search_code, mcp__tree-sitter__find_usage, mcp__context7__get-library-docs, mcp__puppeteer__navigate, mcp__puppeteer__screenshot, mcp__puppeteer__click, mcp__puppeteer__fill, mcp__puppeteer__select, mcp__puppeteer__hover, mcp__puppeteer__evaluate
 model: inherit
 color: green
 ---

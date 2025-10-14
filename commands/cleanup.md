@@ -1,9 +1,12 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Clean up code, remove dead code, and optimize project structure"
 ---
 
 # /cleanup - Code and Project Cleanup
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Systematically clean up code, remove dead code, optimize imports, and improve project structure.

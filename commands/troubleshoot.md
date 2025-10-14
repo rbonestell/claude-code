@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, TodoWrite, Task, WebSearch, WebFetch]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task, WebSearch, WebFetch]
 description: "Diagnose and resolve issues in code, builds, or system behavior"
 wave-enabled: true
 complexity-threshold: 0.7
 ---
 
 # /troubleshoot - Issue Diagnosis and Resolution
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 

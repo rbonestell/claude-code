@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Bash, Glob, TodoWrite, Task, WebSearch, WebFetch]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task, WebSearch, WebFetch]
 description: "Feature and code implementation with intelligent persona activation and MCP integration"
 wave-enabled: true
 complexity-threshold: 0.6
 ---
 
 # /implement - Feature Implementation
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Implement features, components, and code functionality with intelligent expert activation and comprehensive development support.

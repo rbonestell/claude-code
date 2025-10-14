@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Grep, Glob, Task, WebSearch, WebFetch]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task, WebSearch, WebFetch]
 description: "Create clear, accurate technical documentation following project patterns"
 wave-enabled: true
 complexity-threshold: 0.5
 ---
 
 # /document - Technical Documentation
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 

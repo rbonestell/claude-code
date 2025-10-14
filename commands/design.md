@@ -1,11 +1,14 @@
 ---
-allowed-tools: [Read, Grep, Glob, TodoWrite, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Design system architecture, APIs, and component interfaces"
 wave-enabled: true
 complexity-threshold: 0.6
 ---
 
 # /design - System and Component Design
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 

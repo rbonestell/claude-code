@@ -8,5 +8,9 @@
 !agents/**
 !commands/
 !commands/**
+!hooks/
+!hooks/**
 
 !*.md
+
+**/.DS_STORE

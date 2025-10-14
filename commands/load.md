@@ -1,9 +1,12 @@
 ---
-allowed-tools: [Read, Grep, Glob, Bash, Task]
+allowed-tools: [Read, Edit, Write, Grep, Glob, Bash, TodoWrite, Task]
 description: "Load and analyze project context, configurations, and dependencies"
 ---
 
 # /load - Project Context Loading
+
+## ⛔ MANDATORY: Read [MANDATORY_TOOL_POLICY.md](../MANDATORY_TOOL_POLICY.md) ⛔
+**ENFORCEMENT**: All file operations MUST use Read/Edit/Write/Grep/Glob - NO bash alternatives
 
 ## Purpose
 Load and analyze project context, configurations, dependencies, and environment setup.

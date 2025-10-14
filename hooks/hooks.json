@@ -1,0 +1,19 @@
+{
+	"description": "HyperClaude Nano tool enforcement and workflow hooks",
+	"tool_pre_use": {
+		"description": "Enforce built-in tool usage policy before any tool execution",
+		"command": "node",
+		"args": [
+			"${CLAUDE_PLUGIN_ROOT}/hooks/validate-tool-usage.js",
+			"{{tool_name}}",
+			"{{tool_parameters}}"
+		]
+	},
+	"user_prompt_submit": {
+		"description": "Inject mandatory tool policy reminder on each prompt",
+		"command": "echo",
+		"args": [
+			"⚠️ REMINDER: Use built-in tools (Read/Grep/Glob/Edit/Write) - NOT bash for file operations"
+		]
+	}
+}
